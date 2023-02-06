@@ -1,0 +1,1 @@
+enum VolumeType { grams, liters }
