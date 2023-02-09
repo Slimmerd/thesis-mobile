@@ -42,16 +42,16 @@ class CartState extends Equatable {
     int totalDelivery = 0;
     int totalCart = totalPrice;
 
-    if (totalCart > 120000) {
+    if (totalCart > 1200) {
       totalDelivery = 000;
     }
 
-    if (totalCart < 120000) {
-      totalDelivery = 19900;
+    if (totalCart < 1200) {
+      totalDelivery = 199;
     }
 
-    if (totalCart < 60000) {
-      totalDelivery = 39900;
+    if (totalCart < 600) {
+      totalDelivery = 399;
     }
 
     return totalDelivery;
@@ -66,11 +66,11 @@ class CartState extends Equatable {
     }
 
     if (eco == 1) {
-      servicePrice = 1500;
+      servicePrice = 150;
     }
 
     if (eco == 0) {
-      servicePrice = 3000;
+      servicePrice = 300;
     }
 
     return servicePrice;
@@ -80,17 +80,17 @@ class CartState extends Equatable {
     int level = 0;
     int totalCart = totalPrice;
 
-    if (deliveryType == DeliveryType.asap && totalCart < 60000) {
+    if (deliveryType == DeliveryType.asap && totalCart < 600) {
       level = 0;
     }
 
     if ((deliveryType == DeliveryType.sts ||
             deliveryType == DeliveryType.lts) ||
-        totalCart > 60000) {
+        totalCart > 600) {
       level = 1;
     }
 
-    if (deliveryType == DeliveryType.lts && totalCart > 120000) {
+    if (deliveryType == DeliveryType.lts && totalCart > 1200) {
       level = 2;
     }
 
