@@ -1,0 +1,3291 @@
+{
+  "parentCategories": [
+    {
+      "id": 1,
+      "name": "From restaurants",
+      "big": true,
+      "image": "assets/categories/fromRST.jpg",
+      "categories": [1, 2, 3]
+    },
+    {
+      "id": 2,
+      "name": "Main menu",
+      "big": false,
+      "image": "assets/categories/mainMenu.jpg",
+      "categories": [4, 5, 6]
+    },
+    {
+      "id": 3,
+      "name": "Bakery & Patisserie",
+      "big": false,
+      "image": "assets/categories/BakeryPatisserie.jpg",
+      "categories": [7, 8, 9]
+    },
+    {
+      "id": 4,
+      "name": "Hot coffee",
+      "big": true,
+      "image": "assets/categories/HotCoffee.jpg",
+      "categories": [10, 11, 8]
+    },
+    {
+      "id": 5,
+      "name": "Vegetables, Mushrooms & Herbs",
+      "big": true,
+      "image": "assets/categories/VegetablesMushroomsHerbs.jpg",
+      "categories": [12, 13, 14, 15, 16, 17, 18, 19]
+    },
+    {
+      "id": 6,
+      "name": "Fruits & Berries",
+      "big": false,
+      "image": "assets/categories/FruitsBerries.jpg",
+      "categories": [20, 21, 22]
+    },
+    {
+      "id": 7,
+      "name": "Milk, Butter & Eggs",
+      "big": false,
+      "image": "assets/categories/MilkButterEggs.jpg",
+      "categories": [23, 24, 25]
+    },
+    {
+      "id": 8,
+      "name": "Bread",
+      "big": false,
+      "image": "assets/categories/bread.jpg",
+      "categories": [7, 26]
+    },
+    {
+      "id": 9,
+      "name": "Bakery",
+      "big": false,
+      "image": "assets/categories/bakery.jpg",
+      "categories": [8, 9]
+    },
+    {
+      "id": 10,
+      "name": "Cheese",
+      "big": true,
+      "image": "assets/categories/cheese.jpg",
+      "categories": [27, 28]
+    },
+    {
+      "id": 11,
+      "name": "Yoghurts & Desserts",
+      "big": false,
+      "image": "assets/categories/yoghurtsDesserts.jpg",
+      "categories": [29, 30, 31]
+    },
+    {
+      "id": 12,
+      "name": "Drinks",
+      "big": false,
+      "image": "assets/categories/drinks.jpg",
+      "categories": [32, 33, 34]
+    },
+    {
+      "id": 13,
+      "name": "Snacks",
+      "big": false,
+      "image": "assets/categories/snacks.jpg",
+      "categories": [35, 36, 37]
+    },
+    {
+      "id": 14,
+      "name": "Chocolate & Sweets",
+      "big": false,
+      "image": "assets/categories/chocolateSweets.jpg",
+      "categories": [36, 37]
+    },
+    {
+      "id": 15,
+      "name": "Meat & Poultry",
+      "big": true,
+      "image": "assets/categories/meatPoultry.jpg",
+      "categories": [39, 40, 41]
+    },
+    {
+      "id": 16,
+      "name": "Fish & Seafood",
+      "big": false,
+      "image": "assets/categories/fishSeafood.jpg",
+      "categories": [42, 43]
+    },
+    {
+      "id": 17,
+      "name": "Sausages",
+      "big": false,
+      "image": "assets/categories/sausages.jpg",
+      "categories": [44, 45]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "The Truffle",
+      "products": [1, 2, 3]
+    },
+    {
+      "id": 2,
+      "name": "Lao Lee",
+      "products": [4, 5, 6]
+    },
+    {
+      "id": 3,
+      "name": "Chindi",
+      "products": [7, 8, 9]
+    },
+    {
+      "id": 4,
+      "name": "Pankcakes",
+      "products": [10, 11, 12, 13, 14]
+    },
+    {
+      "id": 5,
+      "name": "Omelets",
+      "products": [15, 16]
+    },
+    {
+      "id": 6,
+      "name": "Sandwiches",
+      "products": [17, 18, 19, 20]
+    },
+    {
+      "id": 7,
+      "name": "Bread",
+      "products": [21, 22]
+    },
+    {
+      "id": 8,
+      "name": "Sweet pastries",
+      "products": [23, 24, 25, 26]
+    },
+    {
+      "id": 9,
+      "name": "Сakes",
+      "products": [27, 28, 29]
+    },
+    {
+      "id": 10,
+      "name": "With milk",
+      "products": [30, 31, 32]
+    },
+    {
+      "id": 11,
+      "name": "With syrup",
+      "products": [33, 34, 35]
+    },
+    {
+      "id": 12,
+      "name": "Tomatoes",
+      "products": [36]
+    },
+    {
+      "id": 13,
+      "name": "Cucumbers",
+      "products": [37, 38]
+    },
+    {
+      "id": 14,
+      "name": "Avocado",
+      "products": [39, 40]
+    },
+    {
+      "id": 15,
+      "name": "Potato",
+      "products": [41, 42]
+    },
+    {
+      "id": 16,
+      "name": "Beetroot and carrot",
+      "products": [43, 44]
+    },
+    {
+      "id": 17,
+      "name": "Onion and garlic",
+      "products": [45, 46, 47, 48]
+    },
+    {
+      "id": 18,
+      "name": "Mushroom",
+      "products": [50]
+    },
+    {
+      "id": 19,
+      "name": "Salad",
+      "products": [49, 51, 52, 53, 54]
+    },
+    {
+      "id": 20,
+      "name": "Citrus",
+      "products": [55, 56, 57]
+    },
+    {
+      "id": 21,
+      "name": "Berries",
+      "products": [58, 59, 60]
+    },
+    {
+      "id": 22,
+      "name": "Fruits",
+      "products": [61, 62, 63, 64, 65, 66, 67]
+    },
+    {
+      "id": 23,
+      "name": "Eggs",
+      "products": [68, 69]
+    },
+    {
+      "id": 24,
+      "name": "Milk",
+      "products": [70, 71, 72]
+    },
+    {
+      "id": 25,
+      "name": "Butter",
+      "products": [73, 74, 75]
+    },
+    {
+      "id": 26,
+      "name": "Crispbread",
+      "products": [76, 77, 78]
+    },
+    {
+      "id": 27,
+      "name": "Cheese",
+      "products": [79, 80, 81, 82]
+    },
+    {
+      "id": 28,
+      "name": "Soft cheese",
+      "products": [83, 84, 85]
+    },
+    {
+      "id": 29,
+      "name": "For immune system",
+      "products": [86, 87, 88]
+    },
+    {
+      "id": 30,
+      "name": "Yoghurts",
+      "products": [89, 90, 91]
+    },
+    {
+      "id": 31,
+      "name": "Drinkable yoghurts",
+      "products": [92, 93]
+    },
+    {
+      "id": 32,
+      "name": "Water",
+      "products": [94, 95, 96]
+    },
+    {
+      "id": 33,
+      "name": "Juices",
+      "products": [97, 98, 99, 100, 101]
+    },
+    {
+      "id": 34,
+      "name": "Soda and tea",
+      "products": [102, 103, 104]
+    },
+    {
+      "id": 35,
+      "name": "Chips",
+      "products": [105, 106, 107]
+    },
+    {
+      "id": 36,
+      "name": "Chocolate",
+      "products": [108, 109, 110]
+    },
+    {
+      "id": 37,
+      "name": "Sweets",
+      "products": [111, 112, 113]
+    },
+    {
+      "id": 39,
+      "name": "Chicken",
+      "products": [114, 115, 116]
+    },
+    {
+      "id": 40,
+      "name": "Beef",
+      "products": [117, 118]
+    },
+    {
+      "id": 41,
+      "name": "Pork",
+      "products": [119, 120]
+    },
+    {
+      "id": 42,
+      "name": "Fresh fish",
+      "products": [121]
+    },
+    {
+      "id": 43,
+      "name": "Salted and smoked fish",
+      "products": [122, 123]
+    },
+    {
+      "id": 44,
+      "name": "Sausages",
+      "products": [124, 125, 126]
+    },
+    {
+      "id": 45,
+      "name": "Raw smoked, dried sausage",
+      "products": [127, 128]
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Omelet with ham and truffle",
+      "image": "assets/products/omeletTF.png",
+      "price": 399,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 1,
+        "ingredients": "Vegetable oil, butter, chicken egg, cream 22%, milk 3.2%, edible salt, truffle salsa, salad mix, pickled olives, olive oil, fresh truffle, smoked and boiled ham (pork, water, nitrite salt, vegetable protein, stabilizers (E450, E331), acidity regulators (E451, E262), gelling agent (potassium chloride), glucose, thickeners (E407, E425), monosodium glutamate, antioxidants (sodium isoascorbate, ascorbic acid, sodium ascorbate), flavor aromatic substances (natural and identical to natural flavors of meat, pepper).",
+        "shelfLife": "3 days",
+        "storageConditions": "not higher +4 °C",
+        "manufacturer": "Wine and Truffle LTD., UK",
+        "brand": "The Truffle"
+      },
+      "perHundredGrams": {
+        "id": 1,
+        "kcal": 416,
+        "fat": 36,
+        "carbs": 4,
+        "protein": 19
+      }
+    },
+    {
+      "id": 2,
+      "name": "Roast beef sandwich",
+      "image": "assets/products/rbsandtTF.png",
+      "price": 450,
+      "volume": 190,
+      "volumeType": 0,
+      "description": {
+        "id": 2,
+        "ingredients": "Panini: wheat flour type 00, durum wheat flour, water, yeast, salt, malt, olive oil, vegetable oil, malt. roast beef (black angus beef, salt, sugar, nitrite salt, black pepper, coriander, soy sauce, thyme), sun-dried tomatoes (oregano, salt, sugar, pepper, garlic, thyme, vegetable oil) arugula, olives, garlic, capers, pickled cucumber cream sauce (curd cheese, cream, pepper, dry garlic), truffle.",
+        "shelfLife": "3 days",
+        "storageConditions": "not higher +4 °C",
+        "manufacturer": "Wine and Truffle LTD., UK",
+        "brand": "The Truffle"
+      },
+      "perHundredGrams": {
+        "id": 2,
+        "kcal": 343,
+        "fat": 12,
+        "carbs": 34,
+        "protein": 25
+      }
+    },
+    {
+      "id": 3,
+      "name": "Truffle hummus",
+      "image": "assets/products/trufHumTF.png",
+      "price": 300,
+      "volume": 190,
+      "volumeType": 0,
+      "description": {
+        "id": 3,
+        "ingredients": "Hummus (boiled chickpeas, chickpea water), roasted peanuts, tahini, olive oil, olive oil, pumpkin seeds, sunflower seeds, fresh truffle, truffle salsa, lime juice, honey, salt, baked garlic, spices, dressing (olive oil, honey , lime juice, grain mustard, Dijon mustard).",
+        "shelfLife": "3 days",
+        "storageConditions": "not higher +4 °C",
+        "manufacturer": "Wine and Truffle LTD., UK",
+        "brand": "The Truffle"
+      },
+      "perHundredGrams": {
+        "id": 3,
+        "kcal": 250,
+        "fat": 22,
+        "carbs": 9,
+        "protein": 4
+      }
+    },
+    {
+      "id": 4,
+      "name": "Wok fried tofu",
+      "image": "assets/products/wftLL.png",
+      "price": 599,
+      "volume": 195,
+      "volumeType": 0,
+      "description": {
+        "id": 4,
+        "ingredients": "Soy cheese, stewed tomato (tomato, onion, vegetable oil), chili sauce (sugar, water, chili pepper 22%, salt, garlic, corn starch, acidity regulator acetic acid, thickener xanthan gum), ginger-garlic oil (ginger , garlic, vegetable oil), cilantro, cooking oil.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Lao Lee LTD., UK",
+        "brand": "Lao Lee"
+      },
+      "perHundredGrams": {
+        "id": 4,
+        "kcal": 231,
+        "fat": 18,
+        "carbs": 11,
+        "protein": 6
+      }
+    },
+    {
+      "id": 5,
+      "name": "Steam rice with chicken",
+      "image": "assets/products/stwcLL.png",
+      "price": 499,
+      "volume": 370,
+      "volumeType": 0,
+      "description": {
+        "id": 5,
+        "ingredients": "Rice, chicken fillet, breading (wheat flour, water, potato starch, sugar, saffron, glutamate, salt), sweet and sour sauce (sweet chili sauce (sugar, water, chili pepper 22%, salt, garlic, corn starch, regulator acidity acetic acid, xanthan gum thickener), Vietnamese salt, water, glutamate, sugar), pineapple, carrot, bell pepper, vegetable oil, cilantro, white sesame, black sesame.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Lao Lee LTD., UK",
+        "brand": "Lao Lee"
+      },
+      "perHundredGrams": {
+        "id": 5,
+        "kcal": 231,
+        "fat": 7,
+        "carbs": 38,
+        "protein": 11
+      }
+    },
+    {
+      "id": 6,
+      "name": "Steam rice with beef",
+      "image": "assets/products/stwbLL.png",
+      "price": 499,
+      "volume": 275,
+      "volumeType": 0,
+      "description": {
+        "id": 6,
+        "ingredients": "Rice, beef, soy sprouts, oyster sauce (water, sugar, oyster extract 10% (oysters, water salt, modified thickener, starch, monosodium glutamate, sugar color l, preservative potassium sorbate), ginger-garlic oil (garlic, ginger , vegetable oil), spinach, vegetable oil, black sesame.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Lao Lee LTD., UK",
+        "brand": "Lao Lee"
+      },
+      "perHundredGrams": {
+        "id": 6,
+        "kcal": 323,
+        "fat": 16,
+        "carbs": 33,
+        "protein": 11
+      }
+    },
+    {
+      "id": 7,
+      "name": "Samosas with potatoes and spices",
+      "image": "assets/products/swpasC.png",
+      "price": 299,
+      "volume": 180,
+      "volumeType": 0,
+      "description": {
+        "id": 7,
+        "ingredients": "Water, flour, salt, cumin, potatoes, peas, ginger, fennel seeds, turmeric, salt, paprika, ground chat masala, chili powder, ground cumin, garam masala, vegetable oil, cilantro, ground black pepper, azhgon seeds. Sauce: tamarind, tomato paste, water, salt, ground chili pepper, ground cumin, sugar, vegetable oil.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Chindi, UK",
+        "brand": "Chindi Kitchen"
+      },
+      "perHundredGrams": {
+        "id": 7,
+        "kcal": 195,
+        "fat": 4,
+        "carbs": 33,
+        "protein": 5
+      }
+    },
+    {
+      "id": 8,
+      "name": "Briani Chicken",
+      "image": "assets/products/bcC.png",
+      "price": 599,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 8,
+        "ingredients": "Prepared drinking water, chicken thigh fillet, garlic, ginger, onion, tomato paste, tomatoes, cilantro, deep-frying oil, butter, lemon, fenugreek leaves, kefir, ground paprika, cashews, raisins, basmati rice, whole zira, salt, ground chili pepper, garam masala, spice for chicken, spice for meat, ground zira, ground coriander, ground turmeric, whole green cardamom, ground black pepper, bay leaf, star anise, biryani masala, ground cinnamon, ground cardamom.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Chindi, UK",
+        "brand": "Chindi Kitchen"
+      },
+      "perHundredGrams": {
+        "id": 8,
+        "kcal": 160,
+        "fat": 7,
+        "carbs": 18,
+        "protein": 6
+      }
+    },
+    {
+      "id": 9,
+      "name": "Rajma Curry",
+      "image": "assets/products/rcC.png",
+      "price": 599,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 9,
+        "ingredients": "Red beans, tomato paste, salt, black pepper, onion, oil, cilantro, green cardamom (whole), star anise, bay leaf, turmeric powder, zira (cumin grain), coriander, garam masala, sambar masala, black pepper (ground ), cardamom powder, chili powder, fennel, tomatoes, water, garlic-ginger paste.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Chindi, UK",
+        "brand": "Chindi Kitchen"
+      },
+      "perHundredGrams": {
+        "id": 9,
+        "kcal": 127,
+        "fat": 4,
+        "carbs": 17,
+        "protein": 5
+      }
+    },
+    {
+      "id": 10,
+      "name": "Pancakes rosy",
+      "image": "assets/products/prV.png",
+      "price": 399,
+      "volume": 300,
+      "volumeType": 0,
+      "description": {
+        "id": 10,
+        "ingredients": "Pasteurized milk, premium baking wheat flour, edible chicken egg, vegetable sunflower oil, drinking water, sugar, butter, salt.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "New bread"
+      },
+      "perHundredGrams": {
+        "id": 10,
+        "kcal": 200,
+        "fat": 10,
+        "carbs": 21,
+        "protein": 6
+      }
+    },
+    {
+      "id": 11,
+      "name": "Pancakes gluten free",
+      "image": "assets/products/pgfV.png",
+      "price": 499,
+      "volume": 140,
+      "volumeType": 0,
+      "description": {
+        "id": 11,
+        "ingredients": "Processed coconut pulp, water, flour (rice flour, linseed flour, corn starch, amaranth flour, potato starch, tapioca starch, thickener E415), chicken egg, natural sweetener, grapeseed oil.",
+        "shelfLife": "5 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "New bread"
+      },
+      "perHundredGrams": {
+        "id": 11,
+        "kcal": 258,
+        "fat": 17,
+        "carbs": 22,
+        "protein": 4
+      }
+    },
+    {
+      "id": 12,
+      "name": "Pancakes with cottage cheese",
+      "image": "assets/products/pwccV.png",
+      "price": 450,
+      "volume": 170,
+      "volumeType": 0,
+      "description": {
+        "id": 12,
+        "ingredients": "Milk, cottage cheese (normalized milk, sourdough), premium wheat flour, eggs, sugar, refined sunflower oil, salt.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "New bread"
+      },
+      "perHundredGrams": {
+        "id": 12,
+        "kcal": 197,
+        "fat": 8,
+        "carbs": 20,
+        "protein": 11
+      }
+    },
+    {
+      "id": 13,
+      "name": "Pancakes with meat",
+      "image": "assets/products/pwmV.png",
+      "price": 500,
+      "volume": 170,
+      "volumeType": 0,
+      "description": {
+        "id": 13,
+        "ingredients": "Wheat flour, milk, chicken egg, sugar, beef, salt, onion.",
+        "shelfLife": "5 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "Cook Studio"
+      },
+      "perHundredGrams": {
+        "id": 13,
+        "kcal": 260,
+        "fat": 15,
+        "carbs": 20,
+        "protein": 12
+      }
+    },
+    {
+      "id": 14,
+      "name": "Pancakes with salmon and cottage cheese",
+      "image": "assets/products/pwsaccV.png",
+      "price": 650,
+      "volume": 135,
+      "volumeType": 0,
+      "description": {
+        "id": 14,
+        "ingredients": "Milk, Atlantic salmon (salmon) m / s (Atlantic salmon (salmon), salt, sugar)), premium wheat flour, curd cheese (cottage cheese, cream, complex food additive (thickener: acetylated distarch adipate (corn), stabilizers: gum carob, guar gum), salt (contains an anti-caking agent - potassium ferrocyanide)), chicken egg, refined sunflower oil, sugar, salt.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "Cook Studio"
+      },
+      "perHundredGrams": {
+        "id": 14,
+        "kcal": 223,
+        "fat": 13,
+        "carbs": 15,
+        "protein": 11
+      }
+    },
+    {
+      "id": 15,
+      "name": "Frittata with vegetables and shrimps",
+      "image": "assets/products/fwvasCP.png",
+      "price": 350,
+      "volume": 275,
+      "volumeType": 0,
+      "description": {
+        "id": 15,
+        "ingredients": "Edible chicken egg, normalized cream, shrimp (shrimp, chili sauce (water, sugar, natural vinegar, glucose, thickeners (corn starch, xanthan gum), chili paste, salt, red paprika, cayenne pepper, acidity regulator (citric acid), garlic, natural flavor), broccoli, cauliflower, bell pepper, corn, zucchini, sunflower oil, salt.",
+        "shelfLife": "5 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Cook Party, UK",
+        "brand": "Cook Party"
+      },
+      "perHundredGrams": {
+        "id": 15,
+        "kcal": 131,
+        "fat": 8,
+        "carbs": 3,
+        "protein": 11
+      }
+    },
+    {
+      "id": 16,
+      "name": "Omelet with vegetables and mozzarella",
+      "image": "assets/products/owvamCP.png",
+      "price": 300,
+      "volume": 155,
+      "volumeType": 0,
+      "description": {
+        "id": 16,
+        "ingredients": "Omelet: edible chicken egg, normalized milk, Bulgarian pepper, zucchini, mozzarella (fat-free melting cheese (pasteurized skimmed milk, table salt (contains an anti-caking agent - potassium ferrocyanide), calcium chloride sealant, milk-clotting enzyme preparation of microbial origin, bacterial starter of lactic acid mesophilic - thermophilic cultures), milk fat substitute (refined deodorized vegetable oils in natural and modified form, including soybean, concentrate of a mixture of tocopherols, emulsifiers: mono- and diglycerides of fatty acids, lecithins, antioxidants butylhydroxyanisole, butylhydroxytoluene), water, edible salt , food additive - polyphosphates, acidity regulators: sodium citrate, preservative potassium sorbate, contains milk protein, lactose), sunflower oil, green onion, semolina, salt.",
+        "shelfLife": "5 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Cook Party, UK",
+        "brand": "Cook Party"
+      },
+      "perHundredGrams": {
+        "id": 16,
+        "kcal": 167,
+        "fat": 12,
+        "carbs": 4,
+        "protein": 10
+      }
+    },
+    {
+      "id": 17,
+      "name": "French hot dog",
+      "image": "assets/products/fhdV.png",
+      "price": 450,
+      "volume": 120,
+      "volumeType": 0,
+      "description": {
+        "id": 17,
+        "ingredients": "French hot dog bun (high grade wheat flour, drinking water, white sugar, edible table salt, dry instant baking yeast, complex food additives - baking improvers E-frimat (high grade baking wheat flour, malted wheat flour, gluten wheat (gluten), antioxidant ascorbic acid E300, enzyme preparations), and Primat (wheat flour of the highest grade, emulsifier E472e, anti-caking agent E170, antioxidant ascorbic acid E300, enzyme preparations)), sausages (pork, water, bacon, curing-nitrite mixture (salt, color fixative (sodium nitrite)), dextrose, onion, garlic, soy protein hydrolyzate, spices (including mustard), stabilizers (E450i, E450iii, E450v, E452i), flavor and aroma enhancer (E621), antioxidants (E300, E301, E223), acidity regulators (E262i, E331i, E451i), anti-caking agent (E551), flavors (including smoke)), mayonnaise (refined sunflower oil deodorized, drinking water, sugar, egg yolk, salt, mustard powder, acidity regulator acetic acid), mustard (water, mustard seeds, alcohol vinegar, salt, acidity regulator citric acid, antioxidant potassium pyrosulfite).",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Vasta, UK",
+        "brand": "New Bread"
+      },
+      "perHundredGrams": {
+        "id": 17,
+        "kcal": 210,
+        "fat": 9,
+        "carbs": 23,
+        "protein": 9
+      }
+    },
+    {
+      "id": 18,
+      "name": "Chicken Caesar Sandwich",
+      "image": "assets/products/ccsH.png",
+      "price": 450,
+      "volume": 190,
+      "volumeType": 0,
+      "description": {
+        "id": 18,
+        "ingredients": "Toast bread, fried chicken fillet (chicken fillet, smoked paprika, salt, ground pepper, vegetable oil), Caesar sauce (capers, anchovies, mayonnaise (refined deodorized sunflower oil, drinking water, sugar, egg yolk, salt, reg. acids. acetic acid, xanthan gum stabilizer, carotene dye), parmesan cheese (pasteurized milk, bacterial starter culture, calcium chloride sealant, salt, microbial milk-clotting enzyme), white wine vinegar), fresh tomatoes, iceberg lettuce.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Hide, UK",
+        "brand": "Hideaway"
+      },
+      "perHundredGrams": {
+        "id": 18,
+        "kcal": 197,
+        "fat": 11,
+        "carbs": 18,
+        "protein": 7
+      }
+    },
+    {
+      "id": 19,
+      "name": "Chicken Curry Sandwich",
+      "image": "assets/products/ccssH.png",
+      "price": 500,
+      "volume": 235,
+      "volumeType": 0,
+      "description": {
+        "id": 19,
+        "ingredients": "Rye bread: premium wheat flour, water, sourdough (water, peeled rye flour, acidity regulator (acetic acid), salt, rye malt, lactic acid bacteria), sunflower seeds, dry malt, baker's yeast, whole milk powder, salt. Chicken: chicken breast fillet, corn syrup (corn starch, maltose), lemon juice, sunflower oil, turmeric, seasoning five ground peppers (allspice, white pepper, green pepper, black pepper, pink pepper), salt. Sauce: cottage cheese (cottage cheese (milk, cream, bacterial starter, milk-clotting enzyme of microbial origin), whey, acidity regulator citric acid, drinking water), curry sauce (processed coconut pulp, pasteurized cream, sauce base (starch (corn, potato), wheat fibers, milk cream powder, wheat flour, vegetable protein hydrolyzate (corn), salt, nutmeg, black pepper), curry paste (shallot, dried red chili, salt, lemongrass, kaffir lime, galangal , cinnamon, nutmeg, cumin, coriander, turmeric), salt, cumin, cinnamon, cardamom, cloves). Omelet: edible chicken egg, drinking milk, sunflower oil, semolina, salt. Fresh tomato. Fried onion: onion, sunflower oil, wheat flour, salt.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Hide, UK",
+        "brand": "Hideaway"
+      },
+      "perHundredGrams": {
+        "id": 19,
+        "kcal": 199,
+        "fat": 8,
+        "carbs": 18,
+        "protein": 13
+      }
+    },
+    {
+      "id": 20,
+      "name": "Bagel with salmon",
+      "image": "assets/products/bwsH.png",
+      "price": 600,
+      "volume": 145,
+      "volumeType": 0,
+      "description": {
+        "id": 20,
+        "ingredients": "Bagel (milk 3.2%, granulated sugar, yeast, wheat flour, butter, egg melange, sesame), cold smoked salmon (salmon, sea salt, white sesame, black sesame), Iceberg lettuce, curd cheese (skimmed milk, cheese whey, milk protein, modified starch, potassium sorbate, milk fat substitute, salt, modified thickener, starch, stabilizer E1442), a product produced using sour cream technology (water, skimmed milk powder, butter, milk fat substitute (refined deodorized oils in natural and modified form (palm, sunflower, soybean, rapeseed, palm kernel), emulsifier - mono- and diglycerides of fatty acids, antioxidant-concentrate of a mixture of tocopherols, dye beta-carotene), milk protein concentrate, thickeners (distarch phosphate, pectin, gelatin) , starter culture of lactic acid microorganisms). Packaged in modified atmosphere (food gas mixture: 70% nitrogen, 30% carbon dioxide).",
+        "shelfLife": "4 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Hide, UK",
+        "brand": "Hideaway"
+      },
+      "perHundredGrams": {
+        "id": 20,
+        "kcal": 191,
+        "fat": 9,
+        "carbs": 18,
+        "protein": 9
+      }
+    },
+    {
+      "id": 21,
+      "name": "Rustic Bread",
+      "image": "assets/products/rbBV.png",
+      "price": 100,
+      "volume": 400,
+      "volumeType": 0,
+      "description": {
+        "id": 21,
+        "ingredients": "Flour of the highest grade, semi-finished wheat sourdough (flour of the highest grade, drinking water, rye flour), pressed yeast, table salt, granulated sugar, drinking water.",
+        "shelfLife": "2 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 21,
+        "kcal": 248,
+        "fat": 1,
+        "carbs": 50,
+        "protein": 10
+      }
+    },
+    {
+      "id": 22,
+      "name": "Pita bread",
+      "image": "assets/products/ptBV.png",
+      "price": 200,
+      "volume": 270,
+      "volumeType": 0,
+      "description": {
+        "id": 22,
+        "ingredients": "Baking wheat flour of the highest grade, drinking water, pressed baking yeast, edible table salt.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +6 °C to +24 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 22,
+        "kcal": 274,
+        "fat": 1,
+        "carbs": 57,
+        "protein": 8
+      }
+    },
+    {
+      "id": 23,
+      "name": "Cherry mini pie",
+      "image": "assets/products/cmpBV.png",
+      "price": 450,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 23,
+        "ingredients": "Baking wheat flour of the highest grade, granulated sugar, butter, chicken egg, baking powder (corn starch, acidity regulator), vanillin, s/m cherry, thickener.",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 23,
+        "kcal": 278,
+        "fat": 5,
+        "carbs": 51,
+        "protein": 6
+      }
+    },
+    {
+      "id": 24,
+      "name": "Bun with jam",
+      "image": "assets/products/bwjBV.png",
+      "price": 100,
+      "volume": 100,
+      "volumeType": 0,
+      "description": {
+        "id": 24,
+        "ingredients": "Wheat flour of the highest grade, drinking water, apple jam, sugar, egg products, margarine (refined deodorized vegetable oils in natural and modified form, including soybean; water, emulsifiers: esters of polyglycerol and fatty acids, mono- and diglycerides of fatty acids , salt, sugar, preservative potassium sorbate, acidity regulator citric acid, flavoring, beta-carotene dye, antioxidants: ascorbic acid, alpha-tocopherol), baker's yeast, bread improver (swelling wheat flour, wheat gluten, stabilizer: calcium carbonate, flavoring (ethylvanillin), natural dye: beta-carotene, antioxidant: ascorbic acid, flour treatment agent: L-cysteine, enzymes), salt (salt, anti-caking agent E536). The product may contain traces of dairy products, peanuts, sesame seeds.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 24,
+        "kcal": 278,
+        "fat": 5,
+        "carbs": 51,
+        "protein": 6
+      }
+    },
+    {
+      "id": 25,
+      "name": "Chocolate poppy seed bun",
+      "image": "assets/products/cpsbBV.png",
+      "price": 300,
+      "volume": 185,
+      "volumeType": 0,
+      "description": {
+        "id": 25,
+        "ingredients": "Baking wheat flour of the highest taste, milk 3.2%, kefir 3.2%, sugar, edible chicken eggs, refined sunflower oil, butter 82.5%, pressed yeast, vanillin, poppy seed filling, thickener, starch, vanillin), chocolate glaze (sugar, cocoa butter substitute, cocoa powder, lactose, soy lecithin, vanillin).",
+        "shelfLife": "3 days",
+        "storageConditions": "from +0 °C to +18 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 25,
+        "kcal": 454,
+        "fat": 18,
+        "carbs": 64,
+        "protein": 8
+      }
+    },
+    {
+      "id": 26,
+      "name": "Cinnamon bun",
+      "image": "assets/products/cbBV.png",
+      "price": 100,
+      "volume": 70,
+      "volumeType": 0,
+      "description": {
+        "id": 26,
+        "ingredients": "Baking wheat flour of the highest grade, margarine (vegetable oils, including modified ones, including soybean, water, emulsifiers: mono- and diglycerides of fatty acids, esters of polyglycerol and fatty acids, lecithins (soy); salt, sugar, preservative potassium sorbate , carotene dye, acidity regulator citric acid, flavoring, antioxidants: ascorbic acid, alpha-Tocopherol), ultra-pasteurized drinking milk (whole milk, skimmed milk), water, filling with vanilla flavor (glucose syrup, water, sugar, thickeners: E1442, carboxymethylcellulose; vegetable fat, dyes: carotenes, titanium dioxide; salt, preservative potassium sorbate, flavoring, acidity regulator tartaric acid, emulsifier E435), sugar, dry milk mixture (sugar, thickeners: E1414, sodium alginate; whole milk powder, stabilizers: E339, E450; flavoring agent, carotene dye; calcium sulfate sealant), refined deodorized soybean oil, baker's yeast , egg products, dry milk whey, ground cinnamon, emulsifiers: mono- and diglycerides of fatty acids, esters of propylene glycol and fatty acids, esters of polyglycerol and fatty acids; wheat gluten, salt, corn starch, raising agents: sodium dihydropyrophosphate, sodium bicarbonate; anti-caking agents: calcium carbonate, E536.",
+        "shelfLife": "2 days",
+        "storageConditions": "from +0 °C to +24 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 26,
+        "kcal": 380,
+        "fat": 22,
+        "carbs": 41,
+        "protein": 5
+      }
+    },
+    {
+      "id": 27,
+      "name": "Vanilla eclair",
+      "image": "assets/products/vcBV.png",
+      "price": 350,
+      "volume": 115,
+      "volumeType": 0,
+      "description": {
+        "id": 27,
+        "ingredients": "Drinking milk, mass fraction of fat 1.5% (whole milk, skimmed milk), sweet cream unsalted butter, mass fraction of fat 72.5%, wheat flour of the highest grade, egg product (melange), ultra-pasteurized drinking cream, sugar, drinking water, product egg (yolk), bitter chocolate mass (cocoa mass, sugar, cocoa butter, lecithin emulsifier (soy lecithin), natural flavor (vanilla)), corn starch, vanilla essence, edible salt. This product is manufactured in a facility that uses peanuts and tree nuts.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +0 °C to +6 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 27,
+        "kcal": 354,
+        "fat": 24,
+        "carbs": 25,
+        "protein": 6
+      }
+    },
+    {
+      "id": 28,
+      "name": "Chocolate Profiteroles",
+      "image": "assets/products/cpBV.png",
+      "price": 499,
+      "volume": 100,
+      "volumeType": 0,
+      "description": {
+        "id": 28,
+        "ingredients": "UHT milk mass fraction of fat 3.2%, liquid egg melange, dark chocolate (cocoa mass, sugar, cocoa butter, emulsifier sunflower lecithin, natural flavoring - vanilla extract), wheat flour of the highest grade, ultra-pasteurized cream mass fraction of fat 33% (normalized cream), drinking water, sugar, unsalted sweet cream butter mass fraction of fat 72.5%, liquid egg yolk, milk chocolate (sugar, cocoa butter, whole milk powder, cocoa mass, emulsifier soy lecithin, natural flavoring - vanilla extract ), ultra-pasteurized cream fat mass fraction 33% (normalized cream), corn starch, edible salt. This product is manufactured in a facility that uses peanuts and tree nuts.",
+        "shelfLife": "4 days",
+        "storageConditions": "from +0 °C to +4 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 28,
+        "kcal": 370,
+        "fat": 22,
+        "carbs": 34,
+        "protein": 7
+      }
+    },
+    {
+      "id": 29,
+      "name": "Honey Cake",
+      "image": "assets/products/hcBV.png",
+      "price": 259,
+      "volume": 90,
+      "volumeType": 0,
+      "description": {
+        "id": 29,
+        "ingredients": "Biscuit (high-grade wheat flour, buckwheat honey, granulated sugar, butter 82.5%, chicken egg, refined sunflower oil, baking soda. Baking powder for dough, salt, vanillin), cream (sour cream 42%, cream 33% , powdered sugar).",
+        "shelfLife": "3 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Bread Village, UK",
+        "brand": "Bread Village"
+      },
+      "perHundredGrams": {
+        "id": 29,
+        "kcal": 423,
+        "fat": 16,
+        "carbs": 62,
+        "protein": 8
+      }
+    },
+    {
+      "id": 30,
+      "name": "Cappuccino",
+      "image": "assets/products/cCD.jpg",
+      "price": 499,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 30,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk.",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 30,
+        "kcal": 50,
+        "fat": 2,
+        "carbs": 4,
+        "protein": 21
+      }
+    },
+    {
+      "id": 31,
+      "name": "Flat White",
+      "image": "assets/products/fwCD.jpg",
+      "price": 359,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 31,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk.",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 31,
+        "kcal": 23,
+        "fat": 1,
+        "carbs": 2,
+        "protein": 1
+      }
+    },
+    {
+      "id": 32,
+      "name": "Latte",
+      "image": "assets/products/lCD.jpg",
+      "price": 459,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 32,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk.",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 32,
+        "kcal": 49,
+        "fat": 3,
+        "carbs": 4,
+        "protein": 2
+      }
+    },
+    {
+      "id": 33,
+      "name": "Cappuccino nut",
+      "image": "assets/products/cnCD.jpg",
+      "price": 399,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 33,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk. Nut syrup: sugar, water, natural flavors, acidity regulator (citric acid), preservative (potassium sorbate), color (simple sugar color I).",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 33,
+        "kcal": 74,
+        "fat": 4,
+        "carbs": 6,
+        "protein": 2
+      }
+    },
+    {
+      "id": 34,
+      "name": "Vanilla latte",
+      "image": "assets/products/vlCD.jpg",
+      "price": 499,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 34,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk. Vanilla syrup: sugar, water, natural flavors, acidity regulator (citric acid), preservative (potassium sorbate), color (simple sugar color I).",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 34,
+        "kcal": 85,
+        "fat": 2,
+        "carbs": 8,
+        "protein": 4
+      }
+    },
+    {
+      "id": 35,
+      "name": "Cappuccino salted caramel",
+      "image": "assets/products/cscCD.jpg",
+      "price": 499,
+      "volume": 300,
+      "volumeType": 1,
+      "description": {
+        "id": 35,
+        "ingredients": "Drinking water, Arabica coffee beans 100% light roast, ultra-pasteurized drinking milk. Salted caramel syrup: sugar, drinking water, natural flavor (contains dye E150a), acidity regulator (citric acid), preservative (potassium sorbate), dye (simple sugar color I).",
+        "shelfLife": "",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Coffee Deli, UK",
+        "brand": "Coffee Deli"
+      },
+      "perHundredGrams": {
+        "id": 35,
+        "kcal": 74,
+        "fat": 4,
+        "carbs": 6,
+        "protein": 2
+      }
+    },
+    {
+      "id": 36,
+      "name": "Tomatoes",
+      "image": "assets/products/tSP.png",
+      "price": 299,
+      "volume": 350,
+      "volumeType": 0,
+      "description": {
+        "id": 36,
+        "ingredients": "",
+        "shelfLife": "28 days",
+        "storageConditions": "from +2 °C to +16 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 36,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 37,
+      "name": "Cucumbers medium",
+      "image": "assets/products/tSP.png",
+      "price": 299,
+      "volume": 600,
+      "volumeType": 0,
+      "description": {
+        "id": 37,
+        "ingredients": "",
+        "shelfLife": "21 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 37,
+        "kcal": 16,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 38,
+      "name": "Cucumber Gherkin",
+      "image": "assets/products/cgSP.png",
+      "price": 159,
+      "volume": 300,
+      "volumeType": 0,
+      "description": {
+        "id": 38,
+        "ingredients": "",
+        "shelfLife": "21 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 38,
+        "kcal": 16,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 39,
+      "name": "Avocado",
+      "image": "assets/products/aSP.png",
+      "price": 599,
+      "volume": 700,
+      "volumeType": 0,
+      "description": {
+        "id": 39,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +4 °C to +8 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 39,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 40,
+      "name": "Avocado ripe",
+      "image": "assets/products/arSP.png",
+      "price": 299,
+      "volume": 300,
+      "volumeType": 0,
+      "description": {
+        "id": 40,
+        "ingredients": "2 pc",
+        "shelfLife": "14 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 40,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 41,
+      "name": "Potato",
+      "image": "assets/products/pSP.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 0,
+      "description": {
+        "id": 41,
+        "ingredients": "",
+        "shelfLife": "28 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 41,
+        "kcal": 77,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 42,
+      "name": "Sweet potato",
+      "image": "assets/products/spSP.png",
+      "price": 299,
+      "volume": 350,
+      "volumeType": 0,
+      "description": {
+        "id": 42,
+        "ingredients": "",
+        "shelfLife": "30 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 42,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 43,
+      "name": "Carrot",
+      "image": "assets/products/cSP.png",
+      "price": 199,
+      "volume": 1000,
+      "volumeType": 0,
+      "description": {
+        "id": 43,
+        "ingredients": "",
+        "shelfLife": "120 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 43,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 44,
+      "name": "Beet",
+      "image": "assets/products/bSP.png",
+      "price": 159,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 44,
+        "ingredients": "",
+        "shelfLife": "28 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 44,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 45,
+      "name": "Ginger",
+      "image": "assets/products/gSP.png",
+      "price": 189,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 45,
+        "ingredients": "",
+        "shelfLife": "60 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 45,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 46,
+      "name": "Green onion",
+      "image": "assets/products/goSP.png",
+      "price": 75,
+      "volume": 50,
+      "volumeType": 0,
+      "description": {
+        "id": 46,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 46,
+        "kcal": 19,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 47,
+      "name": "Garlic",
+      "image": "assets/products/garSP.png",
+      "price": 75,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 47,
+        "ingredients": "3 pc",
+        "shelfLife": "90 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "China",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 47,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 48,
+      "name": "Onion",
+      "image": "assets/products/oSP.png",
+      "price": 75,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 48,
+        "ingredients": "4 pc",
+        "shelfLife": "45 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 48,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 49,
+      "name": "Cabbage",
+      "image": "assets/products/wcSP.png",
+      "price": 99,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 49,
+        "ingredients": "1 pc",
+        "shelfLife": "28 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 49,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 50,
+      "name": "Mushrooms Champignons",
+      "image": "assets/products/mcSP.png",
+      "price": 129,
+      "volume": 400,
+      "volumeType": 0,
+      "description": {
+        "id": 50,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 50,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 51,
+      "name": "Spinach",
+      "image": "assets/products/spiSP.png",
+      "price": 149,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 51,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 51,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 52,
+      "name": "Arugula",
+      "image": "assets/products/argSP.png",
+      "price": 149,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 52,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Israel",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 52,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 53,
+      "name": "Dill",
+      "image": "assets/products/dilSP.png",
+      "price": 49,
+      "volume": 50,
+      "volumeType": 0,
+      "description": {
+        "id": 53,
+        "ingredients": "",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Czech Republic",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 53,
+        "kcal": 38,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 54,
+      "name": "Parsley",
+      "image": "assets/products/parSP.png",
+      "price": 49,
+      "volume": 50,
+      "volumeType": 0,
+      "description": {
+        "id": 54,
+        "ingredients": "",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Czech Republic",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 54,
+        "kcal": 36,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 55,
+      "name": "Orange",
+      "image": "assets/products/orgFB.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 0,
+      "description": {
+        "id": 55,
+        "ingredients": "",
+        "shelfLife": "90 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 55,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 56,
+      "name": "Grapefruit",
+      "image": "assets/products/grpFB.png",
+      "price": 75,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 56,
+        "ingredients": "1pc",
+        "shelfLife": "90 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 56,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 57,
+      "name": "Lemon",
+      "image": "assets/products/lemFB.png",
+      "price": 25,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 57,
+        "ingredients": "1pc",
+        "shelfLife": "120 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 57,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 58,
+      "name": "Blueberry",
+      "image": "assets/products/blbFB.png",
+      "price": 149,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 58,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 58,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 59,
+      "name": "Raspberries",
+      "image": "assets/products/rspFB.png",
+      "price": 149,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 59,
+        "ingredients": "",
+        "shelfLife": "14 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 59,
+        "kcal": 46,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 60,
+      "name": "Strawberry",
+      "image": "assets/products/strFB.png",
+      "price": 299,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 60,
+        "ingredients": "",
+        "shelfLife": "15 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 60,
+        "kcal": 33,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 61,
+      "name": "Red Apples",
+      "image": "assets/products/rdpFB.png",
+      "price": 199,
+      "volume": 600,
+      "volumeType": 0,
+      "description": {
+        "id": 61,
+        "ingredients": "",
+        "shelfLife": "180 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 61,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 62,
+      "name": "Green Apples",
+      "image": "assets/products/grnpFB.png",
+      "price": 199,
+      "volume": 600,
+      "volumeType": 0,
+      "description": {
+        "id": 62,
+        "ingredients": "",
+        "shelfLife": "180 days",
+        "storageConditions": "from +1 °C to +8 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 62,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 63,
+      "name": "Pear",
+      "image": "assets/products/perFB.png",
+      "price": 149,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 63,
+        "ingredients": "",
+        "shelfLife": "90 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 63,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 64,
+      "name": "Pear sm",
+      "image": "assets/products/persFB.png",
+      "price": 169,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 64,
+        "ingredients": "",
+        "shelfLife": "90 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 64,
+        "kcal": 42,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 65,
+      "name": "Green grapes, seedless",
+      "image": "assets/products/ggsFB.png",
+      "price": 199,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 65,
+        "ingredients": "",
+        "shelfLife": "90 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 65,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 66,
+      "name": "Grape Red",
+      "image": "assets/products/grdFB.png",
+      "price": 249,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 66,
+        "ingredients": "",
+        "shelfLife": "28 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 66,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 67,
+      "name": "Kiwi",
+      "image": "assets/products/kiwFB.png",
+      "price": 99,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 67,
+        "ingredients": "",
+        "shelfLife": "28 days",
+        "storageConditions": "from +2 °C to +5 °C",
+        "manufacturer": "Spain",
+        "brand": ""
+      },
+      "perHundredGrams": {
+        "id": 67,
+        "kcal": 48,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 68,
+      "name": "Chicken eggs С1",
+      "image": "assets/products/cgcMB.png",
+      "price": 99,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 68,
+        "ingredients": "10 pc. Eggs in the package can be either white or brown.",
+        "shelfLife": "25 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": "Chicken Fabric"
+      },
+      "perHundredGrams": {
+        "id": 68,
+        "kcal": 157,
+        "fat": 11,
+        "carbs": 1,
+        "protein": 14
+      }
+    },
+    {
+      "id": 69,
+      "name": "Quail eggs",
+      "image": "assets/products/qlgMB.png",
+      "price": 199,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 69,
+        "ingredients": "20 pc",
+        "shelfLife": "60 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": "Chicken Fabric"
+      },
+      "perHundredGrams": {
+        "id": 69,
+        "kcal": 164,
+        "fat": 13,
+        "carbs": 0,
+        "protein": 12
+      }
+    },
+    {
+      "id": 70,
+      "name": "Milk 3.4-4.5%",
+      "image": "assets/products/mlktfMB.png",
+      "price": 99,
+      "volume": 930,
+      "volumeType": 1,
+      "description": {
+        "id": 70,
+        "ingredients": "Whole milk",
+        "shelfLife": "15 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": "Home Farm"
+      },
+      "perHundredGrams": {
+        "id": 70,
+        "kcal": 63,
+        "fat": 4,
+        "carbs": 5,
+        "protein": 3
+      }
+    },
+    {
+      "id": 71,
+      "name": "Milk 2.5%",
+      "image": "assets/products/mlkthMB.png",
+      "price": 99,
+      "volume": 900,
+      "volumeType": 1,
+      "description": {
+        "id": 71,
+        "ingredients": "Milk is normalized",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Czech Republic",
+        "brand": "Prague Farm"
+      },
+      "perHundredGrams": {
+        "id": 71,
+        "kcal": 53,
+        "fat": 2,
+        "carbs": 5,
+        "protein": 3
+      }
+    },
+    {
+      "id": 72,
+      "name": "Milk 3.2%",
+      "image": "assets/products/mlktrMB.png",
+      "price": 99,
+      "volume": 900,
+      "volumeType": 1,
+      "description": {
+        "id": 72,
+        "ingredients": "Milk is normalized",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Czech Republic",
+        "brand": "Prague Farm"
+      },
+      "perHundredGrams": {
+        "id": 72,
+        "kcal": 60,
+        "fat": 3,
+        "carbs": 5,
+        "protein": 3
+      }
+    },
+    {
+      "id": 73,
+      "name": "Butter 82.5%",
+      "image": "assets/products/btehMB.png",
+      "price": 149,
+      "volume": 120,
+      "volumeType": 0,
+      "description": {
+        "id": 73,
+        "ingredients": "Pasteurized cream.",
+        "shelfLife": "60 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Bulgaria",
+        "brand": "Buttere"
+      },
+      "perHundredGrams": {
+        "id": 73,
+        "kcal": 748,
+        "fat": 83,
+        "carbs": 1,
+        "protein": 1
+      }
+    },
+    {
+      "id": 74,
+      "name": "Sour cream butter 82%",
+      "image": "assets/products/scbMB.png",
+      "price": 199,
+      "volume": 180,
+      "volumeType": 0,
+      "description": {
+        "id": 74,
+        "ingredients": "Pasteurized cream, sourdough.",
+        "shelfLife": "210 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Belarus",
+        "brand": "President"
+      },
+      "perHundredGrams": {
+        "id": 74,
+        "kcal": 742,
+        "fat": 82,
+        "carbs": 1,
+        "protein": 1
+      }
+    },
+    {
+      "id": 75,
+      "name": "Butter lactose-free 82.5%",
+      "image": "assets/products/blfMB.png",
+      "price": 399,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 75,
+        "ingredients": "Pasteurized cream, using lactase enzyme preparation.",
+        "shelfLife": "35 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Poland",
+        "brand": "Family Farm"
+      },
+      "perHundredGrams": {
+        "id": 75,
+        "kcal": 742,
+        "fat": 82,
+        "carbs": 1,
+        "protein": 1
+      }
+    },
+    {
+      "id": 76,
+      "name": "Crispbread tomato, oregano",
+      "image": "assets/products/ctrCB.png",
+      "price": 499,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 76,
+        "ingredients": "Premium wheat flour, water, tomato paste, refined deodorized sunflower oil, sesame seeds, Extra Virgin olive oil, cheese powder, sugar, sea salt, dried onion, dried oregano, dried basil, dried basil, ground red paprika, baker's yeast, ground chili pepper.",
+        "shelfLife": "183 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": "Baker House"
+      },
+      "perHundredGrams": {
+        "id": 76,
+        "kcal": 420,
+        "fat": 16,
+        "carbs": 66,
+        "protein": 2
+      }
+    },
+    {
+      "id": 77,
+      "name": "Crispbread rosemary, garlic",
+      "image": "assets/products/crgCB.png",
+      "price": 499,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 77,
+        "ingredients": "Premium wheat flour, water, rosemary, olive oil, sunflower oil, sea salt, baker's yeast, sugar, dried garlic.",
+        "shelfLife": "180 days",
+        "storageConditions": "from +3 °C to +19 °C",
+        "manufacturer": "Italy",
+        "brand": "Baker House"
+      },
+      "perHundredGrams": {
+        "id": 77,
+        "kcal": 380,
+        "fat": 8,
+        "carbs": 75,
+        "protein": 2
+      }
+    },
+    {
+      "id": 78,
+      "name": "Rye crispbread",
+      "image": "assets/products/ryeCB.png",
+      "price": 199,
+      "volume": 170,
+      "volumeType": 0,
+      "description": {
+        "id": 78,
+        "ingredients": "",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Bulgaria",
+        "brand": "Bulgarian Farm"
+      },
+      "perHundredGrams": {
+        "id": 78,
+        "kcal": 320,
+        "fat": 3,
+        "carbs": 64,
+        "protein": 11
+      }
+    },
+    {
+      "id": 79,
+      "name": "Cheddar cheese",
+      "image": "assets/products/chdCH.png",
+      "price": 349,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 79,
+        "ingredients": "Normalized pasteurized milk, edible salt, calcium chloride sealant, milk-clotting enzyme preparation of microbial origin, bacterial ferment of mesophilic and thermophilic lactic acid microorganisms.",
+        "shelfLife": "90 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Italy",
+        "brand": "Milk Products"
+      },
+      "perHundredGrams": {
+        "id": 79,
+        "kcal": 369,
+        "fat": 31,
+        "carbs": 0,
+        "protein": 24
+      }
+    },
+    {
+      "id": 80,
+      "name": "Tofu cheese",
+      "image": "assets/products/tofCH.png",
+      "price": 249,
+      "volume": 300,
+      "volumeType": 0,
+      "description": {
+        "id": 80,
+        "ingredients": "Soybeans, water, 0.04% calcium sulfate (food coagulant).",
+        "shelfLife": "60 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Italy",
+        "brand": "Milk Products"
+      },
+      "perHundredGrams": {
+        "id": 80,
+        "kcal": 60,
+        "fat": 3,
+        "carbs": 2,
+        "protein": 17
+      }
+    },
+    {
+      "id": 81,
+      "name": "Maasdam cheese",
+      "image": "assets/products/msdCH.png",
+      "price": 249,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 81,
+        "ingredients": "Normalized pasteurized cow's milk, starter based on lactic acid mesophilic and thermophilic bacteria; edible boiled salt (contains an anti-caking agent potassium ferrocyanide); preservative - sodium nitrite; annatto dye, calcium chloride sealant, enzyme preparation of animal origin - pepsin, chymosin, lysozyme.",
+        "shelfLife": "90 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Italy",
+        "brand": "Milk Products"
+      },
+      "perHundredGrams": {
+        "id": 81,
+        "kcal": 337,
+        "fat": 26,
+        "carbs": 0,
+        "protein": 25
+      }
+    },
+    {
+      "id": 82,
+      "name": "Cream Cheese",
+      "image": "assets/products/crmCH.png",
+      "price": 249,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 82,
+        "ingredients": "Normalized pasteurized cow's milk, starter based on lactic acid mesophilic and thermophilic bacteria, salt (contains an anti-caking agent potassium ferrocyanide), sodium nitrate preservative, annatto dye, calcium chloride thickener, enzyme preparation of animal origin: pepsin chymosin.",
+        "shelfLife": "120 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Italy",
+        "brand": "Milk Products"
+      },
+      "perHundredGrams": {
+        "id": 82,
+        "kcal": 356,
+        "fat": 30,
+        "carbs": 0,
+        "protein": 23
+      }
+    },
+    {
+      "id": 83,
+      "name": "Stracciatella cheese",
+      "image": "assets/products/strCH.png",
+      "price": 399,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 83,
+        "ingredients": "",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Italy",
+        "brand": "Milk Products"
+      },
+      "perHundredGrams": {
+        "id": 83,
+        "kcal": 332,
+        "fat": 15,
+        "carbs": 1,
+        "protein": 21
+      }
+    },
+    {
+      "id": 84,
+      "name": "Burrata cheese",
+      "image": "assets/products/brrCH.png",
+      "price": 499,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 84,
+        "ingredients": "",
+        "shelfLife": "10 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Italy",
+        "brand": "Galbani"
+      },
+      "perHundredGrams": {
+        "id": 84,
+        "kcal": 204,
+        "fat": 16,
+        "carbs": 3,
+        "protein": 12
+      }
+    },
+    {
+      "id": 85,
+      "name": "Mozzarella cheese",
+      "image": "assets/products/mzzCH.png",
+      "price": 299,
+      "volume": 125,
+      "volumeType": 0,
+      "description": {
+        "id": 85,
+        "ingredients": "Pasteurized milk of the highest grade, edible salt, Mauro Casalli No. 3 enzyme (thermophilic bacterial starter cultures, milk-clotting enzyme preparation of microbial origin). Filling: drinking water, edible salt.",
+        "shelfLife": "30 days",
+        "storageConditions": "from +2 °C to +5 °C",
+        "manufacturer": "Italy",
+        "brand": "Unagrande"
+      },
+      "perHundredGrams": {
+        "id": 85,
+        "kcal": 297,
+        "fat": 23,
+        "carbs": 0,
+        "protein": 24
+      }
+    },
+    {
+      "id": 86,
+      "name": "Prebiotic shot",
+      "image": "assets/products/prsYD.png",
+      "price": 199,
+      "volume": 100,
+      "volumeType": 1,
+      "description": {
+        "id": 86,
+        "ingredients": "Reconstituted pineapple juice, reconstituted apple juice, applesauce, pear puree, cabbage puree, straight lime juice, inulin, spirulina extract, safflower extract, horsetail extract, vitamin C, artichoke extract, biotin.",
+        "shelfLife": "270 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": "Botaniq"
+      },
+      "perHundredGrams": {
+        "id": 86,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 8,
+        "protein": 0
+      }
+    },
+    {
+      "id": 87,
+      "name": "Nails&Hair shot",
+      "image": "assets/products/nshYD.png",
+      "price": 199,
+      "volume": 100,
+      "volumeType": 1,
+      "description": {
+        "id": 87,
+        "ingredients": "Reconstituted pineapple juice, reconstituted apple juice, applesauce, pear puree, cabbage puree, straight lime juice, inulin, spirulina extract, safflower extract, horsetail extract, vitamin C, artichoke extract, biotin.",
+        "shelfLife": "270 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": "Botaniq"
+      },
+      "perHundredGrams": {
+        "id": 87,
+        "kcal": 40,
+        "fat": 0,
+        "carbs": 10,
+        "protein": 0
+      }
+    },
+    {
+      "id": 88,
+      "name": "Power shot",
+      "image": "assets/products/pwsYD.png",
+      "price": 199,
+      "volume": 100,
+      "volumeType": 1,
+      "description": {
+        "id": 88,
+        "ingredients": "Reconstituted white grape juice, apple puree, reconstituted coconut water, mango puree, reconstituted lime juice, green tea extract, vitamin C, vitamin B3, vitamin B6, vitamin B2, vitamin B1, vitamin B12.",
+        "shelfLife": "270 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Spain",
+        "brand": "Botaniq"
+      },
+      "perHundredGrams": {
+        "id": 88,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 10,
+        "protein": 0
+      }
+    },
+    {
+      "id": 89,
+      "name": "Raspberry pomegranate yogurt",
+      "image": "assets/products/rspYD.png",
+      "price": 149,
+      "volume": 130,
+      "volumeType": 0,
+      "description": {
+        "id": 89,
+        "ingredients": "Skimmed milk, pomegranate-raspberry filler (sugar, pomegranate juice, raspberries, water, cornstarch, natural flavor, carrot concentrate, locust bean gum thickener), cream, yoghurt starter, probiotic cultures.",
+        "shelfLife": "38 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Greece",
+        "brand": "Epica"
+      },
+      "perHundredGrams": {
+        "id": 89,
+        "kcal": 120,
+        "fat": 5,
+        "carbs": 14,
+        "protein": 6
+      }
+    },
+    {
+      "id": 90,
+      "name": "Strawberry-Rose yogurt",
+      "image": "assets/products/strYD.png",
+      "price": 149,
+      "volume": 130,
+      "volumeType": 0,
+      "description": {
+        "id": 90,
+        "ingredients": "Skimmed milk, filler strawberry with rose extract (sugar, strawberry, water, corn starch, natural flavoring: carrot concentrate, thickener - locust bean gum, concentrated lemon juice, rose extract), cream, yoghurt sourdough.",
+        "shelfLife": "38 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Greece",
+        "brand": "Epica"
+      },
+      "perHundredGrams": {
+        "id": 90,
+        "kcal": 120,
+        "fat": 5,
+        "carbs": 14,
+        "protein": 6
+      }
+    },
+    {
+      "id": 91,
+      "name": "Blueberry-Lavender yogurt",
+      "image": "assets/products/blbYD.png",
+      "price": 149,
+      "volume": 130,
+      "volumeType": 0,
+      "description": {
+        "id": 91,
+        "ingredients": "Skimmed milk, blueberry-lavender filler (sugar, blueberries, water, corn starch, thickener - guar gum, lavender, natural flavors lavender extract), cream, yogurt starter, probiotic cultures.",
+        "shelfLife": "38 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Greece",
+        "brand": "Epica"
+      },
+      "perHundredGrams": {
+        "id": 91,
+        "kcal": 120,
+        "fat": 5,
+        "carbs": 14,
+        "protein": 6
+      }
+    },
+    {
+      "id": 92,
+      "name": "Papaya-mango yogurt",
+      "image": "assets/products/ppmYD.png",
+      "price": 199,
+      "volume": 270,
+      "volumeType": 0,
+      "description": {
+        "id": 92,
+        "ingredients": "Normalized milk, fruit filler (sugar, mango, papaya, chia seeds, water, natural thickener - citrus pectin, lemon juice), sugar, dietary fiber, yoghurt starter.",
+        "shelfLife": "38 days",
+        "storageConditions": "from +1 °C to +4 °C",
+        "manufacturer": "Greece",
+        "brand": "Liberty Yogurt"
+      },
+      "perHundredGrams": {
+        "id": 92,
+        "kcal": 76,
+        "fat": 2,
+        "carbs": 13,
+        "protein": 3
+      }
+    },
+    {
+      "id": 93,
+      "name": "Watermelon-mint-bamboo yogurt",
+      "image": "assets/products/wmbYD.png",
+      "price": 199,
+      "volume": 270,
+      "volumeType": 0,
+      "description": {
+        "id": 93,
+        "ingredients": "Normalized milk, fruit filler (sugar, water, rice flakes, concentrated watermelon juice, natural thickener - citrus pectin, mint extract, bamboo extract, lemon juice), sugar, dietary fiber, yogurt sourdough.",
+        "shelfLife": "38 days",
+        "storageConditions": "from +1 °C to +4 °C",
+        "manufacturer": "Greece",
+        "brand": "Liberty Yogurt"
+      },
+      "perHundredGrams": {
+        "id": 93,
+        "kcal": 76,
+        "fat": 2,
+        "carbs": 13,
+        "protein": 3
+      }
+    },
+    {
+      "id": 94,
+      "name": "Mineral water Petroglyph",
+      "image": "assets/products/mwpWT.png",
+      "price": 199,
+      "volume": 1250,
+      "volumeType": 1,
+      "description": {
+        "id": 94,
+        "ingredients": "Bicarbonate ions: 250 - 450 mg/l., Calcium ions: 45 - 100 mg/l., Magnesium ions: 10 - 40 mg/l., Sulfate ions: 5 - 35 mg/l., Chloride ions: 0 - 20 mg / l., Sodium + potassium ions: 5 - 35 mg / l.",
+        "shelfLife": "730 days",
+        "storageConditions": "from +3 °C to +30 °C",
+        "manufacturer": "Serbia",
+        "brand": "Petroglyph"
+      },
+      "perHundredGrams": {
+        "id": 94,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 95,
+      "name": "Mineral water Borjomi (sparkling)",
+      "image": "assets/products/mwbWT.png",
+      "price": 99,
+      "volume": 330,
+      "volumeType": 1,
+      "description": {
+        "id": 95,
+        "ingredients": "Bicarbonates 3500-5000, Sodium 1000-2000, Chlorides 250-500, Sulfates 0-50, Calcium 20-150, Magnesium 20-150, Potassium 5-50, Contains fluoride.",
+        "shelfLife": "730 days",
+        "storageConditions": "from +3 °C to +25 °C",
+        "manufacturer": "Georgia",
+        "brand": "Borjomi"
+      },
+      "perHundredGrams": {
+        "id": 95,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 96,
+      "name": "Mineral water Donat (sparkling)",
+      "image": "assets/products/mwdWT.png",
+      "price": 199,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 96,
+        "ingredients": "Sulfate-hydrocarbonate sodium-magnesium water, carbonated. Highly mineralized natural carbonated addition of free carbon dioxide from the source is at least 3000 mg/l. General mineralization: 10.5 - 15.9 g/l. Cations (mg/l): magnesium (Mg) 850-1200, sodium (Na) 1200-2000, calcium (Ca) 300-480. Anions (mg/l): hydrocarbonates (HCO) 6300-9400, sulfates (SO) 1800-2700, chlorides (Cl) <100. Analytical values may vary depending on the physico-chemical fluctuations characteristic of natural raw materials.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +3 °C to +25 °C",
+        "manufacturer": "Georgia",
+        "brand": "Donat"
+      },
+      "perHundredGrams": {
+        "id": 96,
+        "kcal": 0,
+        "fat": 0,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 97,
+      "name": "Rich orange juice",
+      "image": "assets/products/rcrWT.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 97,
+        "ingredients": "Orange juice.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Belarus",
+        "brand": "Rich"
+      },
+      "perHundredGrams": {
+        "id": 97,
+        "kcal": 36,
+        "fat": 0,
+        "carbs": 9,
+        "protein": 0
+      }
+    },
+    {
+      "id": 98,
+      "name": "Rich apple juice",
+      "image": "assets/products/rcaWT.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 98,
+        "ingredients": "Apple juice.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Belarus",
+        "brand": "Rich"
+      },
+      "perHundredGrams": {
+        "id": 98,
+        "kcal": 48,
+        "fat": 0,
+        "carbs": 12,
+        "protein": 0
+      }
+    },
+    {
+      "id": 99,
+      "name": "Rich cherry juice",
+      "image": "assets/products/rccWT.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 99,
+        "ingredients": "Cherry juice, sugar, acidity regulator - citric acid, water. Made from concentrated juice.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Belarus",
+        "brand": "Rich"
+      },
+      "perHundredGrams": {
+        "id": 99,
+        "kcal": 46,
+        "fat": 0,
+        "carbs": 11,
+        "protein": 0
+      }
+    },
+    {
+      "id": 100,
+      "name": "Rich grapefruit juice",
+      "image": "assets/products/rcgWT.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 100,
+        "ingredients": "Cherry grapefruit, sugar, acidity regulator - citric acid, water. Made from concentrated juice.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Belarus",
+        "brand": "Rich"
+      },
+      "perHundredGrams": {
+        "id": 100,
+        "kcal": 32,
+        "fat": 0,
+        "carbs": 8,
+        "protein": 0
+      }
+    },
+    {
+      "id": 101,
+      "name": "Rich multifruit juice",
+      "image": "assets/products/rcmWT.png",
+      "price": 299,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 101,
+        "ingredients": "",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Belarus",
+        "brand": "Rich"
+      },
+      "perHundredGrams": {
+        "id": 101,
+        "kcal": 41,
+        "fat": 0,
+        "carbs": 10,
+        "protein": 0
+      }
+    },
+    {
+      "id": 102,
+      "name": "Coca-Cola Classic",
+      "image": "assets/products/cccWT.png",
+      "price": 199,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 102,
+        "ingredients": "Purified carbonated water, sugar, sugar color IV, acidity regulator phosphoric acid, natural flavors, caffeine (less than 130 mg/l).",
+        "shelfLife": "180 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Coca-Cola"
+      },
+      "perHundredGrams": {
+        "id": 102,
+        "kcal": 42,
+        "fat": 11,
+        "carbs": 0,
+        "protein": 0
+      }
+    },
+    {
+      "id": 103,
+      "name": "Lipton lemon tea",
+      "image": "assets/products/lltWT.png",
+      "price": 175,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 103,
+        "ingredients": "",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Lipton"
+      },
+      "perHundredGrams": {
+        "id": 103,
+        "kcal": 30,
+        "fat": 1,
+        "carbs": 7,
+        "protein": 1
+      }
+    },
+    {
+      "id": 104,
+      "name": "Lipton peach tea",
+      "image": "assets/products/lptWT.png",
+      "price": 175,
+      "volume": 1000,
+      "volumeType": 1,
+      "description": {
+        "id": 104,
+        "ingredients": "Water, sugar, acidity regulators, black tea extract, peach juice, flavouring, antioxidant ascorbic acid, sweetener natural stevia extract.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Lipton"
+      },
+      "perHundredGrams": {
+        "id": 104,
+        "kcal": 20,
+        "fat": 1,
+        "carbs": 5,
+        "protein": 1
+      }
+    },
+    {
+      "id": 105,
+      "name": "Lay's Stax Barbecue Ribs",
+      "image": "assets/products/clsSN.png",
+      "price": 199,
+      "volume": 140,
+      "volumeType": 0,
+      "description": {
+        "id": 105,
+        "ingredients": "Potato flakes (contains gluten), vegetable oil, wheat starch, complex food additive (whey powder, sugar, flavoring substances (contains onion, garlic, tomato powder), salt, flavor and aroma enhancers (monosodium glutamate 1-substituted, 5 2-substituted sodium '-guanylate, 2-substituted 5'-sodium inosinate), spices, color (paprika extract)), potato starch, sugar, emulsifiers (mono- and diglycerides of fatty acids, lecithins), acidity regulator (citric acid) .",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Lay's"
+      },
+      "perHundredGrams": {
+        "id": 105,
+        "kcal": 490,
+        "fat": 27,
+        "carbs": 57,
+        "protein": 5
+      }
+    },
+    {
+      "id": 106,
+      "name": "Lay's Stax Paprika",
+      "image": "assets/products/lspSN.png",
+      "price": 199,
+      "volume": 140,
+      "volumeType": 0,
+      "description": {
+        "id": 106,
+        "ingredients": "Potato flakes (contain gluten), vegetable oil, wheat starch, complex food additive (sugar, salt, paprika powder, whey powder, onion powder, flavor and aroma enhancers (monosodium glutamate 1-substituted, 5-sodium ribonucleotides 2-substituted ), gelling agent (potassium chloride), flavoring agents (contain humectant (propylene glycol), yeast extract), garlic powder, carob powder, acidity regulator (malic acid), anti-caking agents (calcium silicate, amorphous silicon dioxide), color (wig extract), smoke flavor, emulsifiers (mono- and diglycerides of fatty acids, lecithins), sugar, acidity regulators (citric acid).",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Lay's"
+      },
+      "perHundredGrams": {
+        "id": 106,
+        "kcal": 490,
+        "fat": 27,
+        "carbs": 57,
+        "protein": 5
+      }
+    },
+    {
+      "id": 107,
+      "name": "Lay's Stax Sour Cream & Onion",
+      "image": "assets/products/lssSN.png",
+      "price": 199,
+      "volume": 140,
+      "volumeType": 0,
+      "description": {
+        "id": 107,
+        "ingredients": "Potato flakes (contains gluten), vegetable oil, wheat starch, flavoring [salt, flavorings (contains onion powder, garlic powder, parsley, sour cream powder), whey powder, sugar, flavor enhancer (monosodium glutamate 1-substituted) , gelling agent (potassium chloride), acidity regulators (sodium acetate, citric acid), wheat flour], potato starch, emulsifiers (mono- and diglycerides of fatty acids, lecithins).",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Lay's"
+      },
+      "perHundredGrams": {
+        "id": 107,
+        "kcal": 490,
+        "fat": 27,
+        "carbs": 57,
+        "protein": 5
+      }
+    },
+    {
+      "id": 108,
+      "name": "Sweets Raffaello",
+      "image": "assets/products/srfSN.png",
+      "price": 399,
+      "volume": 150,
+      "volumeType": 0,
+      "description": {
+        "id": 108,
+        "ingredients": "Dried coconut flakes, vegetable fats, sugar, sweet almonds, skimmed milk powder, whey powder, wheat flour, tapioca starch, emulsifier: lecithins, flavourings, raising agent: sodium bicarbonate, salt.",
+        "shelfLife": "240 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "France",
+        "brand": "Raffaello"
+      },
+      "perHundredGrams": {
+        "id": 108,
+        "kcal": 628,
+        "fat": 49,
+        "carbs": 38,
+        "protein": 7
+      }
+    },
+    {
+      "id": 109,
+      "name": "Sweets Merci",
+      "image": "assets/products/smrSN.png",
+      "price": 499,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 109,
+        "ingredients": "",
+        "shelfLife": "304 days",
+        "storageConditions": "from +14 °C to +21 °C",
+        "manufacturer": "Germany",
+        "brand": "Merci"
+      },
+      "perHundredGrams": {
+        "id": 109,
+        "kcal": 563,
+        "fat": 36,
+        "carbs": 50,
+        "protein": 8
+      }
+    },
+    {
+      "id": 110,
+      "name": "Sweets Ferrero Rocher",
+      "image": "assets/products/sfrSN.png",
+      "price": 599,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 110,
+        "ingredients": "Milk chocolate (sugar, cocoa butter, cocoa mass, skimmed milk powder, milk fat, emulsifier: lecithins, flavouring), hazelnuts, sugar, vegetable fat, wheat flour, whey powder, skimmed cocoa powder, raising agent: sodium bicarbonate, salt, flavoring; contains nuts, milk, cereals containing gluten, soy and their derivatives.",
+        "shelfLife": "263 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": "Ferrero Rocher"
+      },
+      "perHundredGrams": {
+        "id": 110,
+        "kcal": 603,
+        "fat": 43,
+        "carbs": 44,
+        "protein": 8
+      }
+    },
+    {
+      "id": 111,
+      "name": "Ritter Sport rum-raisin-nut",
+      "image": "assets/products/rsrSN.png",
+      "price": 199,
+      "volume": 100,
+      "volumeType": 0,
+      "description": {
+        "id": 111,
+        "ingredients": "Sugar, cocoa butter, raisins, cocoa mass, whole milk powder, crushed hazelnuts, lactose, skimmed milk powder, milkfat, Jamaican rum, emulsifier (soy lecithin), natural flavor (bourbon vanilla extract). Content of cocoa products in chocolate mass - not less than 30%. The total content in the chocolate mass: dry cocoa residue - not less than 30%, dry fat-free cocoa - not less than 6%, dry total milk residue - not less than 18%, milk fat - not less than 6%. May contain traces of peanuts, other nuts, gluten. Contains alcohol.",
+        "shelfLife": "300 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Ritter Sport"
+      },
+      "perHundredGrams": {
+        "id": 111,
+        "kcal": 492,
+        "fat": 28,
+        "carbs": 54,
+        "protein": 6
+      }
+    },
+    {
+      "id": 112,
+      "name": "Kinder Chocolate Country",
+      "image": "assets/products/kccSN.png",
+      "price": 99,
+      "volume": 25,
+      "volumeType": 0,
+      "description": {
+        "id": 112,
+        "ingredients": "Sugar, cocoa butter, raisins, cocoa mass, whole milk powder, crushed hazelnuts, lactose, skimmed milk powder, milkfat, Jamaican rum, emulsifier (soy lecithin), natural flavor (bourbon vanilla extract). Content of cocoa products in chocolate mass - not less than 30%. The total content in the chocolate mass: dry cocoa residue - not less than 30%, dry fat-free cocoa - not less than 6%, dry total milk residue - not less than 18%, milk fat - not less than 6%. May contain traces of peanuts, other nuts, gluten. Contains alcohol.",
+        "shelfLife": "270 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Italy",
+        "brand": "Kinder"
+      },
+      "perHundredGrams": {
+        "id": 112,
+        "kcal": 561,
+        "fat": 34,
+        "carbs": 55,
+        "protein": 9
+      }
+    },
+    {
+      "id": 113,
+      "name": "Ritter Sport Hazelnut",
+      "image": "assets/products/rshSN.png",
+      "price": 199,
+      "volume": 100,
+      "volumeType": 0,
+      "description": {
+        "id": 113,
+        "ingredients": "Sugar, hazelnut kernel, cocoa butter, cocoa mass, whole milk powder, lactose, skimmed milk powder, milk fat, emulsifier (soy lecithin). May contain traces of peanuts, other nuts, gluten-containing cereals and eggs.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Germany",
+        "brand": "Ritter Sport"
+      },
+      "perHundredGrams": {
+        "id": 113,
+        "kcal": 575,
+        "fat": 39,
+        "carbs": 46,
+        "protein": 9
+      }
+    },
+    {
+      "id": 114,
+      "name": "Сhicken drumstick",
+      "image": "assets/products/cdrMT.png",
+      "price": 499,
+      "volume": 900,
+      "volumeType": 0,
+      "description": {
+        "id": 114,
+        "ingredients": "Broiler chicken drumstick with skin on the bone.",
+        "shelfLife": "8 days",
+        "storageConditions": "from -2 °C to +2 °C",
+        "manufacturer": "Russia",
+        "brand": "Nasha Ptichka"
+      },
+      "perHundredGrams": {
+        "id": 114,
+        "kcal": 140,
+        "fat": 7,
+        "carbs": 0,
+        "protein": 18
+      }
+    },
+    {
+      "id": 115,
+      "name": "Chicken thigh",
+      "image": "assets/products/cthMT.png",
+      "price": 399,
+      "volume": 834,
+      "volumeType": 0,
+      "description": {
+        "id": 115,
+        "ingredients": "Broiler chicken thigh on the bone with skin",
+        "shelfLife": "8 days",
+        "storageConditions": "from -2 °C to +2 °C",
+        "manufacturer": "Russia",
+        "brand": "Nasha Ptichka"
+      },
+      "perHundredGrams": {
+        "id": 115,
+        "kcal": 140,
+        "fat": 8,
+        "carbs": 0,
+        "protein": 17
+      }
+    },
+    {
+      "id": 116,
+      "name": "Chicken breast fillet",
+      "image": "assets/products/cbfMT.png",
+      "price": 499,
+      "volume": 834,
+      "volumeType": 0,
+      "description": {
+        "id": 116,
+        "ingredients": "Broiler chicken breast fillet.",
+        "shelfLife": "8 days",
+        "storageConditions": "from -2 °C to +2 °C",
+        "manufacturer": "Russia",
+        "brand": "Nasha Ptichka"
+      },
+      "perHundredGrams": {
+        "id": 116,
+        "kcal": 130,
+        "fat": 5,
+        "carbs": 0,
+        "protein": 21
+      }
+    },
+    {
+      "id": 117,
+      "name": "Marbled Beef Steak",
+      "image": "assets/products/mbsMT.png",
+      "price": 699,
+      "volume": 400,
+      "volumeType": 0,
+      "description": {
+        "id": 117,
+        "ingredients": "Marble beef.",
+        "shelfLife": "35 days",
+        "storageConditions": "from -1 °C to +4 °C",
+        "manufacturer": "Russia",
+        "brand": "Primebeef"
+      },
+      "perHundredGrams": {
+        "id": 117,
+        "kcal": 230,
+        "fat": 18,
+        "carbs": 0,
+        "protein": 16
+      }
+    },
+    {
+      "id": 118,
+      "name": "Ribeye steak",
+      "image": "assets/products/rbsMT.png",
+      "price": 499,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 118,
+        "ingredients": "",
+        "shelfLife": "10 days",
+        "storageConditions": "from +0 °C to +4 °C",
+        "manufacturer": "Russia",
+        "brand": "Open Fire"
+      },
+      "perHundredGrams": {
+        "id": 118,
+        "kcal": 150,
+        "fat": 8,
+        "carbs": 1,
+        "protein": 19
+      }
+    },
+    {
+      "id": 119,
+      "name": "Escalope pork",
+      "image": "assets/products/scpMT.png",
+      "price": 399,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 119,
+        "ingredients": "Pork",
+        "shelfLife": "12 days",
+        "storageConditions": "from -2 °C to +2 °C",
+        "manufacturer": "Russia",
+        "brand": "Cherkizovo"
+      },
+      "perHundredGrams": {
+        "id": 119,
+        "kcal": 217,
+        "fat": 17,
+        "carbs": 0,
+        "protein": 16
+      }
+    },
+    {
+      "id": 120,
+      "name": "Pork loin",
+      "image": "assets/products/plnMT.png",
+      "price": 399,
+      "volume": 800,
+      "volumeType": 0,
+      "description": {
+        "id": 120,
+        "ingredients": "Pork",
+        "shelfLife": "21 days",
+        "storageConditions": "from +0 °C to +4 °C",
+        "manufacturer": "Tambov Bacon, Russia",
+        "brand": "Slovo Myasnika"
+      },
+      "perHundredGrams": {
+        "id": 120,
+        "kcal": 150,
+        "fat": 10,
+        "carbs": 0,
+        "protein": 16
+      }
+    },
+    {
+      "id": 121,
+      "name": "Trout Steak",
+      "image": "assets/products/trsFS.png",
+      "price": 499,
+      "volume": 250,
+      "volumeType": 0,
+      "description": {
+        "id": 121,
+        "ingredients": "",
+        "shelfLife": "8 days",
+        "storageConditions": "from -2 °C to +0 °C",
+        "manufacturer": "Russia",
+        "brand": "Sea Fruit"
+      },
+      "perHundredGrams": {
+        "id": 121,
+        "kcal": 130,
+        "fat": 4,
+        "carbs": 0,
+        "protein": 19
+      }
+    },
+    {
+      "id": 122,
+      "name": "Slightly salted salmon fillet",
+      "image": "assets/products/sssFS.png",
+      "price": 599,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 122,
+        "ingredients": "Salmon, sea salt, salt, antioxidant rosemary extracts.",
+        "shelfLife": "51 days",
+        "storageConditions": "from -2 °C to +5 °C",
+        "manufacturer": "Russia",
+        "brand": "Russian Sea"
+      },
+      "perHundredGrams": {
+        "id": 122,
+        "kcal": 201,
+        "fat": 14,
+        "carbs": 0,
+        "protein": 18
+      }
+    },
+    {
+      "id": 123,
+      "name": "Salted trout fillet",
+      "image": "assets/products/stfFS.png",
+      "price": 599,
+      "volume": 200,
+      "volumeType": 0,
+      "description": {
+        "id": 123,
+        "ingredients": "Rainbow trout, sea salt, salt, rosemary extract.",
+        "shelfLife": "50 days",
+        "storageConditions": "from -3 °C to +5 °C",
+        "manufacturer": "Belarus",
+        "brand": "Russian Sea"
+      },
+      "perHundredGrams": {
+        "id": 123,
+        "kcal": 180,
+        "fat": 12,
+        "carbs": 0,
+        "protein": 18
+      }
+    },
+    {
+      "id": 124,
+      "name": "Pork Sausages",
+      "image": "assets/products/prkSS.png",
+      "price": 299,
+      "volume": 440,
+      "volumeType": 0,
+      "description": {
+        "id": 124,
+        "ingredients": "Pork, water, nitrite salt (salt, sodium nitrite color fixer), egg white, sugar, stabilizers E450, E452, thickener xanthan gum, gum containers, spices, acidity regulators E262, E451, taste and aroma enhancer E621, antioxidant ascorbic acid, calcium sulfate sealant, sodium lactate water-retaining agent, carmine dye.",
+        "shelfLife": "35 days",
+        "storageConditions": "from +2 °C to +6 °C",
+        "manufacturer": "Russia",
+        "brand": "Velkom"
+      },
+      "perHundredGrams": {
+        "id": 124,
+        "kcal": 230,
+        "fat": 20,
+        "carbs": 0,
+        "protein": 12
+      }
+    },
+    {
+      "id": 125,
+      "name": "Bavarian sausages",
+      "image": "assets/products/bvnSS.png",
+      "price": 249,
+      "volume": 420,
+      "volumeType": 0,
+      "description": {
+        "id": 125,
+        "ingredients": "Pork, poultry cuts, water, mechanically separated broiler chicken, beef, protein stabilizer (pork skin, water), nitrite salt (salt, color fixative: sodium nitrite), salt, potato starch, egg melange, powdered milk, animal protein , stabilizer: sodium polyphosphate, spices and spice extracts (pepper, cardamom, onion, mustard), antioxidants (ascorbic acid, citric acid), dyes (carmines, paprika extract). With concern for your health, we inform you that the product may contain traces of celery, wheat and products of their processing.",
+        "shelfLife": "45 days",
+        "storageConditions": "from +0 °C to +5 °C",
+        "manufacturer": "Russia",
+        "brand": "Starodvorie"
+      },
+      "perHundredGrams": {
+        "id": 125,
+        "kcal": 160,
+        "fat": 12,
+        "carbs": 0,
+        "protein": 12
+      }
+    },
+    {
+      "id": 126,
+      "name": "Turkey sausages",
+      "image": "assets/products/trkSS.png",
+      "price": 199,
+      "volume": 240,
+      "volumeType": 0,
+      "description": {
+        "id": 126,
+        "ingredients": "Turkey meat, water, dry milk, nitrite curing mixture (salt, sodium nitrite color fixer), milk protein, sugar, stabilizers: pyrophosphates, polyphosphates, acidity regulators: triphosphates, sodium hydroxide, flavoring agent, flavor enhancer monosodium glutamate, maltodextrin, salt, antioxidant ascorbic acid, spice extracts, wheat fiber, white vinegar powder, spices, dextrose, monascus extract. May contain soy, eggs, mustard, celery, tree nuts, peanuts, sesame and/or their derivatives.",
+        "shelfLife": "40 days",
+        "storageConditions": "from +0 °C to +6 °C",
+        "manufacturer": "Russia",
+        "brand": "Indilayt"
+      },
+      "perHundredGrams": {
+        "id": 126,
+        "kcal": 220,
+        "fat": 20,
+        "carbs": 0,
+        "protein": 11
+      }
+    },
+    {
+      "id": 127,
+      "name": "Salchichon sausage",
+      "image": "assets/products/slcSS.png",
+      "price": 199,
+      "volume": 70,
+      "volumeType": 0,
+      "description": {
+        "id": 127,
+        "ingredients": "Pork, lactose, salt, spices (white pepper, cinnamon, ground coriander), dextrose, flavors, antioxidant (sodium isoascorbate), maltodextrin, anti-caking agent (E504), dye (carmines), preservatives (potassium nitrate, sodium nitrite), starting cultures, surface starter culture (Penicillium nalgiovensis, Penicillium candidum).",
+        "shelfLife": "40 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Spain",
+        "brand": "Casademont"
+      },
+      "perHundredGrams": {
+        "id": 127,
+        "kcal": 387,
+        "fat": 35,
+        "carbs": 0,
+        "protein": 18
+      }
+    },
+    {
+      "id": 128,
+      "name": "Flamenco salami",
+      "image": "assets/products/flmSS.png",
+      "price": 149,
+      "volume": 100,
+      "volumeType": 0,
+      "description": {
+        "id": 128,
+        "ingredients": "Beef, bacon, pork, salt, starch, maltodextrin, grape sugar, spices, lactic acid culture, flavor and aroma enhancer (monosodium glutamate), smoked sausage flavor identical to natural, mustard seed, antioxidant (sodium ascorbate), sugar, food coloring (carmine ), color fixative (sodium nitrite).",
+        "shelfLife": "90 days",
+        "storageConditions": "from +2 °C to +4 °C",
+        "manufacturer": "Russia",
+        "brand": "Cherkizovo"
+      },
+      "perHundredGrams": {
+        "id": 128,
+        "kcal": 579,
+        "fat": 55,
+        "carbs": 1,
+        "protein": 21
+      }
+    }
+  ]
+}
