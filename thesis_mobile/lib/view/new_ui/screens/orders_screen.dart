@@ -59,7 +59,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Заказы',
+          'Orders',
         ),
       ),
       body: orders.isNotEmpty
@@ -80,7 +80,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
               ],
             )
           : Center(
-              child: Text('Нет заказов'),
+              child: Text('Empty'),
             ),
     );
   }

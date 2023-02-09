@@ -27,7 +27,7 @@ class SearchBar extends StatelessWidget {
           children: [
             Text(
               // 'Продукты или категории',
-              'Поиск по названию',
+              'Search products',
               style: TextStyle(color: AppColors.GrayPick, fontSize: 16),
             ),
             Spacer(),

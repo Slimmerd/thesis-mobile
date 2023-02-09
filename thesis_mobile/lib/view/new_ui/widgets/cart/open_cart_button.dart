@@ -16,19 +16,19 @@ class OpenCartButton extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(builder: (context, state) {
       CartBloc cart = context.read<CartBloc>();
 
-      String price = Money.fromInt(cart.state.totalPrice, code: 'RUB')
+      String price = Money.fromInt(cart.state.totalPrice, code: 'GBP')
           .format('#,###,###.00 S')
           .toString()
           .replaceAll(regexRemoveZero, '');
 
       String deliveryPrice =
-          Money.fromInt(cart.state.totalDeliveryPrice, code: 'RUB')
+          Money.fromInt(cart.state.totalDeliveryPrice, code: 'GBP')
               .format('#,###,###.00 S')
               .toString()
               .replaceAll(regexRemoveZero, '');
 
       String untilFreeDelivery = 120000 - cart.state.totalPrice > 0
-          ? '${Money.fromInt(cart.state.totalDeliveryPrice, code: 'RUB').format('#,###,###.00 S').toString().replaceAll(regexRemoveZero, '')} until free delivery'
+          ? '${Money.fromInt(cart.state.totalDeliveryPrice, code: 'GBP').format('#,###,###.00 S').toString().replaceAll(regexRemoveZero, '')} until free delivery'
           : 'free delivery';
       //  if (cart.state.notEmpty) {
       // return OpenCartButton(
@@ -89,7 +89,7 @@ class OpenCartButton extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Заказ'),
+                        Text('Cart'),
                         Text('${price}'),
                       ],
                     ),

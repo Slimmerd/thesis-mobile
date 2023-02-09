@@ -21,15 +21,15 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var deliveryPrice = Money.fromInt(order.deliveryPrice, code: 'RUB')
+    var deliveryPrice = Money.fromInt(order.deliveryPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
-    var serviceFee = Money.fromInt(order.serviceFee, code: 'RUB')
+    var serviceFee = Money.fromInt(order.serviceFee, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
-    var totalPrice = Money.fromInt(order.total, code: 'RUB')
+    var totalPrice = Money.fromInt(order.total, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -56,7 +56,7 @@ class OrderScreen extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  'Academika Anohima 38 ',
+                  '${order.address.street} ${order.address.building}',
                   style: NewTypography.M12400,
                 ),
                 SizedBox(
@@ -67,7 +67,7 @@ class OrderScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Доставка',
+                        'Delivery',
                         style: NewTypography.R12600,
                       ),
                       Text(
@@ -82,7 +82,7 @@ class OrderScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Сервис', style: NewTypography.R12600),
+                      Text('Service', style: NewTypography.R12600),
                       Text(
                         '${serviceFee}',
                         style: NewTypography.R12400,
@@ -94,7 +94,7 @@ class OrderScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Итого', style: NewTypography.R12600),
+                      Text('Total', style: NewTypography.R12600),
                       Text('${totalPrice}',
                           style: NewTypography.R12400.apply(
                             color: AppColors.MintGreen,
@@ -111,7 +111,7 @@ class OrderScreen extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                  Text('Комментарий',
+                  Text('Comment',
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
                   Text(
@@ -131,7 +131,7 @@ class OrderScreen extends StatelessWidget {
                           TrackOrderScreen(
                             orderID: order.id,
                           )),
-                      child: Text('Отслеживать'),
+                      child: Text('Track'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.MintGreen,
                           shape: new RoundedRectangleBorder(
@@ -155,7 +155,7 @@ class OrderScreen extends StatelessWidget {
                             orderID: order.id,
                           ),
                         ),
-                    child: Text('Оставить отзыв'),
+                    child: Text('Review'),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.MintGreen,
                         shape: new RoundedRectangleBorder(

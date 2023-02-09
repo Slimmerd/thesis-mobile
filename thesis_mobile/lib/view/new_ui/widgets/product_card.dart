@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String productPrice = Money.fromInt(product.price, code: 'RUB')
+    String productPrice = Money.fromInt(product.price, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -60,6 +60,7 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           Container(
+            width: double.infinity,
             padding: EdgeInsets.all(5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,6 +68,8 @@ class ProductCard extends StatelessWidget {
                 Text(
                   '${product.name}',
                   style: Theme.of(context).textTheme.headline6,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
                 SizedBox(
                   height: 5.r,

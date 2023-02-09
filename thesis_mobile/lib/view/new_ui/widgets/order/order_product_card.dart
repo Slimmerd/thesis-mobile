@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
-import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/core/model/cart_product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
@@ -14,10 +12,17 @@ class OrderProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var productPrice = Money.fromInt(product.totalPrice, code: 'RUB')
+    var productPrice = Money.fromInt(product.totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
+
+    var productVolume = product.product.volume >= 1000
+        ? product.product.volume / 1000
+        : product.product.volume;
+    var volumeType = product.product.volume >= 1000
+        ? volumeTypeParserBig(product.product.volumeType)
+        : volumeTypeParserSmall(product.product.volumeType);
 
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -39,66 +44,52 @@ class OrderProduct extends StatelessWidget {
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                   child: Image.asset(
-                    'assets/Placeholder.png',
+                    product.product.image,
                     width: double.maxFinite,
                     fit: BoxFit.fill,
                     cacheWidth: 256,
                     cacheHeight: 256,
                   ))),
-          BlocBuilder<CartBloc, CartState>(builder: (context, _) {
-            var price = Money.fromInt(product.totalPrice, code: 'RUB')
-                .format('#,###,###.00 S')
-                .toString()
-                .replaceAll(regexRemoveZero, '');
-            var productVolume = product.product.volume >= 1000
-                ? product.product.volume / 1000
-                : product.product.volume;
-            var volumeType = product.product.volume >= 1000
-                ? volumeTypeParserBig(product.product.volumeType)
-                : volumeTypeParserSmall(product.product.volumeType);
-
-            return Flexible(
-              child: Container(
-                margin: const EdgeInsets.only(
-                    left: 14, top: 14, right: 10, bottom: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        "${product.product.name}, ${productVolume}${volumeType}",
-                        softWrap: true,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+          Flexible(
+            child: Container(
+              margin: const EdgeInsets.only(
+                  left: 14, top: 14, right: 10, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("${product.product.name}, ${productVolume}${volumeType}",
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.Graphite,
+                      )),
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${product.quantity} pc',
                         style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.Graphite,
-                        )),
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '${product.quantity} pc',
-                          style: TextStyle(
-                              color: AppColors.GrayPick,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        Text(
-                          '${product.totalPrice} ₽',
-                          style: TextStyle(
-                              color: AppColors.MintGreen,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                            color: AppColors.GrayPick,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        '${productPrice}',
+                        style: TextStyle(
+                            color: AppColors.MintGreen,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      )
+                    ],
+                  )
+                ],
               ),
-            );
-          })
+            ),
+          )
         ],
       ),
     );

@@ -21,7 +21,7 @@ class TrackOrderScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ваш заказ'),
+        title: Text('Order'),
         actions: [
           GestureDetector(
             onTap: () => showModalBottomSheet(

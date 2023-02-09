@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
+import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/default_data.dart';
 import 'package:thesis_mobile/view/new_ui/screens/menu_screen.dart';
@@ -21,12 +22,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late ScrollController _scrollController;
-  late AddressState _addressState;
 
   @override
   void initState() {
     _scrollController = ScrollController();
-    _addressState = BlocProvider.of<AddressBloc>(context).state;
     super.initState();
   }
 
@@ -44,8 +43,12 @@ class _MainScreenState extends State<MainScreen> {
           icon: Icon(Icons.person),
           onPressed: () => customPagePush(context, MenuScreen()),
         ),
-        title: TitleAddressSelect(
-          addressState: _addressState,
+        title: BlocBuilder<AddressBloc, AddressState>(
+          builder: (context, state) {
+            return TitleAddressSelect(
+              addressState: state,
+            );
+          },
         ),
       ),
       body: NestedScrollView(
@@ -97,22 +100,26 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
               Text(
-                'For breakfast',
+                'Categories',
                 style: Theme.of(context).textTheme.headline4,
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 10.w,
-                  runSpacing: 10.h,
-                  children: DefaultData.parentCategories
-                      .map((e) => CategoryCard(
-                            parentCategory: e,
-                            big: e.big,
-                          ))
-                      .toList(),
-                ),
+              BlocBuilder<StockBloc, StockState>(
+                builder: (context, state) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 10.w,
+                      runSpacing: 10.h,
+                      children: state.parentCategories
+                          .map((e) => CategoryCard(
+                                parentCategory: e,
+                                big: e.big,
+                              ))
+                          .toList(),
+                    ),
+                  );
+                },
               ),
             ],
           )),

@@ -113,13 +113,13 @@ class DeliveryPopup extends StatelessWidget {
                                             color: AppColors.RedWarn,
                                           ),
                                           Text(
-                                            'Delivery 399 ₽',
+                                            'Delivery 3.99 £',
                                             style: NewTypography.M12400,
                                           )
                                         ],
                                       ),
                                       Text(
-                                        'from 0 ₽',
+                                        'from 0 £',
                                         style: NewTypography.M12400,
                                       )
                                     ],
@@ -144,13 +144,13 @@ class DeliveryPopup extends StatelessWidget {
                                             color: AppColors.YellowWarn,
                                           ),
                                           Text(
-                                            'Delivery 199 ₽',
+                                            'Delivery 1.99 £',
                                             style: NewTypography.M12400,
                                           )
                                         ],
                                       ),
                                       Text(
-                                        'from 600 ₽',
+                                        'from 6.00 £',
                                         style: NewTypography.M12400,
                                       )
                                     ],
@@ -174,13 +174,13 @@ class DeliveryPopup extends StatelessWidget {
                                             color: AppColors.MintGreen,
                                           ),
                                           Text(
-                                            'Delivery 0 ₽',
+                                            'Delivery 0 £',
                                             style: NewTypography.M12400,
                                           )
                                         ],
                                       ),
                                       Text(
-                                        'from 1200 ₽',
+                                        'from 12.00 £',
                                         style: NewTypography.M12400,
                                       )
                                     ],

@@ -7,17 +7,18 @@ import 'package:thesis_mobile/view/new_ui/widgets/address/address_checkbox.dart'
 
 class AddressSelector extends StatelessWidget {
   final Address address;
-  final Address current;
-  final List<Address> addressData;
+  final int currentID;
+  final int addressesLength;
   final Function(Address newAddress)? setNew;
-  final bool resultDelete = false;
+  final Function(Address address)? remove;
 
   const AddressSelector({
     Key? key,
     required this.address,
-    required this.current,
+    required this.currentID,
     required this.setNew,
-    required this.addressData,
+    required this.remove,
+    required this.addressesLength,
   }) : super(key: key);
 
   @override
@@ -32,64 +33,52 @@ class AddressSelector extends StatelessWidget {
         child: Icon(Icons.delete_forever, color: AppColors.Cloud),
       ),
       confirmDismiss: (DismissDirection _dir) async {
-        // if (addressData.length > 1) {
-        //   runDeleteAddressMutation({'id': address.id});
-        // } else
-        //   return false;
-
-        // if (resultDelete!.hasException) {
-        //   return false;
-        // } else {
-        //   return true;
-        // }
-        return false;
+        if (addressesLength > 1 && address.id != currentID) {
+          remove?.call(address);
+        } else {
+          return false;
+        }
       },
       child: Material(
         child: InkWell(
           onTap: () {
-            if (resultDelete) {
-              return;
-            }
             setNew?.call(address);
           },
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 12),
-            child: resultDelete
-                ? CircularProgressIndicator(color: AppColors.MintGreen)
-                : Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AddressCheckBox(
-                            isChecked: address.building == current.building,
-                            onChange: (bool isChecked) {
-                              if (isChecked) {
-                                setNew?.call(address);
-                              }
-                            },
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'улица ${address.street} ${address.building}',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                      InkWell(
-                        onTap: () {
-                          customPagePush(
-                                  context, EditAddressScreen(address: address))
-                              .then((value) => {});
-                        },
-                        child: Icon(Icons.settings),
-                      )
-                    ],
-                  ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AddressCheckBox(
+                      isChecked: address.id == currentID,
+                      onChange: (bool isChecked) {
+                        if (isChecked) {
+                          setNew?.call(address);
+                        }
+                      },
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      '${address.street} ${address.building}',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    customPagePush(
+                        context, EditAddressScreen(address: address));
+                  },
+                  child: Icon(Icons.settings),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -21,7 +21,7 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
       context: context,
       child: DraggableScrollableSheet(
           initialChildSize: 0.50,
-          maxChildSize: 0.60,
+          maxChildSize: 0.55,
           minChildSize: 0.50,
           builder:
               (BuildContext buildContext, ScrollController scrollController) {
@@ -34,7 +34,7 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
                       topLeft: Radius.circular(30)),
                 ),
                 child: Column(children: [
-                  Text('Оставьте отзыв о вашем заказе',
+                  Text('Leave a review about your order',
                       style: Theme.of(context).textTheme.headline6),
                   SizedBox(
                     height: 20,
@@ -59,7 +59,7 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
                   ),
                   ElevatedButton(
                       onPressed: () {},
-                      child: Text('Отправить'),
+                      child: Text('Send'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: _rating > 0
                               ? AppColors.MintGreen

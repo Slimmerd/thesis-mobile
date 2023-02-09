@@ -5,13 +5,12 @@ import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
+import 'package:thesis_mobile/utils/typography.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/address/address_selector.dart';
 import 'package:thesis_mobile/view/new_ui/screens/add_address_screen.dart';
 
 class MyAddressesPopup extends StatelessWidget {
-  final AddressState addressState;
-
-  const MyAddressesPopup({super.key, required this.addressState});
+  const MyAddressesPopup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,49 +29,17 @@ class MyAddressesPopup extends StatelessWidget {
                         topRight: Radius.circular(30),
                         topLeft: Radius.circular(30)),
                   ),
-                  child:
-                      // final addressContext = BlocProvider.of<AddressBloc>(context);
-
-                      // client.mutate(MutationOptions(
-                      //   document: ADD_ADDRESS_MUTATION_DOCUMENT,
-                      //   fetchPolicy: FetchPolicy.noCache,
-                      //   variables: {
-                      //     'city': addressContext.state.currentAddress!.city,
-                      //     'street': addressContext.state.currentAddress!.street,
-                      //     'building':
-                      //         addressContext.state.currentAddress!.building,
-                      //     'intercom':
-                      //         addressContext.state.currentAddress!.intercom,
-                      //     'floor': addressContext.state.currentAddress!.floor,
-                      //     'flat_number':
-                      //         addressContext.state.currentAddress!.flat_number
-                      //   },
-                      //   onCompleted: (dynamic resultData) {
-                      //     if (resultData == null) return;
-                      //     final addAddressResponse =
-                      //         AddAddress$Mutation.fromJson(resultData).addAddress;
-                      //     if (addAddressResponse.id != -1) {
-                      //       addressContext.setAddress(
-                      //           EditAddressArguments.fromJson(
-                      //               addAddressResponse.toJson()));
-                      //     }
-                      //   },
-                      // ));
-
-                      ListView(
-                          physics: ClampingScrollPhysics(),
-                          controller: scrollController,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
-                          children: [
+                  child: ListView(
+                      physics: ClampingScrollPhysics(),
+                      controller: scrollController,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      children: [
                         Container(
                           margin: EdgeInsets.only(bottom: 12),
                           child: Text(
-                            'Мои адреса',
-                            style: TextStyle(
-                                color: AppColors.Graphite,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500),
+                            'Addresses',
+                            style: NewTypography.M18600,
                           ),
                         ),
                         BlocBuilder<AddressBloc, AddressState>(
@@ -82,16 +49,20 @@ class MyAddressesPopup extends StatelessWidget {
                                 shrinkWrap: true,
                                 controller: scrollController,
                                 physics: ClampingScrollPhysics(),
-                                itemCount: addressState.addresses.length,
+                                itemCount: state.addresses.length,
                                 itemBuilder: (_, index) {
                                   return AddressSelector(
-                                    address: addressState.addresses[index],
-                                    current: addressState.currentAddress!,
+                                    address: state.addresses[index],
+                                    currentID: state.currentAddress!.id,
+                                    addressesLength: state.addresses.length,
                                     setNew: (Address newAddress) {
                                       addressBl.setAddress(Address.fromJson(
                                           newAddress.toJson()));
                                     },
-                                    addressData: addressState.addresses,
+                                    remove: (Address address) {
+                                      addressBl.removeAddress(
+                                          Address.fromJson(address.toJson()));
+                                    },
                                   );
                                 });
                           },
@@ -107,7 +78,7 @@ class MyAddressesPopup extends StatelessWidget {
                                 width: 20,
                               ),
                               Text(
-                                'Добавить',
+                                'Add',
                                 style: TextStyle(fontSize: 16),
                               )
                             ],

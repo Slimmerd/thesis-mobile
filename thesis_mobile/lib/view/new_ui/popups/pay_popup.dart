@@ -23,7 +23,7 @@ class PayPopup extends StatefulWidget {
 class _PayPopupState extends State<PayPopup> {
   bool _isLoading = false;
   bool paymentDisabled = false;
-  String payMethod = 'Картой';
+  String payMethod = 'Card';
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _PayPopupState extends State<PayPopup> {
     final int serviceFee = widget.cart.state.serviceFee;
     final int totalPrice =
         widget.cart.state.totalPrice + serviceFee + deliveryCost;
-    final String totalPriceString = Money.fromInt(totalPrice, code: 'RUB')
+    final String totalPriceString = Money.fromInt(totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -77,7 +77,7 @@ class _PayPopupState extends State<PayPopup> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                                'Заказ доставят через ' +
+                                'Order will be delivered in ' +
                                     '~${DefaultData.waitingTime}-${(DefaultData.waitingTime * 1.5).ceil()} мин',
                                 style: TextStyle(color: AppColors.GrayPick)),
                           ],
@@ -128,7 +128,7 @@ class _PayPopupState extends State<PayPopup> {
                               // createOrder();
                             }
                           },
-                          child: Text('Оплатить'),
+                          child: Text('Pay'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: paymentDisabled || _isLoading
                                   ? AppColors.Dorian

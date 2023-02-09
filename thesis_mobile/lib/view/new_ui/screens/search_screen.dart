@@ -29,7 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Поиск продуктов'),
+        title: Text('Search products'),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 20),
@@ -38,7 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
             padding: EdgeInsets.only(bottom: 20, left: 20, right: 20),
             child: TextFormField(
               textCapitalization: TextCapitalization.sentences,
-              decoration: formInputStyle('', 'Наименование продукта'),
+              decoration: formInputStyle('', 'Name'),
               onChanged: (String? value) {
                 getProducts(value ?? '0');
               },
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           searchResult.isEmpty
               ? Center(
-                  child: Text('Здесь пусто'),
+                  child: Text('Empty'),
                 )
               : ListView.builder(
                   physics: ClampingScrollPhysics(),

@@ -30,17 +30,17 @@ class _CartScreenState extends State<CartScreen> {
       final int serviceFee = cart.state.serviceFee;
       final int totalPrice = cart.state.totalPrice + serviceFee + deliveryCost;
 
-      final String deliveryFeeString = Money.fromInt(deliveryCost, code: 'RUB')
+      final String deliveryFeeString = Money.fromInt(deliveryCost, code: 'GBP')
           .format('#,###,###.00 S')
           .toString()
           .replaceAll(regexRemoveZero, '');
 
-      final String serviceFeeString = Money.fromInt(serviceFee, code: 'RUB')
+      final String serviceFeeString = Money.fromInt(serviceFee, code: 'GBP')
           .format('#,###,###.00 S')
           .toString()
           .replaceAll(regexRemoveZero, '');
 
-      final String totalPriceString = Money.fromInt(totalPrice, code: 'RUB')
+      final String totalPriceString = Money.fromInt(totalPrice, code: 'GBP')
           .format('#,###,###.00 S')
           .toString()
           .replaceAll(regexRemoveZero, '');
@@ -75,7 +75,7 @@ class _CartScreenState extends State<CartScreen> {
                       CloudCard(
                           child: TextFormField(
                         key: _formKey,
-                        decoration: formInputStyle('Комментарий'),
+                        decoration: formInputStyle('Comment'),
                         minLines: 2,
                         maxLines: 5,
                         textCapitalization: TextCapitalization.sentences,
@@ -113,7 +113,7 @@ class _CartScreenState extends State<CartScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Итого',
+                              Text('Total',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
@@ -142,7 +142,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                               );
                             },
-                            child: Text('К оплате'),
+                            child: Text('Checkout'),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.MintGreen,
                                 shape: RoundedRectangleBorder(

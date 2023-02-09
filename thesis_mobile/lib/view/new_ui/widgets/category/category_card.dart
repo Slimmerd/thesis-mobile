@@ -24,13 +24,14 @@ class CategoryCard extends StatelessWidget {
           )),
       child: Container(
         width: big ? 220.w : 105.w,
-        height: 105.h,
+        height: 105,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             image: DecorationImage(
                 image: AssetImage(parentCategory.image),
+                // image: AssetImage('assets/categories/snacks.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.5), BlendMode.srcOver)),

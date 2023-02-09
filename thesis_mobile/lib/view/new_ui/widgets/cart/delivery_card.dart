@@ -19,15 +19,15 @@ class DeliveryCard extends StatelessWidget {
   double get progress {
     double _progress = 0.0;
 
-    if (cart.state.totalDeliveryPrice == 39900) {
+    if (cart.state.totalDeliveryPrice == 399) {
       _progress = 0.1;
     }
 
-    if (cart.state.totalDeliveryPrice == 19900) {
+    if (cart.state.totalDeliveryPrice == 199) {
       _progress = 0.5;
     }
 
-    if (cart.state.totalDeliveryPrice == 000) {
+    if (cart.state.totalDeliveryPrice == 0) {
       _progress = 1.0;
     }
 

@@ -18,19 +18,21 @@ class TitleAddressSelect extends StatelessWidget {
             onTap: () => showModalBottomSheet(
               context: context,
               isScrollControlled: true,
-              builder: (context) => MyAddressesPopup(addressState: addressState),
+              builder: (context) => MyAddressesPopup(),
             ),
-            child: Text(
-              '${addressState.currentAddress?.street} ${addressState.currentAddress?.building}',
-              overflow: TextOverflow.fade,
-              maxLines: 1,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: AppColors.Graphite,
-                fontSize: 18,
-              ),
-            ),
+            child: addressState.currentAddress == null
+                ? Text('Loading...')
+                : Text(
+                    '${addressState.currentAddress?.street} ${addressState.currentAddress?.building}',
+                    overflow: TextOverflow.fade,
+                    maxLines: 1,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.Graphite,
+                      fontSize: 18,
+                    ),
+                  ),
           ),
         ),
       ],

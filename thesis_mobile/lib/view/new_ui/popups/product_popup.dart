@@ -317,7 +317,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('В корзину '),
+                                            Text('Add to cart'),
                                             Text('${addToCartPrice}'),
                                           ],
                                         ),

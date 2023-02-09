@@ -16,7 +16,7 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var productPrice = Money.fromInt(product.totalPrice, code: 'RUB')
+    var productPrice = Money.fromInt(product.totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -47,7 +47,7 @@ class CartProductCard extends StatelessWidget {
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                   child: Image.asset(
-                    'assets/Placeholder.png',
+                    product.product.image,
                     width: double.maxFinite,
                     fit: BoxFit.fill,
                     cacheWidth: 256,

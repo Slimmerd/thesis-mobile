@@ -30,14 +30,14 @@ class OrderContactBS extends StatelessWidget {
                 controller: scrollController,
                 children: [
                   Text(
-                    'Сообщить о проблеме',
+                    'Contact us',
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    'Контакты Минадо',
+                    'Email',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   SizedBox(
@@ -45,28 +45,11 @@ class OrderContactBS extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () => launchUrlString(
-                          'mailto:client@minado.ru?subject=Проблема'),
+                          'mailto:client@client.ru?subject=Problem'),
                       child: Text(
-                        'client@minado.ru',
+                        'client@client.ru',
                         style: Theme.of(context).textTheme.titleLarge,
                       )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Контакты merchantName',
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextButton(
-                      onPressed: () =>
-                          launchUrlString('tel://' + 'merchantPhone'),
-                      child: Text(
-                        'merchantPhone',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ))
                 ],
               ),
             );
