@@ -4,37 +4,37 @@ String orderStatusParser(orderStatus) {
   switch (orderStatus) {
     case OrderStatus.waitingPayment:
       {
-        return 'Ожидание платежа';
+        return 'Waiting payment';
       }
 
     case OrderStatus.waitingWarehouse:
       {
-        return 'Ожидание ответа';
+        return 'Waiting response';
       }
 
     case OrderStatus.acceptedWarehouse:
       {
-        return 'Готовится';
+        return 'Preparing';
       }
 
     case OrderStatus.waitingCourier:
       {
-        return 'Ожидаем курьера';
+        return 'Waiting courier';
       }
 
     case OrderStatus.delivering:
       {
-        return 'В пути';
+        return 'Delivering';
       }
 
     case OrderStatus.delivered:
       {
-        return 'Доставлен';
+        return 'Delivered';
       }
 
     case OrderStatus.rejected:
       {
-        return 'Отменен';
+        return 'Canceled';
       }
 
     default:

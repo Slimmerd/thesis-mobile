@@ -4,12 +4,12 @@ String volumeTypeParserSmall(volumeType) {
   switch (volumeType) {
     case VolumeType.grams:
       {
-        return 'г';
+        return 'g';
       }
 
     case VolumeType.liters:
       {
-        return 'мл';
+        return 'ml';
       }
 
     default:
@@ -23,12 +23,12 @@ String volumeTypeParserBig(volumeType) {
   switch (volumeType) {
     case VolumeType.grams:
       {
-        return 'кг';
+        return 'kg';
       }
 
     case VolumeType.liters:
       {
-        return 'л';
+        return 'l';
       }
 
     default:
