@@ -20,7 +20,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String productPrice = Money.fromInt(product.price, code: 'RUB')
+    String productPrice = Money.fromInt(product.price, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');

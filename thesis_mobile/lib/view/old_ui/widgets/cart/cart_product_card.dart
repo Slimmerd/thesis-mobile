@@ -16,7 +16,7 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var productPrice = Money.fromInt(product.totalPrice, code: 'RUB')
+    var productPrice = Money.fromInt(product.totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');

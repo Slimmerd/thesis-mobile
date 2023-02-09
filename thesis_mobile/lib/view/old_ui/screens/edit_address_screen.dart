@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
@@ -14,11 +16,10 @@ class EditAddressScreen extends StatefulWidget {
 
 class _EditAddressScreenState extends State<EditAddressScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _city = '';
   String _street = '';
   String _building = '';
   String _intercom = '';
-  int? _floor;
+  String _floor = '';
   String _flat = '';
   List<String> availableCitiesData = ["London", "Moscow"];
 
@@ -36,11 +37,13 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                 TextFormField(
                   enabled: false,
                   initialValue: widget.address.city,
-                  decoration: formInputStyle('Город', ''),
+                  decoration: formInputStyle('City'),
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
                 SizedBox(height: 15),
                 TextFormField(
-                  decoration: formInputStyle('Улица', 'Ленина'),
+                  decoration: formInputStyle('Street'),
+                  style: Theme.of(context).textTheme.bodyText2,
                   initialValue: widget.address.street,
                   keyboardType: TextInputType.streetAddress,
                   textInputAction: TextInputAction.next,
@@ -48,7 +51,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                   textCapitalization: TextCapitalization.sentences,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Обязательное поле';
+                      return 'Required';
                     }
                   },
                   onSaved: (String? value) {
@@ -57,13 +60,14 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                 ),
                 SizedBox(height: 15),
                 TextFormField(
-                  decoration: formInputStyle('Здание', '161'),
+                  decoration: formInputStyle('Building'),
+                  style: Theme.of(context).textTheme.bodyText2,
                   initialValue: widget.address.building,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.streetAddress,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Обязательное поле';
+                      return 'Required';
                     }
                   },
                   onSaved: (String? value) {
@@ -71,12 +75,12 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                   },
                 ),
                 SizedBox(height: 20),
-                Text('Дополнительно',
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                Text('Additional',
+                    style: Theme.of(context).textTheme.headline4),
                 SizedBox(height: 10),
                 TextFormField(
-                  decoration: formInputStyle('Домофон', '347210'),
+                  decoration: formInputStyle('Intercom'),
+                  style: Theme.of(context).textTheme.bodyText2,
                   initialValue: widget.address.intercom,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.text,
@@ -86,19 +90,21 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                 ),
                 SizedBox(height: 15),
                 TextFormField(
-                  decoration: formInputStyle('Этаж', '2'),
+                  decoration: formInputStyle('Floor'),
+                  style: Theme.of(context).textTheme.bodyText2,
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.next,
                   initialValue: widget.address.floor != null
                       ? widget.address.floor.toString()
                       : '',
                   onSaved: (String? value) {
-                    _floor = value!.length > 1 ? int.parse(value) : null;
+                    _floor = value!;
                   },
                 ),
                 SizedBox(height: 15),
                 TextFormField(
-                  decoration: formInputStyle('Кв./офис', '32'),
+                  decoration: formInputStyle('Flat/Office'),
+                  style: Theme.of(context).textTheme.bodyText2,
                   initialValue: widget.address.flatNumber,
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.streetAddress,
@@ -113,21 +119,22 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                       if (!_formKey.currentState!.validate()) {
                         return;
                       }
+                      final addressContext =
+                          BlocProvider.of<AddressBloc>(context);
 
                       if (widget.address.street != _street ||
                           widget.address.building != _building ||
                           widget.address.flatNumber != _flat ||
                           widget.address.floor != _floor ||
                           widget.address.intercom != _intercom) {
-                        // runMutation({
-                        //   'id': widget.address.id,
-                        //   'city': widget.address.city,
-                        //   'street': _street,
-                        //   'building': _building,
-                        //   'intercom': _intercom,
-                        //   'floor': _floor,
-                        //   'flat_number': _flat
-                        // });
+                        addressContext.updateAddress(Address(
+                            id: widget.address.id,
+                            city: widget.address.city,
+                            street: _street,
+                            building: _building,
+                            floor: _floor,
+                            intercom: _intercom,
+                            flatNumber: _flat));
                         Navigator.pop(context);
                       } else {
                         Navigator.pop(context);
@@ -141,7 +148,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                         elevation: 0,
                         minimumSize: Size(335, 53),
                         textStyle: TextStyle(fontSize: 18)),
-                    child: Text('Готово'))
+                    child: Text('Save'))
               ],
             )));
   }

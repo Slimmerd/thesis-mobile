@@ -15,7 +15,7 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var price = Money.fromInt(order.total, code: 'RUB')
+    var price = Money.fromInt(order.total, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');

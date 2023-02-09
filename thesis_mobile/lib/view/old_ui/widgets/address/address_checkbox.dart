@@ -27,7 +27,7 @@ class _AddressCheckBoxState extends State<AddressCheckBox> {
             },
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(4),
                   color: widget.isChecked
                       ? AppColors.MintGreen
                       : AppColors.Dorian),

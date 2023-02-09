@@ -34,7 +34,7 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
                       topLeft: Radius.circular(30)),
                 ),
                 child: Column(children: [
-                  Text('Оставьте отзыв о вашем заказе',
+                  Text('Leave review about order',
                       style: Theme.of(context).textTheme.headline6),
                   SizedBox(
                     height: 20,
@@ -59,7 +59,7 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
                   ),
                   ElevatedButton(
                       onPressed: () {},
-                      child: Text('Отправить'),
+                      child: Text('Send'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: _rating > 0
                               ? AppColors.MintGreen

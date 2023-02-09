@@ -30,17 +30,7 @@ class _CartScreenState extends State<CartScreen> {
       final int serviceFee = cart.state.serviceFee;
       final int totalPrice = cart.state.totalPrice + serviceFee + deliveryCost;
 
-      final String deliveryFeeString = Money.fromInt(deliveryCost, code: 'RUB')
-          .format('#,###,###.00 S')
-          .toString()
-          .replaceAll(regexRemoveZero, '');
-
-      final String serviceFeeString = Money.fromInt(serviceFee, code: 'RUB')
-          .format('#,###,###.00 S')
-          .toString()
-          .replaceAll(regexRemoveZero, '');
-
-      final String totalPriceString = Money.fromInt(totalPrice, code: 'RUB')
+      final String totalPriceString = Money.fromInt(totalPrice, code: 'GBP')
           .format('#,###,###.00 S')
           .toString()
           .replaceAll(regexRemoveZero, '');

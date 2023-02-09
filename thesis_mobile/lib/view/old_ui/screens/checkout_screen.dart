@@ -4,6 +4,7 @@ import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
+import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/utils/typography.dart';
@@ -21,7 +22,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   final GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
   String comment = '';
   bool paymentDisabled = false;
-  String payMethod = 'Картой';
+  String payMethod = 'Card';
 
   @override
   Widget build(BuildContext context) {

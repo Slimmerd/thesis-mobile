@@ -31,7 +31,7 @@ class _PayDrodownState extends State<PayDrodown> {
         widget.callback.call(newValue!);
       },
       items: [
-        'Картой',
+        'Card',
         // Platform.isAndroid ? 'Google Pay' :'Apple Pay'
       ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(

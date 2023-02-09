@@ -17,12 +17,9 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late ScrollController _scrollController;
-  late AddressState _addressState;
-
   @override
   void initState() {
     _scrollController = ScrollController();
-    _addressState = BlocProvider.of<AddressBloc>(context).state;
     super.initState();
   }
 
@@ -36,8 +33,12 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: TitleAddressSelect(
-            addressState: _addressState,
+          title: BlocBuilder<AddressBloc, AddressState>(
+            builder: (context, state) {
+              return TitleAddressSelect(
+                addressState: state,
+              );
+            },
           ),
         ),
         body: ListView(
