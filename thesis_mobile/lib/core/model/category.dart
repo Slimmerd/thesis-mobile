@@ -12,6 +12,12 @@ class Category {
         name = json['name'],
         products = json['products'];
 
+  Category.fromApiJson(Map json, List<Product> products)
+      : id = json['id'],
+        name = json['name'],
+        products = List<Product>.from(
+            json['products'].map((x) => Product.fromApiJson(x, products)));
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,

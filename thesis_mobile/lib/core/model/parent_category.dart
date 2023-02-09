@@ -21,6 +21,17 @@ class ParentCategory {
         big = json['big'],
         categories = json['categories'];
 
+  factory ParentCategory.fromApiJson(Map json, List<Category> categories) {
+    return ParentCategory(
+      id: json['id'],
+      name: json['name'],
+      image: json['image'],
+      big: json['big'],
+      categories: List<Category>.from(json['categories']
+          .map((x) => categories.firstWhere((element) => element.id == x))),
+    );
+  }
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,

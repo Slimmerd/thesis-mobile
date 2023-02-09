@@ -33,6 +33,10 @@ class Product {
         description = ProductDescription.fromJson(json['description']),
         perHundredGrams = PerHundredGrams.fromJson(json['perHundredGrams']);
 
+  factory Product.fromApiJson(int json, List<Product> products) {
+    return products.firstWhere((element) => element.id == json);
+  }
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
