@@ -6,9 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/typography.dart';
-import 'package:thesis_mobile/view/old_ui/screens/main_screen.dart';
+import 'package:thesis_mobile/view/new_ui/screens/main_screen.dart';
 import 'package:thesis_mobile/view/old_ui/screens/navbar_screen.dart';
 
 void main() async {
@@ -33,18 +35,18 @@ class MyApp extends StatelessWidget {
           //   create: (_) => FavouriteBloc(),
           //   lazy: false,
           // ),
-          // BlocProvider<ProductBloc>(
-          //   create: (_) => ProductBloc(),
-          //   lazy: false,
-          // ),
+          BlocProvider<StockBloc>(
+            create: (_) => StockBloc(),
+            lazy: false,
+          ),
           BlocProvider<AddressBloc>(
             create: (_) => AddressBloc(),
             lazy: false,
           ),
-          // BlocProvider<AuthBloc>(
-          //   create: (_) => AuthBloc(),
-          //   lazy: false,
-          // )
+          BlocProvider<OrderBloc>(
+            create: (_) => OrderBloc(),
+            lazy: false,
+          )
         ],
         child: ScreenUtilInit(
             designSize: const Size(375, 812),
@@ -105,6 +107,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return NavbarScreen();
