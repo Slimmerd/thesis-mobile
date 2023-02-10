@@ -3,11 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/model/address.dart';
+import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/utils/typography.dart';
+import 'package:thesis_mobile/view/old_ui/screens/track_order_screen.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/components/cloud_card.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/cart/pay_dropdown.dart';
 
@@ -27,6 +31,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     final addressContext = BlocProvider.of<AddressBloc>(context);
+    final orderContext = BlocProvider.of<OrderBloc>(context);
     final cartContext = BlocProvider.of<CartBloc>(context);
 
     final int subTotal = cartContext.state.totalPrice;
@@ -34,22 +39,22 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final int serviceFee = cartContext.state.serviceFee;
     final int totalPrice = subTotal + serviceFee + deliveryFee;
 
-    final String subTotalString = Money.fromInt(subTotal, code: 'RUB')
+    final String subTotalString = Money.fromInt(subTotal, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
 
-    final String deliveryFeeString = Money.fromInt(deliveryFee, code: 'RUB')
+    final String deliveryFeeString = Money.fromInt(deliveryFee, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
 
-    final String serviceFeeString = Money.fromInt(serviceFee, code: 'RUB')
+    final String serviceFeeString = Money.fromInt(serviceFee, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
 
-    final String totalPriceString = Money.fromInt(totalPrice, code: 'RUB')
+    final String totalPriceString = Money.fromInt(totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -180,7 +185,35 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              if (paymentDisabled == false) {
+                int orderID = orderContext.state.latestOrder + 1;
+                orderContext.addOrder(Order(
+                    id: orderID,
+                    address: Address(
+                      city: addressContext.state.currentAddress!.city,
+                      building: addressContext.state.currentAddress!.building,
+                      street: addressContext.state.currentAddress!.street,
+                      intercom: addressContext.state.currentAddress!.intercom,
+                      flatNumber:
+                          addressContext.state.currentAddress!.flatNumber,
+                      floor: addressContext.state.currentAddress!.floor,
+                    ),
+                    products: cartContext.state.items,
+                    subTotal: subTotal,
+                    deliveryPrice: deliveryFee,
+                    comment: comment,
+                    ecoLevel: cartContext.state.ecoLevel,
+                    deliveryType: cartContext.state.deliveryType,
+                    serviceFee: serviceFee,
+                    total: totalPrice,
+                    createdAt: DateTime.now()));
+
+                cartContext.clearCart();
+                Navigator.pop(context);
+                customPagePush(context, TrackOrderScreen(orderID: orderID));
+              }
+            },
             child: Text('Pay $totalPriceString'),
             style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.MintGreen,

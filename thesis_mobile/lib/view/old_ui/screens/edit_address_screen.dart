@@ -27,7 +27,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Редактировать адрес'),
+          title: Text('Edit address'),
         ),
         body: Form(
             key: _formKey,

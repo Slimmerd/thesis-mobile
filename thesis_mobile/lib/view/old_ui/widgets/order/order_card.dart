@@ -49,7 +49,7 @@ class OrderCard extends StatelessWidget {
                       style:
                           TextStyle(color: AppColors.GrayPick, fontSize: 10)),
                   SizedBox(height: 10),
-                  Text('Заказ #${order.id}',
+                  Text('Order #${order.id}',
                       softWrap: false,
                       overflow: TextOverflow.fade,
                       style: TextStyle(

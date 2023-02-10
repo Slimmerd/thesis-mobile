@@ -21,15 +21,19 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var deliveryPrice = Money.fromInt(order.deliveryPrice, code: 'RUB')
+    var subTotal = Money.fromInt(order.subTotal, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
-    var serviceFee = Money.fromInt(order.serviceFee, code: 'RUB')
+    var deliveryPrice = Money.fromInt(order.deliveryPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
-    var totalPrice = Money.fromInt(order.total, code: 'RUB')
+    var serviceFee = Money.fromInt(order.serviceFee, code: 'GBP')
+        .format('#,###,###.00 S')
+        .toString()
+        .replaceAll(regexRemoveZero, '');
+    var totalPrice = Money.fromInt(order.total, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
@@ -37,6 +41,17 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Order #${order.id}'),
+        actions: [
+          IconButton(
+              onPressed: () => showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (context) => OrderContactBS(
+                      orderID: order.id,
+                    ),
+                  ),
+              icon: Icon(Icons.report_problem))
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -51,57 +66,14 @@ class OrderScreen extends StatelessWidget {
                   style: NewTypography.R10500,
                 ),
                 Text('${orderStatusParser(order.status)}',
-                    style: Theme.of(context).textTheme.headline5),
+                    style: Theme.of(context).textTheme.headline4),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  'Academika Anohima 38 ',
+                  '${order.address.street} ${order.address.building}',
                   style: NewTypography.M12400,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Доставка',
-                        style: NewTypography.R12600,
-                      ),
-                      Text(
-                        '${deliveryPrice}',
-                        style: NewTypography.R12400,
-                      ),
-                    ],
-                  ),
-                ),
-                //  Service
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Сервис', style: NewTypography.R12600),
-                      Text(
-                        '${serviceFee}',
-                        style: NewTypography.R12400,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Итого', style: NewTypography.R12600),
-                      Text('${totalPrice}',
-                          style: NewTypography.R12400.apply(
-                            color: AppColors.MintGreen,
-                          )),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
@@ -111,7 +83,7 @@ class OrderScreen extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                  Text('Комментарий',
+                  Text('Comment',
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
                   Text(
@@ -122,27 +94,22 @@ class OrderScreen extends StatelessWidget {
           if (order.status != OrderStatus.rejected &&
               order.status != OrderStatus.delivered)
             CloudCard(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                      onPressed: () => customPagePush(
-                          context,
-                          TrackOrderScreen(
-                            orderID: order.id,
-                          )),
-                      child: Text('Отслеживать'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.MintGreen,
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(34.0),
-                          ),
-                          elevation: 0,
-                          minimumSize: Size(210, 48),
-                          maximumSize: Size(225, 53),
-                          textStyle: TextStyle(fontSize: 18))),
-                ],
-              ),
+              child: ElevatedButton(
+                  onPressed: () => customPagePush(
+                      context,
+                      TrackOrderScreen(
+                        orderID: order.id,
+                      )),
+                  child: Text('Track'),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.MintGreen,
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(14.0),
+                      ),
+                      elevation: 0,
+                      minimumSize: Size(210, 48),
+                      maximumSize: Size(225, 53),
+                      textStyle: TextStyle(fontSize: 18))),
             ),
 
           if (order.status == OrderStatus.delivered && order.review == null)
@@ -155,38 +122,16 @@ class OrderScreen extends StatelessWidget {
                             orderID: order.id,
                           ),
                         ),
-                    child: Text('Оставить отзыв'),
+                    child: Text('Leave review'),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.MintGreen,
                         shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(34.0),
+                          borderRadius: new BorderRadius.circular(14.0),
                         ),
                         elevation: 0,
                         minimumSize: Size(210, 48),
                         maximumSize: Size(225, 53),
                         textStyle: TextStyle(fontSize: 18)))),
-
-          //  Total
-          CloudCard(
-            child: ElevatedButton(
-                onPressed: () => showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => OrderContactBS(
-                        orderID: order.id,
-                      ),
-                    ),
-                child: Text('Contact us'),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.MintGreen,
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(34.0),
-                    ),
-                    elevation: 0,
-                    minimumSize: Size(210, 48),
-                    maximumSize: Size(225, 53),
-                    textStyle: TextStyle(fontSize: 18))),
-          ),
 
           ListView.builder(
             shrinkWrap: true,
@@ -198,6 +143,72 @@ class OrderScreen extends StatelessWidget {
               );
             },
           ),
+
+          CloudCard(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Total', style: Theme.of(context).textTheme.headline4),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Sub total',
+                      style: NewTypography.R12600,
+                    ),
+                    Text(
+                      '${subTotal}',
+                      style: NewTypography.R12400,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Delivery',
+                      style: NewTypography.R12600,
+                    ),
+                    Text(
+                      '${deliveryPrice}',
+                      style: NewTypography.R12400,
+                    ),
+                  ],
+                ),
+              ),
+              //  Service
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Service', style: NewTypography.R12600),
+                    Text(
+                      '${serviceFee}',
+                      style: NewTypography.R12400,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total', style: NewTypography.R12600),
+                    Text('${totalPrice}',
+                        style: NewTypography.R12400.apply(
+                          color: AppColors.MintGreen,
+                        )),
+                  ],
+                ),
+              )
+            ],
+          ))
         ],
       ),
     );

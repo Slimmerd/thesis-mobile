@@ -43,11 +43,6 @@ class AddAddressScreen extends StatelessWidget {
                     );
                   }).toList(),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  // validator: (List<String>? value) {
-                  // if (value == null || value.id == -1) {
-                  // return 'Обязательное поле';
-                  // }
-                  // },
                 ),
                 SizedBox(height: 15),
                 TextFormField(

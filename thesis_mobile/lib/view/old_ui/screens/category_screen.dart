@@ -46,7 +46,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
         slivers: [
           CategorySliverAppBar(
             title: widget.name,
-            categories: widget.categories,
+            products: widget.categories
+                .map((e) => e.products)
+                .expand((element) => element)
+                .toList(),
           ),
           CategorySliverSelector(
             controller: controller,
@@ -78,6 +81,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           runSpacing: 10.h,
                           children: widget.categories[index].products
                               .map((e) => ProductCard(
+                                    recommendations:
+                                        widget.categories[index].products,
                                     product: e,
                                     pright: 0,
                                   ))

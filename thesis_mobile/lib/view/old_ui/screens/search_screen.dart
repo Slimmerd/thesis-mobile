@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:thesis_mobile/core/model/category.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/product_card.dart';
 
 class SearchScreen extends StatefulWidget {
-  final List<Category> categories;
+  final List<Product> products;
 
-  const SearchScreen({super.key, required this.categories});
+  const SearchScreen({super.key, required this.products});
 
 //
   @override
@@ -18,10 +18,9 @@ class _SearchScreenState extends State<SearchScreen> {
   List<Product> searchResult = [];
 
   void getProducts(String searchInput) {
-    setState(() => searchResult = widget.categories
-        .map((element) => element.products.where((ele) =>
-            ele.name.toLowerCase().contains(searchInput.toLowerCase())))
-        .expand((el) => el)
+    setState(() => searchResult = widget.products
+        .where((element) =>
+            element.name.toLowerCase().contains(searchInput.toLowerCase()))
         .toList());
   }
 
@@ -29,7 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Поиск продуктов'),
+        title: Text('Search products'),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 20),
@@ -38,23 +37,30 @@ class _SearchScreenState extends State<SearchScreen> {
             padding: EdgeInsets.only(bottom: 20, left: 20, right: 20),
             child: TextFormField(
               textCapitalization: TextCapitalization.sentences,
-              decoration: formInputStyle('', 'Наименование продукта'),
+              decoration: formInputStyle('', 'Name'),
               onChanged: (String? value) {
-                getProducts(value ?? '0');
+                getProducts(value == null || value.length == 0 ? '0' : value);
               },
             ),
           ),
           searchResult.isEmpty
               ? Center(
-                  child: Text('Здесь пусто'),
+                  child: Text('Empty'),
                 )
-              : ListView.builder(
-                  physics: ClampingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: searchResult.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ProductCard(product: searchResult[index]);
-                  },
+              : Container(
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 20),
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    spacing: 10.w,
+                    runSpacing: 10.h,
+                    children: searchResult
+                        .map((e) => ProductCard(
+                              product: e,
+                              pright: 0,
+                            ))
+                        .toList(),
+                  ),
                 )
         ],
       ),

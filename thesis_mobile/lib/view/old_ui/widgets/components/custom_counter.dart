@@ -31,7 +31,7 @@ class _CustomCounterState extends State<CustomCounter> {
     return Container(
       height: widget.height,
       decoration: BoxDecoration(
-          color: AppColors.Dorian, borderRadius: BorderRadius.circular(14)),
+          color: AppColors.Dorian, borderRadius: BorderRadius.circular(8)),
       child: Row(
         children: [
           Container(

@@ -7,12 +7,14 @@ import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/utils/volume_type_parser.dart';
-import 'package:thesis_mobile/view/old_ui/widgets/product_card.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/components/custom_counter.dart';
+import 'package:thesis_mobile/view/old_ui/widgets/product_card.dart';
 
 class ProductScreen extends StatelessWidget {
   final Product product;
-  const ProductScreen({super.key, required this.product});
+  final List<Product> recommendations;
+  const ProductScreen(
+      {super.key, required this.product, required this.recommendations});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,7 @@ class ProductScreen extends StatelessWidget {
       body: BlocBuilder<CartBloc, CartState>(
         builder: (cartContext, cartState) {
           CartBloc cart = cartContext.read<CartBloc>();
-          var inCartPrice =
-              Money.fromInt(cartState.productTotal(product), code: 'RUB')
-                  .format('#,###,###.00 S')
-                  .toString()
-                  .replaceAll(regexRemoveZero, '');
-          var addToCartPrice = Money.fromInt(product.price, code: 'RUB')
+          var addToCartPrice = Money.fromInt(product.price, code: 'GBP')
               .format('#,###,###.00 S')
               .toString()
               .replaceAll(regexRemoveZero, '');
@@ -102,14 +99,7 @@ class ProductScreen extends StatelessWidget {
                                                   quantity: 1));
                                             },
                                             child: FittedBox(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  Text('В корзину '),
-                                                ],
-                                              ),
+                                              child: Text('Add to cart'),
                                             ),
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
@@ -258,16 +248,15 @@ class ProductScreen extends StatelessWidget {
                                 height: 10,
                               ),
                               Expanded(
-                                child: ListView(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  children: [
-                                    ProductCard(product: product),
-                                    ProductCard(product: product),
-                                    ProductCard(product: product),
-                                  ],
-                                ),
-                              )
+                                  child: ListView.builder(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: recommendations.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ProductCard(
+                                      product: recommendations[index]);
+                                },
+                              ))
                             ]),
                       )
                     ],

@@ -33,7 +33,7 @@ class MenuScreen extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.Dorian,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(34.0),
+                borderRadius: BorderRadius.circular(14.0),
               ),
               elevation: 0,
               minimumSize: Size(335, 53),

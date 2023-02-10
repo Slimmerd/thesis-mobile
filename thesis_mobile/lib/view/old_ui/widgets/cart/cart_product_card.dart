@@ -47,7 +47,7 @@ class CartProductCard extends StatelessWidget {
                       topLeft: Radius.circular(14),
                       bottomLeft: Radius.circular(14)),
                   child: Image.asset(
-                    'assets/Placeholder.png',
+                    product.product.image,
                     width: double.maxFinite,
                     fit: BoxFit.fill,
                     cacheWidth: 256,

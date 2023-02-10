@@ -3,23 +3,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
 import 'package:thesis_mobile/core/model/cart_product.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/utils/volume_type_parser.dart';
-import 'package:thesis_mobile/view/new_ui/widgets/components/custom_counter.dart';
 import 'package:thesis_mobile/view/old_ui/screens/product_screen.dart';
+import 'package:thesis_mobile/view/old_ui/widgets/components/custom_counter.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final List<Product>? recommendations;
   final double pright;
 
-  const ProductCard({super.key, required this.product, this.pright = 10});
+  const ProductCard(
+      {super.key,
+      required this.product,
+      this.pright = 10,
+      this.recommendations});
 
   @override
   Widget build(BuildContext context) {
+    final stockContext = BlocProvider.of<StockBloc>(context);
     String productPrice = Money.fromInt(product.price, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
@@ -35,7 +42,13 @@ class ProductCard extends StatelessWidget {
       builder: (context, state) {
         CartBloc cart = context.read<CartBloc>();
         return GestureDetector(
-          onTap: () => customPagePush(context, ProductScreen(product: product)),
+          onTap: () => customPagePush(
+              context,
+              ProductScreen(
+                product: product,
+                recommendations:
+                    recommendations ?? stockContext.state.randomFive,
+              )),
           child: Container(
             // height: MediaQuery.of(context).size.height * 0.25,
             // width: MediaQuery.of(context).size.width * 0.28,

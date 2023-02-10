@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:thesis_mobile/core/model/category.dart';
+import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/view/old_ui/screens/search_screen.dart';
 
 class CategorySliverAppBar extends StatefulWidget {
   final String title;
-  final List<Category> categories;
+  final List<Product> products;
 
   CategorySliverAppBar({
     Key? key,
     required this.title,
-    required this.categories,
+    required this.products,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,7 @@ class _CategorySliverAppBarState extends State<CategorySliverAppBar> {
             onTap: () => customPagePush(
                 context,
                 SearchScreen(
-                  categories: widget.categories,
+                  products: widget.products,
                 )),
             child: Icon(Icons.search),
           ),
