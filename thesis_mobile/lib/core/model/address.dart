@@ -9,15 +9,15 @@ class Address {
   final String intercom;
   final String floor;
 
-  const Address(
+  Address(
       {Key? key,
       this.id = 1,
-      this.flatNumber = "test",
-      this.building = "test",
-      this.street = "test",
-      this.city = "test",
-      this.intercom = "test",
-      this.floor = "test"});
+      this.flatNumber = "",
+      required this.building,
+      required this.street,
+      required this.city,
+      this.intercom = "",
+      this.floor = ""});
 
   Address.fromJson(Map json)
       : id = json['id'],

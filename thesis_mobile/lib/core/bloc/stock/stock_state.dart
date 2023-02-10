@@ -12,6 +12,19 @@ class StockState extends Equatable {
       this.parentCategories = const [],
       this.key = ''});
 
+  List<Product> get randomFive {
+    int min = 0;
+    int max = products.length - 1;
+    var rnd = new Random();
+    List<Product> prods = [];
+
+    for (var i = 0; i <= 5; i++) {
+      prods.add(products[min + rnd.nextInt(max - min)]);
+    }
+
+    return prods;
+  }
+
   StockState copyWith(
       {String? key,
       List<Product>? products,
