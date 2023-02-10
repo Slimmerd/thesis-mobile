@@ -40,12 +40,12 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                 CartBloc cart = cartContext.read<CartBloc>();
                 var inCartPrice = Money.fromInt(
                         cartState.productTotal(widget.product),
-                        code: 'RUB')
+                        code: 'GBP')
                     .format('#,###,###.00 S')
                     .toString()
                     .replaceAll(regexRemoveZero, '');
                 var addToCartPrice =
-                    Money.fromInt(widget.product.price, code: 'RUB')
+                    Money.fromInt(widget.product.price, code: 'GBP')
                         .format('#,###,###.00 S')
                         .toString()
                         .replaceAll(regexRemoveZero, '');
@@ -289,7 +289,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Убрать '),
+                                            Text('Remove '),
                                             Text('${inCartPrice}'),
                                           ],
                                         ),
@@ -317,7 +317,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Add to cart'),
+                                            Text('Add to cart '),
                                             Text('${addToCartPrice}'),
                                           ],
                                         ),

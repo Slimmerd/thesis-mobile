@@ -21,7 +21,7 @@ class _PayDrodownState extends State<PayDrodown> {
       decoration: formInputStyle(''),
       dropdownColor: AppColors.Dorian,
       value: widget.payMethod,
-      icon: Icon(Icons.arrow_downward),
+      icon: Icon(Icons.expand_more),
       iconSize: 24,
       isExpanded: true,
       elevation: 16,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
 import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/core/model/order_status.dart';
 import 'package:thesis_mobile/utils/colors.dart';
-import 'package:thesis_mobile/utils/default_data.dart';
 import 'package:thesis_mobile/utils/order_status_parser.dart';
 import 'package:thesis_mobile/view/new_ui/popups/order_contact.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/order/order_step_indicator.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class TrackOrderScreen extends StatelessWidget {
   final int orderID;
@@ -16,7 +16,8 @@ class TrackOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Order order = DefaultData.order;
+    final orderContext = BlocProvider.of<OrderBloc>(context);
+    Order order = orderContext.state.itemById(orderID);
     final date = order.createdAt.add(Duration(minutes: order.waitingTime));
 
     return Scaffold(
@@ -65,7 +66,7 @@ class TrackOrderScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(34),
                   ),
                   child: Text(
-                    'Доставка выполняется продавцом, отслеживание на карте недоступно',
+                    'Map tracking unavailable',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: AppColors.Graphite, fontSize: 14),
                   )),
@@ -82,7 +83,7 @@ class TrackOrderScreen extends StatelessWidget {
                   SizedBox(
                     width: 13,
                   ),
-                  Text('ожидаемое времядоставки')
+                  Text('Waiting time')
                 ],
               ),
             ),
@@ -141,7 +142,7 @@ class TrackOrderScreen extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                orderStatusParser(order),
+                orderStatusParser(order.status),
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -152,56 +153,9 @@ class TrackOrderScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 margin: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'Заказ № ${order.id}',
+                  'Order № ${order.id}',
                   style: TextStyle(fontSize: 16),
                 )),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    // height: 50,
-                    width: 130,
-                    child: Text(
-                      '{order.merchant.name}',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.Graphite),
-                    ),
-                  ),
-                  Container(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        launchUrlString('tel://order.merchant.phone');
-                      },
-                      child: Row(
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.only(right: 5),
-                              child: Icon(Icons.call)),
-                          Text(
-                            'Звонок',
-                            style: TextStyle(color: AppColors.Graphite),
-                          ),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.Dorian,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(34.0),
-                          ),
-                          elevation: 0,
-                          minimumSize: Size(109, 39),
-                          textStyle: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w500)),
-                    ),
-                  )
-                ],
-              ),
-            )
           ],
         ),
       ),

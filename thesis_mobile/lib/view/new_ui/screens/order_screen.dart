@@ -122,27 +122,22 @@ class OrderScreen extends StatelessWidget {
           if (order.status != OrderStatus.rejected &&
               order.status != OrderStatus.delivered)
             CloudCard(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                      onPressed: () => customPagePush(
-                          context,
-                          TrackOrderScreen(
-                            orderID: order.id,
-                          )),
-                      child: Text('Track'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.MintGreen,
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(34.0),
-                          ),
-                          elevation: 0,
-                          minimumSize: Size(210, 48),
-                          maximumSize: Size(225, 53),
-                          textStyle: TextStyle(fontSize: 18))),
-                ],
-              ),
+              child: ElevatedButton(
+                  onPressed: () => customPagePush(
+                      context,
+                      TrackOrderScreen(
+                        orderID: order.id,
+                      )),
+                  child: Text('Track'),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.MintGreen,
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(34.0),
+                      ),
+                      elevation: 0,
+                      minimumSize: Size(210, 48),
+                      maximumSize: Size(225, 53),
+                      textStyle: TextStyle(fontSize: 18))),
             ),
 
           if (order.status == OrderStatus.delivered && order.review == null)

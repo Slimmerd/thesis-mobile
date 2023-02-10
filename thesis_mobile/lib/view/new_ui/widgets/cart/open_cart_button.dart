@@ -27,16 +27,9 @@ class OpenCartButton extends StatelessWidget {
               .toString()
               .replaceAll(regexRemoveZero, '');
 
-      String untilFreeDelivery = 120000 - cart.state.totalPrice > 0
-          ? '${Money.fromInt(cart.state.totalDeliveryPrice, code: 'GBP').format('#,###,###.00 S').toString().replaceAll(regexRemoveZero, '')} until free delivery'
+      String untilFreeDelivery = 1200 - cart.state.totalPrice > 0
+          ? '${Money.fromInt(1200 - cart.state.totalPrice, code: 'GBP').format('#,###,###.00 S').toString().replaceAll(regexRemoveZero, '')} until free delivery'
           : 'free delivery';
-      //  if (cart.state.notEmpty) {
-      // return OpenCartButton(
-      // totalPrice: cart.state.totalPrice,
-      // );
-      // } else {
-      // return SizedBox();
-      // }
 
       return Container(
         decoration: BoxDecoration(

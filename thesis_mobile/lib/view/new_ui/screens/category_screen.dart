@@ -47,7 +47,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
         slivers: [
           CategorySliverAppBar(
             title: widget.name,
-            categories: widget.categories,
+            products: widget.categories
+                .map((e) => e.products)
+                .expand((element) => element)
+                .toList(),
           ),
           CategorySliverSelector(
             controller: controller,

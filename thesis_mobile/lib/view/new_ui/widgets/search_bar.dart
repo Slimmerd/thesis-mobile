@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/view/new_ui/screens/search_screen.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+  final List<Product> products;
+
+  const SearchBar({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class SearchBar extends StatelessWidget {
         customPagePush(
             context,
             SearchScreen(
-              categories: [],
+              products: products,
             ));
       },
       child: Container(
