@@ -1,1 +1,1 @@
-RegExp regexRemoveZero = RegExp(r"(\.[0]+)");
+RegExp regexRemoveZero = RegExp(r"(\.[0]{2})");
