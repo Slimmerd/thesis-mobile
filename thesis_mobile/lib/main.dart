@@ -4,14 +4,20 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:thesis_mobile/core/bloc/achievements/achievements_bloc.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/bloc/statistics/statistics_bloc.dart';
 import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/typography.dart';
+import 'package:thesis_mobile/view/loading_screen.dart';
 import 'package:thesis_mobile/view/new_ui/screens/main_screen.dart';
 import 'package:thesis_mobile/view/old_ui/screens/navbar_screen.dart';
+import 'package:thesis_mobile/view/onboarding/onboarding_screen.dart';
+import 'package:thesis_mobile/view/questionaire/finish_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -31,10 +37,18 @@ class MyApp extends StatelessWidget {
             create: (_) => CartBloc(),
             lazy: false,
           ),
-          // BlocProvider<FavouriteBloc>(
-          //   create: (_) => FavouriteBloc(),
-          //   lazy: false,
-          // ),
+          BlocProvider<StatisticsBloc>(
+            create: (_) => StatisticsBloc(),
+            lazy: false,
+          ),
+          BlocProvider<TaskManagerBloc>(
+            create: (_) => TaskManagerBloc(),
+            lazy: false,
+          ),
+          BlocProvider<AchievementsBloc>(
+            create: (_) => AchievementsBloc(),
+            lazy: false,
+          ),
           BlocProvider<StockBloc>(
             create: (_) => StockBloc(),
             lazy: false,
@@ -107,6 +121,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Widget> screenStages = [
+    OnBoardingScreen(),
+    NavbarScreen(),
+    MainScreen(),
+    FinishScreen()
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -114,6 +135,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return NavbarScreen();
+    return BlocBuilder<TaskManagerBloc, TaskManagerState>(
+      builder: (context, state) {
+        if (state.uID.isEmpty) {
+          return LoadingScreen();
+        }
+
+        return screenStages[state.stage.index];
+      },
+    );
   }
 }

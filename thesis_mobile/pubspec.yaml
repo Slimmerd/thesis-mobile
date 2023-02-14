@@ -32,6 +32,7 @@ dependencies:
   google_fonts: ^4.0.1
 
   carousel_slider: ^4.2.1
+  story_view: ^0.14.0
 
   flutter_localizations:
     sdk: flutter
@@ -54,7 +55,9 @@ flutter:
     - assets/
     - assets/categories/
     - assets/products/
+    - assets/achievements/
     - assets/data/data.json
+    - assets/data/achievements.json
   #   - images/a_dot_ham.jpeg
 
   # fonts:
