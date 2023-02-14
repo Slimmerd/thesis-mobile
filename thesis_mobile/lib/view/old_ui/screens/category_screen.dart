@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/category.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/category/category_silver_appbar.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/category/category_silver_selector.dart';
@@ -39,6 +41,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] CategoryScreen ${widget.name}');
+
     return Scaffold(
       body: SafeArea(
           child: CustomScrollView(

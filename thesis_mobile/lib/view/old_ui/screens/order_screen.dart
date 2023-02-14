@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:money2/money2.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/core/model/order_status.dart';
 import 'package:thesis_mobile/utils/colors.dart';
@@ -21,6 +23,9 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] Order ${order.id}');
+
     var subTotal = Money.fromInt(order.subTotal, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
@@ -46,9 +51,7 @@ class OrderScreen extends StatelessWidget {
               onPressed: () => showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
-                    builder: (context) => OrderContactBS(
-                      orderID: order.id,
-                    ),
+                    builder: (context) => OrderContact(),
                   ),
               icon: Icon(Icons.report_problem))
         ],
@@ -118,7 +121,7 @@ class OrderScreen extends StatelessWidget {
                     onPressed: () => showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,
-                          builder: (context) => OrderReviewBS(
+                          builder: (context) => OrderReview(
                             orderID: order.id,
                           ),
                         ),

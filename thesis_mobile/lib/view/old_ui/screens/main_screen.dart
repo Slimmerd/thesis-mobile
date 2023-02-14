@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/address/title_address_select.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/category/category_card.dart';
@@ -32,6 +33,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] MainScreen');
+
     return Scaffold(appBar: AppBar(
       title: BlocBuilder<AddressBloc, AddressState>(
         builder: (context, state) {

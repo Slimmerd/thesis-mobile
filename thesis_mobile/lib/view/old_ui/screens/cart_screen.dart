@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
@@ -23,7 +24,9 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] CartScreen');
+
     return BlocBuilder<CartBloc, CartState>(builder: (cartCtx, state) {
       CartBloc cart = cartCtx.read<CartBloc>();
 

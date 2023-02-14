@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
@@ -17,7 +18,8 @@ class AddAddressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] AddAddressScreen');
     return Scaffold(
         appBar: AppBar(title: Text("New address")),
         body: Form(
@@ -119,14 +121,18 @@ class AddAddressScreen extends StatelessWidget {
                       }
                       final addressContext =
                           BlocProvider.of<AddressBloc>(context);
+                      int newAddressID = addressContext.state.latestAddress + 1;
                       addressContext.setAddress(Address(
-                          id: addressContext.state.latestAddress + 1,
+                          id: newAddressID,
                           city: _city,
                           street: _street,
                           building: _building,
                           floor: _floor,
                           intercom: _intercom,
                           flatNumber: _flat));
+
+                      taskContext.addLogTask(
+                          '[OLDUI][ADDED] Address id $newAddressID');
 
                       Navigator.pop(context);
                     },

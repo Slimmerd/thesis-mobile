@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_replace.dart';
@@ -15,6 +14,9 @@ class RecommendationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] RecommendationScreen');
+
     return BlocBuilder<StockBloc, StockState>(
       builder: (context, state) {
         List<Product> products = [...state.randomFive, ...state.randomFive];

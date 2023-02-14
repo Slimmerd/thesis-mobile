@@ -4,6 +4,7 @@ import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/utils/colors.dart';
@@ -33,6 +34,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final addressContext = BlocProvider.of<AddressBloc>(context);
     final orderContext = BlocProvider.of<OrderBloc>(context);
     final cartContext = BlocProvider.of<CartBloc>(context);
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] CheckoutScreen');
 
     final int subTotal = cartContext.state.totalPrice;
     final int deliveryFee = cartContext.state.totalDeliveryPrice;
@@ -208,6 +211,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     serviceFee: serviceFee,
                     total: totalPrice,
                     createdAt: DateTime.now()));
+
+                taskContext.addOrderTask();
+                taskContext.addLogTask('[OLDUI][ADDED] Order $orderID');
 
                 cartContext.clearCart();
                 Navigator.pop(context);

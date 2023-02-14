@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/cart_product.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
@@ -18,6 +19,8 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] ProductScreen ${product.id}');
     return Scaffold(
       appBar: AppBar(),
       body: BlocBuilder<CartBloc, CartState>(
@@ -84,8 +87,13 @@ class ProductScreen extends StatelessWidget {
                                               if (quantity > 0) {
                                                 cart.updateQuantity(
                                                     product.id, quantity);
+
+                                                taskContext.addLogTask(
+                                                    '[OLDUI][UPDATED] Product: ${product.id}, pc: $quantity');
                                               } else {
                                                 cart.removeFromCart(product.id);
+                                                taskContext.addLogTask(
+                                                    '[OLDUI][REMOVED] Product ${product.id}');
                                               }
                                             },
                                             quantity: cartState.count(product),
@@ -97,6 +105,8 @@ class ProductScreen extends StatelessWidget {
                                               cart.addToCart(CartProduct(
                                                   product: product,
                                                   quantity: 1));
+                                              taskContext.addLogTask(
+                                                  '[OLDUI][ADDED] Product: ${product.id}');
                                             },
                                             child: FittedBox(
                                               child: Text('Add to cart'),

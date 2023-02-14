@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
@@ -13,6 +14,9 @@ class AddressesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] AddressesScreen');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -45,10 +49,14 @@ class AddressesScreen extends StatelessWidget {
                             setNew: (Address newAddress) {
                               addressBl.setAddress(
                                   Address.fromJson(newAddress.toJson()));
+                              taskContext.addLogTask(
+                                  '[OLDUI][UPDATED] CurrentAddress ${newAddress.id}');
                             },
                             remove: (Address address) {
                               addressBl.removeAddress(
                                   Address.fromJson(address.toJson()));
+                              taskContext.addLogTask(
+                                  '[OLDUI][REMOVED] Address: ${address.id}');
                             },
                           );
                         });

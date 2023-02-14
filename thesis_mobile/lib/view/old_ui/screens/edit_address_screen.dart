@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
@@ -25,6 +26,9 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[OLDUI][OPENED] EditScreen ${widget.address.id}');
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Edit address'),
@@ -121,6 +125,9 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                       }
                       final addressContext =
                           BlocProvider.of<AddressBloc>(context);
+
+                      taskContext.addLogTask(
+                          '[OLDUI][UPDATED] Address ${widget.address.id}');
 
                       if (widget.address.street != _street ||
                           widget.address.building != _building ||
