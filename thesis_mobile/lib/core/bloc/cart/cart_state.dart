@@ -5,13 +5,13 @@ class CartState extends Equatable {
   final List<CartProduct> items;
   final String key;
   final DeliveryType deliveryType;
-  final List<String>? deliveryWindow;
+  final String deliveryWindow;
 
   CartState({
     this.ids = const [],
     this.items = const [],
     this.deliveryType = DeliveryType.asap,
-    this.deliveryWindow,
+    this.deliveryWindow = '',
     this.key = '',
   });
 
@@ -156,6 +156,10 @@ class CartState extends Equatable {
     return copyWith(deliveryType: deliveryType);
   }
 
+  CartState updateOrderWindow(String deliveryWindow) {
+    return copyWith(deliveryWindow: deliveryWindow);
+  }
+
   CartState updateQuantity(int productID, int quantity) {
     if (has(productID)) {
       int index = ids.indexOf(productID);
@@ -183,7 +187,7 @@ class CartState extends Equatable {
     List<CartProduct>? items,
     String? key,
     DeliveryType? deliveryType,
-    List<String>? deliveryWindow,
+    String? deliveryWindow,
   }) {
     return CartState(
       deliveryType: deliveryType ?? this.deliveryType,

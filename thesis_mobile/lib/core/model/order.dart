@@ -19,7 +19,7 @@ class Order {
   int? review;
   int waitingTime;
   DeliveryType deliveryType;
-  List<DateTime>? deliveryWindow;
+  String deliveryWindow;
   int ecoLevel;
 
   Order(
@@ -37,7 +37,7 @@ class Order {
       this.waitingTime = 15,
       this.ecoLevel = 0,
       required this.deliveryType,
-      this.deliveryWindow,
+      this.deliveryWindow = '',
       required this.createdAt});
 
   Order.fromJson(Map json)

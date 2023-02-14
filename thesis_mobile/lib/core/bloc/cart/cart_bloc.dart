@@ -20,6 +20,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<CartRemoved>(_cartRemovedToState);
     on<CartCleared>(_cartClearedToState);
     on<CartDeliveryTypeUpdated>(_cartOrderTypeUpdatedToState);
+    on<CartDeliveryWindowUpdated>(_cartOrderWindowUpdatedToState);
   }
 
   Future<void> init() async {
@@ -38,6 +39,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     add(CartDeliveryTypeUpdated(deliveryType));
   }
 
+  void updateDeliveryWindow(String deliveryWindow) {
+    add(CartDeliveryWindowUpdated(deliveryWindow));
+  }
+
   void removeFromCart(int productID) {
     add(CartRemoved(productID));
   }
@@ -49,13 +54,19 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   Future<void> _save() async {
     final box = await Hive.openBox('cart');
     await box.put('items', state.items.map((item) => item.toJson()).toList());
+    await box.put('deliveryType', state.deliveryType.index);
+    await box.put('deliveryWindow', state.deliveryWindow);
   }
 
   Future<void> _restore() async {
     final box = await Hive.openBox('cart');
 
-    if (box.containsKey('items')) {
+    if (box.containsKey('items') &&
+        box.containsKey('deliveryType') &&
+        box.containsKey('deliveryWindow')) {
       final items = box.get('items');
+      final deliveryType = box.get('deliveryType');
+      final deliveryWindow = box.get('deliveryWindow');
 
       Map<String, dynamic> _parser(dynamic hiveMap) {
         final jsonString = jsonEncode(hiveMap);
@@ -68,7 +79,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
         final newIds = newItems.map((item) => item.product.id).toList();
 
-        emit(state.copyWith(ids: newIds, items: newItems, key: Uuid().v1()));
+        emit(state.copyWith(
+            ids: newIds,
+            items: newItems,
+            deliveryWindow: deliveryWindow,
+            deliveryType: DeliveryType.values[deliveryType],
+            key: Uuid().v1()));
       }
     }
   }
@@ -86,6 +102,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   void _cartOrderTypeUpdatedToState(
       CartDeliveryTypeUpdated event, Emitter<CartState> emit) {
     emit(state.updateOrderType(event.deliveryType));
+    _save();
+  }
+
+  void _cartOrderWindowUpdatedToState(
+      CartDeliveryWindowUpdated event, Emitter<CartState> emit) {
+    emit(state.updateOrderWindow(event.deliveryWindow));
     _save();
   }
 

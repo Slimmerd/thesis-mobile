@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:thesis_mobile/core/model/achievement.dart';
 import 'package:thesis_mobile/core/model/category.dart';
 import 'package:thesis_mobile/core/model/parent_category.dart';
 import 'package:thesis_mobile/core/model/product.dart';
@@ -42,6 +43,20 @@ class ApiService {
 
       return List<ParentCategory>.from(decodedResponse['parentCategories']
           .map((x) => ParentCategory.fromApiJson(x, categories)));
+    } catch (e) {
+      print('[CATCH] $e');
+      return [];
+    }
+  }
+
+  static Future<List<Achievement>> fetchAchievements(String type) async {
+    try {
+      dynamic response =
+          await rootBundle.loadString('assets/data/achievements.json');
+      dynamic decodedResponse = jsonDecode(response);
+
+      return List<Achievement>.from(
+          decodedResponse[type].map((x) => Achievement.fromJson(x)));
     } catch (e) {
       print('[CATCH] $e');
       return [];

@@ -45,6 +45,18 @@ class CartDeliveryTypeUpdated extends CartEvent {
   String toString() => 'CartOrderTypeUpdated { type: $deliveryType }';
 }
 
+class CartDeliveryWindowUpdated extends CartEvent {
+  final String deliveryWindow;
+
+  const CartDeliveryWindowUpdated(this.deliveryWindow);
+
+  @override
+  List<Object> get props => [deliveryWindow];
+
+  @override
+  String toString() => 'CartDeliveryWindowUpdated { type: $deliveryWindow }';
+}
+
 class CartRemoved extends CartEvent {
   final int productID;
 
