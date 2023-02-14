@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/cart_product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
@@ -16,6 +18,7 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
     var productPrice = Money.fromInt(product.totalPrice, code: 'GBP')
         .format('#,###,###.00 S')
         .toString()
@@ -99,8 +102,14 @@ class CartProductCard extends StatelessWidget {
               height: 35,
               onChanged: (int quantity) {
                 if (quantity > 0) {
+                  taskContext.addLogTask(
+                      '[NEWUI][UPDATED] Product: ${product.product.id}, pc: $quantity');
+
                   cart.updateQuantity(product.product.id, quantity);
                 } else {
+                  taskContext.addLogTask(
+                      '[NEWUI][REMOVED] Product: ${product.product.id}');
+
                   cart.removeFromCart(product.product.id);
                 }
               },

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
 import 'package:thesis_mobile/utils/typography.dart';
@@ -8,6 +10,9 @@ class EnvPopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] EnvPopup ');
+
     return makeDismissible(
         context: context,
         child: DraggableScrollableSheet(

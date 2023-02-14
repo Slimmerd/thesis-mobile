@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
@@ -9,11 +10,14 @@ import 'package:thesis_mobile/utils/typography.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/address/address_selector.dart';
 import 'package:thesis_mobile/view/new_ui/screens/add_address_screen.dart';
 
-class MyAddressesPopup extends StatelessWidget {
-  const MyAddressesPopup({super.key});
+class AddressesPopup extends StatelessWidget {
+  const AddressesPopup({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] AddressesPopup');
+
     return makeDismissible(
         context: context,
         child: DraggableScrollableSheet(
@@ -58,8 +62,12 @@ class MyAddressesPopup extends StatelessWidget {
                                     setNew: (Address newAddress) {
                                       addressBl.setAddress(Address.fromJson(
                                           newAddress.toJson()));
+                                      taskContext.addLogTask(
+                                          '[NEWUI][UPDATED] CurrentAddress ${newAddress.id}');
                                     },
                                     remove: (Address address) {
+                                      taskContext.addLogTask(
+                                          '[NEWUI][REMOVED] Address ${address.id}');
                                       addressBl.removeAddress(
                                           Address.fromJson(address.toJson()));
                                     },

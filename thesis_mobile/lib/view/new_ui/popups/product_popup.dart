@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/cart_product.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/colors.dart';
@@ -27,6 +28,9 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] ProductPopup ${widget.product.id}');
+
     return makeDismissible(
         context: context,
         child: DraggableScrollableSheet(
@@ -266,9 +270,13 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                 height: 53,
                                 onChanged: (int quantity) {
                                   if (quantity > 0) {
+                                    taskContext.addLogTask(
+                                        '[NEWUI][UPDATED] Product: ${widget.product.id}, pc: $quantity');
                                     cart.updateQuantity(
                                         widget.product.id, quantity);
                                   } else {
+                                    taskContext.addLogTask(
+                                        '[NEWUI][REMOVED] Product: ${widget.product.id}');
                                     cart.removeFromCart(widget.product.id);
                                   }
                                 },
@@ -282,6 +290,8 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                 ? Expanded(
                                     child: ElevatedButton(
                                       onPressed: () {
+                                        taskContext.addLogTask(
+                                            '[NEWUI][REMOVED] Product: ${widget.product.id}');
                                         cart.removeFromCart(widget.product.id);
                                       },
                                       child: FittedBox(
@@ -308,6 +318,8 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                 : Expanded(
                                     child: ElevatedButton(
                                       onPressed: () {
+                                        taskContext.addLogTask(
+                                            '[NEWUI][ADDED] Product: ${widget.product.id}');
                                         cart.addToCart(CartProduct(
                                             product: widget.product,
                                             quantity: 1));

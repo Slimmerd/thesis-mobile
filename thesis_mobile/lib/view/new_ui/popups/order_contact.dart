@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class OrderContactBS extends StatelessWidget {
-  final int orderID;
+class OrderContact extends StatelessWidget {
+  const OrderContact({Key? key}) : super(key: key);
 
-  const OrderContactBS({Key? key, required this.orderID}) : super(key: key);
-//TODO FIX
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] OrderContact');
+
     return makeDismissible(
         context: context,
         child: DraggableScrollableSheet(
@@ -31,24 +34,17 @@ class OrderContactBS extends StatelessWidget {
                 children: [
                   Text(
                     'Contact us',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Email',
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                  SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   TextButton(
                       onPressed: () => launchUrlString(
                           'mailto:client@client.ru?subject=Problem'),
                       child: Text(
                         'client@client.ru',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.headline5,
                       )),
                 ],
               ),

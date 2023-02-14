@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/delivery_type.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
 import 'package:thesis_mobile/utils/typography.dart';
+import 'package:thesis_mobile/view/new_ui/widgets/cart/time_range_dropdown.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/components/cloud_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/components/custom_checkbox.dart';
 
-class DeliveryPopup extends StatelessWidget {
+class DeliveryPopup extends StatefulWidget {
   const DeliveryPopup({super.key});
 
   @override
-  //TODO: dropdown, state
+  State<DeliveryPopup> createState() => _DeliveryPopupState();
+}
+
+class _DeliveryPopupState extends State<DeliveryPopup> {
+  @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] DeliveryPopup');
+
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         CartBloc cart = context.read<CartBloc>();
@@ -225,6 +234,8 @@ class DeliveryPopup extends StatelessWidget {
                                         isChecked: cart.state.deliveryType ==
                                             DeliveryType.asap,
                                         onChange: (bool value) {
+                                          taskContext.addLogTask(
+                                              '[NEWUI][UPDATED] DeliveryType ASAP');
                                           cart.updateDeliveryType(
                                               DeliveryType.asap);
                                         },
@@ -259,6 +270,8 @@ class DeliveryPopup extends StatelessWidget {
                                         isChecked: cart.state.deliveryType ==
                                             DeliveryType.sts,
                                         onChange: (bool value) {
+                                          taskContext.addLogTask(
+                                              '[NEWUI][UPDATED] DeliveryType STS');
                                           cart.updateDeliveryType(
                                               DeliveryType.sts);
                                         },
@@ -293,6 +306,8 @@ class DeliveryPopup extends StatelessWidget {
                                         isChecked: cart.state.deliveryType ==
                                             DeliveryType.lts,
                                         onChange: (bool value) {
+                                          taskContext.addLogTask(
+                                              '[NEWUI][UPDATED] DeliveryType LTS');
                                           cart.updateDeliveryType(
                                               DeliveryType.lts);
                                         },
@@ -302,7 +317,30 @@ class DeliveryPopup extends StatelessWidget {
                                 ]),
                               ),
                             ],
-                          ))
+                          )),
+
+                          if (state.deliveryType.index > 0)
+                            CloudCard(
+                                child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Delivery time',
+                                  style: NewTypography.M18600,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TimeRangeDropdown(
+                                  rangeHours: state.deliveryType.index,
+                                  callback: (String dropdownValue) {
+                                    taskContext.addLogTask(
+                                        '[NEWUI][UPDATED] DeliveryWindow $dropdownValue');
+                                    cart.updateDeliveryWindow(dropdownValue);
+                                  },
+                                ),
+                              ],
+                            ))
                         ],
                       ));
                 }));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/core/model/order_status.dart';
 import 'package:thesis_mobile/utils/colors.dart';
@@ -11,12 +12,15 @@ import 'package:thesis_mobile/view/new_ui/widgets/order/order_step_indicator.dar
 
 class TrackOrderScreen extends StatelessWidget {
   final int orderID;
-//TODO FIX
+
   const TrackOrderScreen({Key? key, required this.orderID}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final orderContext = BlocProvider.of<OrderBloc>(context);
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] TrackOrderScreen $orderID');
+
     Order order = orderContext.state.itemById(orderID);
     final date = order.createdAt.add(Duration(minutes: order.waitingTime));
 
@@ -28,7 +32,7 @@ class TrackOrderScreen extends StatelessWidget {
             onTap: () => showModalBottomSheet(
               context: context,
               isScrollControlled: true,
-              builder: (context) => OrderContactBS(orderID: orderID),
+              builder: (context) => OrderContact(),
             ),
             child: Padding(
               padding: const EdgeInsets.only(right: 20),
@@ -94,20 +98,17 @@ class TrackOrderScreen extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Заказ оплачен
                       //todo fix indicator wtih 3 states
                       OrderStepIndicator(
                         isCompleted: order.status != OrderStatus.waitingPayment,
                         isCurrent: order.status == OrderStatus.waitingPayment,
                       ),
-                      // Ожидание заведения
                       OrderStepIndicator(
                         isCompleted:
                             order.status != OrderStatus.waitingWarehouse &&
                                 order.status != OrderStatus.waitingPayment,
                         isCurrent: order.status == OrderStatus.waitingWarehouse,
                       ),
-                      // Готовка
                       OrderStepIndicator(
                         isCompleted:
                             order.status != OrderStatus.acceptedWarehouse &&
@@ -116,7 +117,6 @@ class TrackOrderScreen extends StatelessWidget {
                         isCurrent:
                             order.status == OrderStatus.acceptedWarehouse,
                       ),
-                      // Доставка
                       OrderStepIndicator(
                         isCompleted: order.status == OrderStatus.delivered &&
                             order.status != OrderStatus.acceptedWarehouse &&
@@ -138,7 +138,6 @@ class TrackOrderScreen extends StatelessWidget {
                       backgroundColor: AppColors.Dorian,
                     )),
               ),
-            // todo edge case takeAway
             Container(
               alignment: Alignment.centerLeft,
               child: Text(

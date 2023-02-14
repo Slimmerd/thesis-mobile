@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/stock/stock_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/view/new_ui/screens/menu_screen.dart';
@@ -11,7 +12,7 @@ import 'package:thesis_mobile/view/new_ui/widgets/cart/open_cart_button.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/category/category_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/product_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/search_bar.dart';
-import 'package:thesis_mobile/view/new_ui/widgets/stories_card.dart';
+import 'package:thesis_mobile/view/new_ui/widgets/stories/stories_card.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -37,6 +38,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] MainScreen');
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -78,10 +82,6 @@ class _MainScreenState extends State<MainScreen> {
                           physics: ClampingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           children: [
-                            StoryCard(),
-                            StoryCard(),
-                            StoryCard(),
-                            StoryCard(),
                             StoryCard(),
                           ],
                         ),

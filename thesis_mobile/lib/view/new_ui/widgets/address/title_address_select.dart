@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
-import 'package:thesis_mobile/view/new_ui/popups/my_address_popup.dart';
+import 'package:thesis_mobile/view/new_ui/popups/address_popup.dart';
 
 class TitleAddressSelect extends StatelessWidget {
   final AddressState addressState;
@@ -18,7 +18,7 @@ class TitleAddressSelect extends StatelessWidget {
             onTap: () => showModalBottomSheet(
               context: context,
               isScrollControlled: true,
-              builder: (context) => MyAddressesPopup(),
+              builder: (context) => AddressesPopup(),
             ),
             child: addressState.currentAddress == null
                 ? Text('Loading...')

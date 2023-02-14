@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
-import 'package:thesis_mobile/utils/form_input_style.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/view/new_ui/popups/pay_popup.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/cart/cart_product_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/cart/delivery_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/cart/env_tips_card.dart';
-import 'package:thesis_mobile/view/new_ui/widgets/components/cloud_card.dart';
 
 class CartScreen extends StatefulWidget {
   @override
@@ -17,12 +16,11 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
-  String comment = '';
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] CartScreen');
+
     return BlocBuilder<CartBloc, CartState>(builder: (cartCtx, state) {
       CartBloc cart = cartCtx.read<CartBloc>();
 
@@ -72,19 +70,6 @@ class _CartScreenState extends State<CartScreen> {
                           itemCount: state.items.length,
                           itemBuilder: (_, index) => CartProductCard(
                               product: state.item(index), cart: cart)),
-                      CloudCard(
-                          child: TextFormField(
-                        key: _formKey,
-                        decoration: formInputStyle('Comment'),
-                        minLines: 2,
-                        maxLines: 5,
-                        textCapitalization: TextCapitalization.sentences,
-                        onChanged: (String? value) {
-                          setState(() => comment = value!);
-                        },
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.done,
-                      ))
                     ]),
                   ),
                   Container(
@@ -128,16 +113,10 @@ class _CartScreenState extends State<CartScreen> {
                           SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
-                              _formKey.currentState!.save();
-                              if (!_formKey.currentState!.validate()) {
-                                return;
-                              }
-
                               showModalBottomSheet(
                                 context: context,
                                 isScrollControlled: true,
                                 builder: (context) => PayPopup(
-                                  comment: comment,
                                   cart: cart,
                                 ),
                               );

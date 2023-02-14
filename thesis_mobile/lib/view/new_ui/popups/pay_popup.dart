@@ -4,11 +4,14 @@ import 'package:money2/money2.dart';
 import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/cart/cart_bloc.dart';
 import 'package:thesis_mobile/core/bloc/order/order_bloc.dart';
+import 'package:thesis_mobile/core/bloc/statistics/statistics_bloc.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/core/model/order.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
 import 'package:thesis_mobile/utils/default_data.dart';
+import 'package:thesis_mobile/utils/form_input_style.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
 import 'package:thesis_mobile/utils/regex_helpers.dart';
 import 'package:thesis_mobile/view/new_ui/screens/track_order_screen.dart';
@@ -16,30 +19,25 @@ import 'package:thesis_mobile/view/new_ui/widgets/cart/pay_dropdown.dart';
 
 class PayPopup extends StatefulWidget {
   final CartBloc cart;
-  final String comment;
 
-  const PayPopup({Key? key, required this.cart, required this.comment})
-      : super(key: key);
+  const PayPopup({Key? key, required this.cart}) : super(key: key);
 
   @override
   State<PayPopup> createState() => _PayPopupState();
 }
 
 class _PayPopupState extends State<PayPopup> {
-  bool _isLoading = false;
-  bool paymentDisabled = false;
   String payMethod = 'Card';
-
-  @override
-  void initState() {
-    super.initState();
-    // Enable virtual display.
-  }
+  final GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
+  String comment = '';
 
   @override
   Widget build(BuildContext context) {
     final addressContext = BlocProvider.of<AddressBloc>(context);
     final orderContext = BlocProvider.of<OrderBloc>(context);
+    final statsContext = BlocProvider.of<StatisticsBloc>(context);
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+
     final int deliveryCost = widget.cart.state.totalDeliveryPrice;
     final int serviceFee = widget.cart.state.serviceFee;
     final int totalPrice =
@@ -48,6 +46,8 @@ class _PayPopupState extends State<PayPopup> {
         .format('#,###,###.00 S')
         .toString()
         .replaceAll(regexRemoveZero, '');
+
+    taskContext.addLogTask('[NEWUI][OPENED] PayPopup');
 
     return makeDismissible(
       context: context,
@@ -98,6 +98,18 @@ class _PayPopupState extends State<PayPopup> {
                           },
                         ),
                       ),
+                      TextFormField(
+                        key: _formKey,
+                        decoration: formInputStyle('Comment'),
+                        minLines: 2,
+                        maxLines: 5,
+                        textCapitalization: TextCapitalization.sentences,
+                        onChanged: (String? value) {
+                          setState(() => comment = value!);
+                        },
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.done,
+                      )
                     ],
                   ),
                 ),
@@ -128,48 +140,54 @@ class _PayPopupState extends State<PayPopup> {
                         Expanded(
                             child: ElevatedButton(
                           onPressed: () {
-                            if (paymentDisabled == false &&
-                                _isLoading == false) {
-                              int orderID = orderContext.state.latestOrder + 1;
-                              orderContext.addOrder(Order(
-                                  id: orderID,
-                                  address: Address(
-                                    city: addressContext
-                                        .state.currentAddress!.city,
-                                    building: addressContext
-                                        .state.currentAddress!.building,
-                                    street: addressContext
-                                        .state.currentAddress!.street,
-                                    intercom: addressContext
-                                        .state.currentAddress!.intercom,
-                                    flatNumber: addressContext
-                                        .state.currentAddress!.flatNumber,
-                                    floor: addressContext
-                                        .state.currentAddress!.floor,
-                                  ),
-                                  products: widget.cart.state.items,
-                                  subTotal: widget.cart.state.totalPrice,
-                                  deliveryPrice: deliveryCost,
-                                  comment: widget.comment,
-                                  ecoLevel: widget.cart.state.ecoLevel,
-                                  deliveryType: widget.cart.state.deliveryType,
-                                  serviceFee: serviceFee,
-                                  total: totalPrice,
-                                  createdAt: DateTime.now()));
-
-                              //todo add achievemtns and stats
-
-                              widget.cart.clearCart();
-                              Navigator.pop(context);
-                              customPagePush(
-                                  context, TrackOrderScreen(orderID: orderID));
+                            _formKey.currentState!.save();
+                            if (!_formKey.currentState!.validate()) {
+                              return;
                             }
+
+                            int orderID = orderContext.state.latestOrder + 1;
+                            Order newOrder = Order(
+                                id: orderID,
+                                address: Address(
+                                  city:
+                                      addressContext.state.currentAddress!.city,
+                                  building: addressContext
+                                      .state.currentAddress!.building,
+                                  street: addressContext
+                                      .state.currentAddress!.street,
+                                  intercom: addressContext
+                                      .state.currentAddress!.intercom,
+                                  flatNumber: addressContext
+                                      .state.currentAddress!.flatNumber,
+                                  floor: addressContext
+                                      .state.currentAddress!.floor,
+                                ),
+                                products: widget.cart.state.items,
+                                subTotal: widget.cart.state.totalPrice,
+                                deliveryPrice: deliveryCost,
+                                comment: comment,
+                                ecoLevel: widget.cart.state.ecoLevel,
+                                deliveryType: widget.cart.state.deliveryType,
+                                deliveryWindow:
+                                    widget.cart.state.deliveryWindow,
+                                serviceFee: serviceFee,
+                                total: totalPrice,
+                                createdAt: DateTime.now());
+                            orderContext.addOrder(newOrder);
+                            // achievemtns and stats
+                            statsContext.addOrder(newOrder);
+                            taskContext.addOrderTask();
+                            taskContext
+                                .addLogTask('[NEWUI][ADDED] Order $orderID');
+
+                            widget.cart.clearCart();
+                            Navigator.pop(context);
+                            customPagePush(
+                                context, TrackOrderScreen(orderID: orderID));
                           },
                           child: Text('Pay'),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: paymentDisabled || _isLoading
-                                  ? AppColors.Dorian
-                                  : AppColors.MintGreen,
+                              backgroundColor: AppColors.MintGreen,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),

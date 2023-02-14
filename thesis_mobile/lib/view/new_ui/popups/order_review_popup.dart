@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/make_dismissible.dart';
 
-class OrderReviewBS extends StatefulWidget {
+class OrderReview extends StatefulWidget {
   final int orderID;
 
-  OrderReviewBS({Key? key, required this.orderID}) : super(key: key);
+  OrderReview({Key? key, required this.orderID}) : super(key: key);
 
   @override
-  State<OrderReviewBS> createState() => _OrderReviewBSState();
+  State<OrderReview> createState() => _OrderReviewState();
 }
 
-class _OrderReviewBSState extends State<OrderReviewBS> {
+class _OrderReviewState extends State<OrderReview> {
   double _rating = 0;
 
   @override
   Widget build(BuildContext context) {
+    final taskContext = BlocProvider.of<TaskManagerBloc>(context);
+    taskContext.addLogTask('[NEWUI][OPENED] OrderReviewPopup');
+
     return makeDismissible(
       context: context,
       child: DraggableScrollableSheet(
@@ -58,7 +63,11 @@ class _OrderReviewBSState extends State<OrderReviewBS> {
                     height: 20,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        taskContext.addLogTask(
+                            '[NEWUI][ADDED] OrderReview ${widget.orderID}, rate: $_rating');
+                        Navigator.pop(context);
+                      },
                       child: Text('Send'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: _rating > 0
