@@ -1,0 +1,98 @@
+{
+  "order": [
+    {
+      "image": "assets/achievements/order1.jpg",
+      "amount": 1,
+      "title": "First order",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/order3.jpg",
+      "amount": 3,
+      "title": "3 Orders",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/order5.jpg",
+      "amount": 5,
+      "title": "5 orders",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/order10.jpg",
+      "amount": 10,
+      "title": "10 orders",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/order30.jpg",
+      "amount": 30,
+      "title": "30 orders",
+      "description": ""
+    }
+  ],
+  "co2Saved": [
+    {
+      "image": "assets/achievements/co2saved1.jpg",
+      "amount": 1,
+      "title": "1kg saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/co2saved5.jpg",
+      "amount": 5,
+      "title": "5kg saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/co2saved10.jpg",
+      "amount": 10,
+      "title": "10kg saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/co2saved15.jpg",
+      "amount": 15,
+      "title": "15kg saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/co2saved30.jpg",
+      "amount": 30,
+      "title": "30kg saved",
+      "description": ""
+    }
+  ],
+  "treesSaved": [
+    {
+      "image": "assets/achievements/treesSaved1.jpg",
+      "amount": 1,
+      "title": "1 trees saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/treesSaved3.jpg",
+      "amount": 3,
+      "title": "3 trees saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/treesSaved5.jpg",
+      "amount": 5,
+      "title": "5 trees saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/treesSaved15.jpg",
+      "amount": 15,
+      "title": "15 trees saved",
+      "description": ""
+    },
+    {
+      "image": "assets/achievements/treesSaved30.jpg",
+      "amount": 30,
+      "title": "30 trees saved",
+      "description": ""
+    }
+  ]
+}
