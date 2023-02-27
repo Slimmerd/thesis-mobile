@@ -2,31 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
 
-class PayDrodown extends StatefulWidget {
+class PayDropdown extends StatefulWidget {
   final String payMethod;
   final Function(String dropdownValue) callback;
 
-  const PayDrodown({Key? key, required this.payMethod, required this.callback})
+  const PayDropdown({Key? key, required this.payMethod, required this.callback})
       : super(key: key);
 
   @override
-  _PayDrodownState createState() => _PayDrodownState();
+  State<PayDropdown> createState() => _PayDropdownState();
 }
 
-class _PayDrodownState extends State<PayDrodown> {
+class _PayDropdownState extends State<PayDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       borderRadius: BorderRadius.circular(15.0),
       decoration: formInputStyle(''),
-      dropdownColor: AppColors.Dorian,
+      dropdownColor: AppColors.dorian,
       value: widget.payMethod,
-      icon: Icon(Icons.expand_more),
+      icon: const Icon(Icons.expand_more),
       iconSize: 24,
       isExpanded: true,
       elevation: 16,
       style: const TextStyle(
-          color: AppColors.Graphite, fontSize: 18, fontWeight: FontWeight.w400),
+          color: AppColors.graphite, fontSize: 18, fontWeight: FontWeight.w400),
       onChanged: (String? newValue) {
         widget.callback.call(newValue!);
       },
