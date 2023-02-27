@@ -32,25 +32,25 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search products'),
+        title: const Text('Search products'),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+            padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
             child: TextFormField(
               textCapitalization: TextCapitalization.sentences,
               decoration: formInputStyle('', 'Name'),
               onChanged: (String? value) {
-                taskContext.addLogTask('[NEWUI][SEARCHED] Search: ${value}');
+                taskContext.addLogTask('[NEWUI][SEARCHED] Search: $value');
 
-                getProducts(value == null || value.length == 0 ? '0' : value);
+                getProducts(value == null || value.isEmpty ? '0' : value);
               },
             ),
           ),
           searchResult.isEmpty
-              ? Center(
+              ? const Center(
                   child: Text('Empty'),
                 )
               : Container(

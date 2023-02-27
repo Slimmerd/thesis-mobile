@@ -44,8 +44,8 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.person),
-          onPressed: () => customPagePush(context, MenuScreen()),
+          icon: const Icon(Icons.person),
+          onPressed: () => customPagePush(context, const MenuScreen()),
         ),
         title: BlocBuilder<AddressBloc, AddressState>(
           builder: (context, state) {
@@ -58,9 +58,9 @@ class _MainScreenState extends State<MainScreen> {
       body: BlocBuilder<StockBloc, StockState>(
         builder: (context, state) {
           List<Product> randomFive =
-              state.products.length == 0 ? [] : state.randomFive;
-          return state.products.length == 0
-              ? Center(child: CircularProgressIndicator())
+              state.products.isEmpty ? [] : state.randomFive;
+          return state.products.isEmpty
+              ? const Center(child: CircularProgressIndicator())
               : NestedScrollView(
                   controller: _scrollController,
                   headerSliverBuilder: (context, value) {
@@ -71,17 +71,17 @@ class _MainScreenState extends State<MainScreen> {
                       )),
                     ];
                   },
-                  body: ListView(padding: EdgeInsets.all(20), children: [
+                  body: ListView(padding: const EdgeInsets.all(20), children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20.0),
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         height: 135.h,
                         child: ListView(
                           shrinkWrap: true,
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
-                          children: [
+                          children: const [
                             StoryCard(),
                           ],
                         ),
@@ -125,7 +125,7 @@ class _MainScreenState extends State<MainScreen> {
                   ]));
         },
       ),
-      bottomNavigationBar: BottomAppBar(elevation: 0, child: OpenCartButton()),
+      bottomNavigationBar: const BottomAppBar(elevation: 0, child: OpenCartButton()),
     );
   }
 }
