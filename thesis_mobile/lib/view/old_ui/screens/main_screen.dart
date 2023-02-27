@@ -47,19 +47,19 @@ class _MainScreenState extends State<MainScreen> {
     ), body: BlocBuilder<StockBloc, StockState>(
       builder: (context, state) {
         List<Product> randomFive =
-            state.products.length == 0 ? [] : state.randomFive;
+            state.products.isEmpty ? [] : state.randomFive;
 
-        return state.categories.length == 0
-            ? Center(child: CircularProgressIndicator())
+        return state.categories.isEmpty
+            ? const Center(child: CircularProgressIndicator())
             : ListView(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
-                    child: Container(
+                    child: SizedBox(
                         width: double.infinity,
                         height: 245.h,
-                        child: PromotionsCarousel()),
+                        child: const PromotionsCarousel()),
                   ),
                   Text(
                     'Picked for you',
