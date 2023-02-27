@@ -6,7 +6,7 @@ import 'package:thesis_mobile/core/model/category.dart';
 import 'package:thesis_mobile/core/model/parent_category.dart';
 import 'package:thesis_mobile/core/model/product.dart';
 
-class ApiService {
+class InternalApiService {
   static Future<List<Product>> fetchProducts() async {
     try {
       dynamic response = await rootBundle.loadString('assets/data/data.json');
