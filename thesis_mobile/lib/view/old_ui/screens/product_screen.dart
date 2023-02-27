@@ -37,11 +37,11 @@ class ProductScreen extends StatelessWidget {
               ? volumeTypeParserBig(product.volumeType)
               : volumeTypeParserSmall(product.volumeType);
           String productInfo =
-              '${productVolume.toString().replaceAll(regexRemoveZero, '')} ${volumeType}';
+              '${productVolume.toString().replaceAll(regexRemoveZero, '')} $volumeType';
 
           return Container(
-              decoration: BoxDecoration(
-                color: AppColors.Cloud,
+              decoration: const BoxDecoration(
+                color: AppColors.cloud,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30),
                     topLeft: Radius.circular(30)),
@@ -49,32 +49,31 @@ class ProductScreen extends StatelessWidget {
               child: Column(children: [
                 Expanded(
                   child: ListView(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     children: [
-                      Container(
+                      SizedBox(
                           height: MediaQuery.of(context).size.height * 0.40,
                           child: Image.asset(
                             product.image,
-                            // width: double.maxFinite,
                             fit: BoxFit.cover,
                             cacheHeight: 768,
                             cacheWidth: 768,
                           )),
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             top: 20, bottom: 10, left: 20, right: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('${product.name}, ${productInfo}',
+                            Text('${product.name}, $productInfo',
                                 overflow: TextOverflow.clip,
                                 maxLines: 3,
                                 style: Theme.of(context).textTheme.headline3),
-                            SizedBox(height: 15),
+                            const SizedBox(height: 15),
                             Row(
                               children: [
                                 Expanded(
-                                  child: Text('${addToCartPrice}',
+                                  child: Text(addToCartPrice,
                                       style:
                                           Theme.of(context).textTheme.headline4,
                                       softWrap: true),
@@ -108,77 +107,75 @@ class ProductScreen extends StatelessWidget {
                                               taskContext.addLogTask(
                                                   '[OLDUI][ADDED] Product: ${product.id}');
                                             },
-                                            child: FittedBox(
-                                              child: Text('Add to cart'),
-                                            ),
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
-                                                    AppColors.MintGreen,
+                                                    AppColors.mintGreen,
                                                 shape:
-                                                    new RoundedRectangleBorder(
+                                                    RoundedRectangleBorder(
                                                   borderRadius:
-                                                      new BorderRadius.circular(
+                                                      BorderRadius.circular(
                                                           14.0),
                                                 ),
                                                 elevation: 0,
-                                                minimumSize: Size(150, 43),
+                                                minimumSize: const Size(150, 43),
                                                 textStyle:
-                                                    TextStyle(fontSize: 18)),
+                                                    const TextStyle(fontSize: 18)),
+                                            child: const FittedBox(
+                                              child: Text('Add to cart'),
+                                            ),
                                           ))
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Per 100 gramms',
+                                    style:
+                                        Theme.of(context).textTheme.headline5,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                              '${product.perHundredGrams.fat}'),
+                                          const Text('fat'),
+                                        ],
+                                      ),
+                                      const SizedBox(width: 20),
+                                      Column(
+                                        children: [
+                                          Text(
+                                              '${product.perHundredGrams.carbs}'),
+                                          const Text('carbs')
+                                        ],
+                                      ),
+                                      const SizedBox(width: 20),
+                                      Column(
+                                        children: [
+                                          Text(
+                                              '${product.perHundredGrams.protein}'),
+                                          const Text('protein')
+                                        ],
+                                      ),
+                                      const SizedBox(width: 20),
+                                      Column(
+                                        children: [
+                                          Text(
+                                              '${product.perHundredGrams.kcal}'),
+                                          const Text('kcal')
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                ]),
                             Container(
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Per 100 gramms',
-                                      style:
-                                          Theme.of(context).textTheme.headline5,
-                                    ),
-                                    SizedBox(height: 10),
-                                    Row(
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Text(
-                                                '${product.perHundredGrams.fat}'),
-                                            Text('fat'),
-                                          ],
-                                        ),
-                                        SizedBox(width: 20),
-                                        Column(
-                                          children: [
-                                            Text(
-                                                '${product.perHundredGrams.carbs}'),
-                                            Text('carbs')
-                                          ],
-                                        ),
-                                        SizedBox(width: 20),
-                                        Column(
-                                          children: [
-                                            Text(
-                                                '${product.perHundredGrams.protein}'),
-                                            Text('protein')
-                                          ],
-                                        ),
-                                        SizedBox(width: 20),
-                                        Column(
-                                          children: [
-                                            Text(
-                                                '${product.perHundredGrams.kcal}'),
-                                            Text('kcal')
-                                          ],
-                                        ),
-                                      ],
-                                    )
-                                  ]),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 15),
+                              margin: const EdgeInsets.only(top: 15),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -186,7 +183,7 @@ class ProductScreen extends StatelessWidget {
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline5),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
@@ -194,7 +191,7 @@ class ProductScreen extends StatelessWidget {
                                   ]),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 15),
+                              margin: const EdgeInsets.only(top: 15),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -202,14 +199,14 @@ class ProductScreen extends StatelessWidget {
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline5),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
-                                    Text('${product.description.ingredients}')
+                                    Text(product.description.ingredients)
                                   ]),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 15),
+                              margin: const EdgeInsets.only(top: 15),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -217,16 +214,16 @@ class ProductScreen extends StatelessWidget {
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline5),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
-                                      '${product.description.manufacturer}',
+                                      product.description.manufacturer,
                                     ),
                                   ]),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 15),
+                              margin: const EdgeInsets.only(top: 15),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -234,10 +231,10 @@ class ProductScreen extends StatelessWidget {
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline5),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
-                                    Text('${product.description.brand}')
+                                    Text(product.description.brand)
                                   ]),
                             ),
                           ],
@@ -245,7 +242,7 @@ class ProductScreen extends StatelessWidget {
                       ),
                       Container(
                         margin:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         height: 220,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,7 +251,7 @@ class ProductScreen extends StatelessWidget {
                                 'You may also like',
                                 style: Theme.of(context).textTheme.headline4,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Expanded(

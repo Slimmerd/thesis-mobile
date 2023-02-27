@@ -5,14 +5,14 @@ class CustomCheckBox extends StatefulWidget {
   final bool isChecked;
   final Function(bool isChecked)? onChange;
 
-  CustomCheckBox({
+  const CustomCheckBox({
     Key? key,
     required this.isChecked,
     required this.onChange,
   }) : super(key: key);
 
   @override
-  _CustomCheckBoxState createState() => _CustomCheckBoxState();
+  State<CustomCheckBox> createState() => _CustomCheckBoxState();
 }
 
 class _CustomCheckBoxState extends State<CustomCheckBox> {
@@ -20,21 +20,19 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SizedBox(
-        width: 20,
-        height: 20,
-        child: Checkbox(
-          activeColor: AppColors.Dorian,
-          checkColor: AppColors.Graphite,
-          value: widget.isChecked,
-          onChanged: (value) {
-            setState(() {
-              this.value = value!;
-              widget.onChange?.call(value);
-            });
-          },
-        ),
+    return SizedBox(
+      width: 20,
+      height: 20,
+      child: Checkbox(
+        activeColor: AppColors.dorian,
+        checkColor: AppColors.graphite,
+        value: widget.isChecked,
+        onChanged: (value) {
+          setState(() {
+            this.value = value!;
+            widget.onChange?.call(value);
+          });
+        },
       ),
     );
   }

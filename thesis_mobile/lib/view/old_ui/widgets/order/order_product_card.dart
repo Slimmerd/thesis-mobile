@@ -24,22 +24,22 @@ class OrderProduct extends StatelessWidget {
         : volumeTypeParserSmall(product.product.volumeType);
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       height: 75,
       decoration: BoxDecoration(
-          color: AppColors.Cloud,
-          boxShadow: [
+          color: AppColors.cloud,
+          boxShadow: const [
             BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
               width: 75,
               height: 75,
               child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                   child: Image.asset(
@@ -56,30 +56,30 @@ class OrderProduct extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${product.product.name}, ${productVolume}${volumeType}",
+                  Text("${product.product.name}, $productVolume$volumeType",
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.Graphite,
+                        color: AppColors.graphite,
                       )),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         '${product.quantity} pc',
-                        style: TextStyle(
-                            color: AppColors.GrayPick,
+                        style: const TextStyle(
+                            color: AppColors.grayPick,
                             fontSize: 12,
                             fontWeight: FontWeight.w400),
                       ),
                       Text(
-                        '${productPrice}',
-                        style: TextStyle(
-                            color: AppColors.MintGreen,
+                        productPrice,
+                        style: const TextStyle(
+                            color: AppColors.mintGreen,
                             fontSize: 14,
                             fontWeight: FontWeight.w500),
                       )

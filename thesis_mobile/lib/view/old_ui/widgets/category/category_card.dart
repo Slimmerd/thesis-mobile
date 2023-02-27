@@ -24,7 +24,7 @@ class CategoryCard extends StatelessWidget {
         width: 105.w,
         height: 135,
         decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             image: DecorationImage(
@@ -34,10 +34,10 @@ class CategoryCard extends StatelessWidget {
                     Colors.black.withOpacity(0.5), BlendMode.srcOver)),
             borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Text(
             parentCategory.name,
-            style: NewTypography.R16700.apply(color: AppColors.Cloud),
+            style: NewTypography.r16700.apply(color: AppColors.cloud),
           ),
         ),
       ),

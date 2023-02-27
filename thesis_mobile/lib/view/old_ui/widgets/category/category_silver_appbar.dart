@@ -8,14 +8,14 @@ class CategorySliverAppBar extends StatefulWidget {
   final String title;
   final List<Product> products;
 
-  CategorySliverAppBar({
+  const CategorySliverAppBar({
     Key? key,
     required this.title,
     required this.products,
   }) : super(key: key);
 
   @override
-  _CategorySliverAppBarState createState() => _CategorySliverAppBarState();
+  State<CategorySliverAppBar> createState() => _CategorySliverAppBarState();
 }
 
 class _CategorySliverAppBarState extends State<CategorySliverAppBar> {
@@ -32,12 +32,12 @@ class _CategorySliverAppBarState extends State<CategorySliverAppBar> {
                 SearchScreen(
                   products: widget.products,
                 )),
-            child: Icon(Icons.search),
+            child: const Icon(Icons.search),
           ),
         ),
       ],
       pinned: true,
-      backgroundColor: AppColors.Cloud,
+      backgroundColor: AppColors.cloud,
     );
   }
 }

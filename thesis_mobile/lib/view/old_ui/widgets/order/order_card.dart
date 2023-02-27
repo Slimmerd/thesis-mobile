@@ -28,11 +28,11 @@ class OrderCard extends StatelessWidget {
         customPagePush(context, OrderScreen(order: order));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         height: 80,
         decoration: BoxDecoration(
-            color: AppColors.Cloud,
-            boxShadow: [
+            color: AppColors.cloud,
+            boxShadow: const [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             borderRadius: BorderRadius.circular(20)),
@@ -45,34 +45,34 @@ class OrderCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('${orderDate}',
+                  Text(orderDate,
                       style:
-                          TextStyle(color: AppColors.GrayPick, fontSize: 10)),
-                  SizedBox(height: 10),
+                          const TextStyle(color: AppColors.grayPick, fontSize: 10)),
+                  const SizedBox(height: 10),
                   Text('Order #${order.id}',
                       softWrap: false,
                       overflow: TextOverflow.fade,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.Graphite)),
-                  SizedBox(height: 5),
-                  Text('${orderStatus}',
+                          color: AppColors.graphite)),
+                  const SizedBox(height: 5),
+                  Text(orderStatus,
                       style:
-                          TextStyle(color: AppColors.GrayPick, fontSize: 12)),
+                          const TextStyle(color: AppColors.grayPick, fontSize: 12)),
                 ],
               ),
             ),
             Container(
               margin: const EdgeInsets.only(left: 10, right: 20),
               alignment: Alignment.center,
-              child: Text('${price}',
+              child: Text(price,
                   softWrap: false,
                   overflow: TextOverflow.fade,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.MintGreen)),
+                      color: AppColors.mintGreen)),
             ),
           ],
         ),

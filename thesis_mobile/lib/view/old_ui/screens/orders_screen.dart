@@ -35,18 +35,18 @@ class _OrdersScreenState extends State<OrdersScreen> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'Orders',
             ),
           ),
           body: state.orders.isNotEmpty
               ? ListView(
                   controller: _scrollController,
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   children: [
                     ListView.builder(
                       shrinkWrap: true,
-                      physics: ClampingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       itemCount: state.orders.length,
                       itemBuilder: (BuildContext context, int index) {
                         return OrderCard(
@@ -56,7 +56,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     ),
                   ],
                 )
-              : Center(
+              : const Center(
                   child: Text('Empty'),
                 ),
         );

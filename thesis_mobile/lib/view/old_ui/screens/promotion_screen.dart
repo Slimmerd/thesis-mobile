@@ -15,7 +15,7 @@ class PromotionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final taskContext = BlocProvider.of<TaskManagerBloc>(context);
-    taskContext.addLogTask('[OLDUI][OPENED] PromotionScreen ${categoryID}');
+    taskContext.addLogTask('[OLDUI][OPENED] PromotionScreen $categoryID');
 
     return BlocBuilder<StockBloc, StockState>(
       builder: (context, state) {
@@ -23,7 +23,7 @@ class PromotionScreen extends StatelessWidget {
         List<Product> products = category.products;
         return Scaffold(
           appBar: AppBar(
-            title: Text('${category.name}'),
+            title: Text(category.name),
           ),
           body: ListView(
             children: [

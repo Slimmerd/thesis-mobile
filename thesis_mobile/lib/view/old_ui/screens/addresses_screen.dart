@@ -21,25 +21,25 @@ class AddressesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Addresses',
-          style: NewTypography.M18600,
+          style: NewTypography.m18600,
         ),
       ),
       body: Container(
-          decoration: BoxDecoration(
-            color: AppColors.Cloud,
+          decoration: const BoxDecoration(
+            color: AppColors.cloud,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
           ),
           child: ListView(
-              physics: ClampingScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              physics: const ClampingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               children: [
                 BlocBuilder<AddressBloc, AddressState>(
                   builder: (context, state) {
                     AddressBloc addressBl = context.read<AddressBloc>();
                     return ListView.builder(
                         shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
+                        physics: const ClampingScrollPhysics(),
                         itemCount: state.addresses.length,
                         itemBuilder: (_, index) {
                           return AddressSelector(
@@ -63,9 +63,9 @@ class AddressesScreen extends StatelessWidget {
                   },
                 ),
                 InkWell(
-                  onTap: () => customPagePush(context, AddAddressScreen()),
+                  onTap: () => customPagePush(context, const AddAddressScreen()),
                   child: Row(
-                    children: [
+                    children: const [
                       Icon(Icons.add),
                       SizedBox(
                         width: 20,

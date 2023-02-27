@@ -53,14 +53,12 @@ class ProductCard extends StatelessWidget {
                     recommendations ?? stockContext.state.randomFive,
               )),
           child: Container(
-            // height: MediaQuery.of(context).size.height * 0.25,
-            // width: MediaQuery.of(context).size.width * 0.28,
             height: 180,
             width: 105.w,
             margin: EdgeInsets.only(right: pright, bottom: 10),
             decoration: BoxDecoration(
-                color: AppColors.Cloud,
-                boxShadow: [
+                color: AppColors.cloud,
+                boxShadow: const [
                   BoxShadow(
                       color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
                 ],
@@ -70,28 +68,30 @@ class ProductCard extends StatelessWidget {
                 height: 95,
                 width: MediaQuery.of(context).size.width * 0.28,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10)),
                   child: Image.asset(
                     product.image,
+                    cacheHeight: 256,
+                    cacheWidth: 256,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${productPrice}',
+                    Text(productPrice,
                         style: Theme.of(context)
                             .textTheme
                             .headline5
-                            ?.apply(color: AppColors.MintGreen)),
+                            ?.apply(color: AppColors.mintGreen)),
                     Text(
-                      '${product.name}, ${productVolume}${volumeType}',
+                      '${product.name}, $productVolume$volumeType',
                       style: Theme.of(context).textTheme.subtitle1,
                       maxLines: 2,
                       overflow: TextOverflow.clip,
@@ -99,11 +99,11 @@ class ProductCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
-                  padding: EdgeInsets.only(left: 5, right: 5, bottom: 5),
+                  padding: const EdgeInsets.only(left: 5, right: 5, bottom: 5),
                   child: state.has(product.id)
-                      ? Container(
+                      ? SizedBox(
                           width: 76,
                           child: CustomCounter(
                             height: 24,
@@ -139,7 +139,7 @@ class ProductCard extends StatelessWidget {
                                   taskContext.addLogTask(
                                       '[OLDUI][ADDED] Cart product: ${product.id}');
                                 }),
-                                child: Icon(Icons.add))
+                                child: const Icon(Icons.add))
                           ],
                         ))
             ]),

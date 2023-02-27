@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
+import 'package:thesis_mobile/utils/custom_page_push.dart';
+import 'package:thesis_mobile/view/questionaire/finish_screen.dart';
 
 class StageCard extends StatelessWidget {
   const StageCard({super.key});
@@ -12,13 +14,16 @@ class StageCard extends StatelessWidget {
       builder: (context, state) {
         TaskManagerBloc task = context.read<TaskManagerBloc>();
         return Container(
-          height: state.ordersInStage >= 3 ? 180 : 100,
-          margin: EdgeInsets.only(bottom: 10),
+          height: (state.ordersInStage >= 3 ||
+                  state.stage == TaskManagerStage.finish)
+              ? 180
+              : 100,
+          margin: const EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
               color: state.ordersInStage >= 3
-                  ? AppColors.MintGreen
-                  : AppColors.LightRed,
-              boxShadow: [
+                  ? AppColors.mintGreen
+                  : AppColors.lightRed,
+              boxShadow: const [
                 BoxShadow(
                     color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
               ],
@@ -26,7 +31,7 @@ class StageCard extends StatelessWidget {
           child: Column(children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -34,8 +39,8 @@ class StageCard extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline4
-                          ?.apply(color: AppColors.Cloud)),
-                  SizedBox(
+                          ?.apply(color: AppColors.cloud)),
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -43,32 +48,47 @@ class StageCard extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline5
-                          ?.apply(color: AppColors.Cloud)),
+                          ?.apply(color: AppColors.cloud)),
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-              child: state.ordersInStage >= 3
+              padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+              child: state.stage == TaskManagerStage.finish
                   ? ElevatedButton(
-                      onPressed: () {
-                        task.addLogTask(
-                            '[OLDUI][STAGE] Stage transfer to newUI');
-                        task.updateStageTask(TaskManagerStage.newUI);
-                      },
+                      onPressed: () =>
+                          customPagePushRemove(context, const FinishScreen()),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.Dorian,
+                        backgroundColor: AppColors.dorian,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         elevation: 0,
-                        minimumSize: Size(335, 43),
+                        minimumSize: const Size(335, 43),
                       ),
-                      child: Text('Next stage',
+                      child: const Text('Finish',
                           style: TextStyle(
-                              fontSize: 18, color: AppColors.Graphite)))
-                  : SizedBox(),
+                              fontSize: 18, color: AppColors.graphite)))
+                  : state.ordersInStage >= 3
+                      ? ElevatedButton(
+                          onPressed: () {
+                            task.addLogTask(
+                                '[OLDUI][STAGE] Stage transfer to newUI');
+                            task.updateStageTask(TaskManagerStage.newUI);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.dorian,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14.0),
+                            ),
+                            elevation: 0,
+                            minimumSize: const Size(335, 43),
+                          ),
+                          child: const Text('Next stage',
+                              style: TextStyle(
+                                  fontSize: 18, color: AppColors.graphite)))
+                      : const SizedBox(),
             )
           ]),
         );

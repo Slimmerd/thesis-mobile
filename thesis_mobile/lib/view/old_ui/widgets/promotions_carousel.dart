@@ -5,6 +5,8 @@ import 'package:thesis_mobile/utils/default_data.dart';
 import 'package:thesis_mobile/view/old_ui/screens/promotion_screen.dart';
 
 class PromotionsCarousel extends StatefulWidget {
+  const PromotionsCarousel({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _PromotionsCarouselState();
@@ -23,44 +25,45 @@ class _PromotionsCarouselState extends State<PromotionsCarousel> {
                   categoryID: item['category'],
                 )),
             child: Container(
-              child: Container(
-                margin: EdgeInsets.all(5.0),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    child: Stack(
-                      children: <Widget>[
-                        Image.asset(item['img'],
-                            fit: BoxFit.cover, width: 1000.0),
-                        Positioned(
-                          bottom: 0.0,
-                          left: 0.0,
-                          right: 0.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(200, 0, 0, 0),
-                                  Color.fromARGB(0, 0, 0, 0)
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                              ),
+              margin: const EdgeInsets.all(5.0),
+              child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.asset(item['img'],
+                          cacheHeight: 768,
+                          cacheWidth: 768,
+                          fit: BoxFit.cover,
+                          width: 1000.0),
+                      Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        right: 0.0,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(200, 0, 0, 0),
+                                Color.fromARGB(0, 0, 0, 0)
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 20.0),
-                            child: Text(
-                              '${item['text']}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
+                          child: Text(
+                            '${item['text']}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ],
-                    )),
-              ),
+                      ),
+                    ],
+                  )),
             ),
           ))
       .toList();
@@ -75,7 +78,7 @@ class _PromotionsCarouselState extends State<PromotionsCarousel> {
           options: CarouselOptions(
               viewportFraction: 1,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 7),
+              autoPlayInterval: const Duration(seconds: 7),
               enlargeCenterPage: true,
               // aspectRatio: 16 / 9,
               onPageChanged: (index, reason) {
@@ -93,7 +96,8 @@ class _PromotionsCarouselState extends State<PromotionsCarousel> {
             child: Container(
               width: 12.0,
               height: 5.0,
-              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(14),

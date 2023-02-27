@@ -63,29 +63,29 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         .replaceAll(regexRemoveZero, '');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkout'),
+        title: const Text('Checkout'),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
           Text(
             'Delivery address',
             style: Theme.of(context).textTheme.headline4,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           CloudCard(
             child: Text(
               '${addressContext.state.currentAddress?.street} ${addressContext.state.currentAddress?.building}',
-              style: NewTypography.M16400,
+              style: NewTypography.m16400,
             ),
           ),
           Text(
             'Comment',
             style: Theme.of(context).textTheme.headline4,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           CloudCard(
@@ -106,7 +106,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             'Order summary',
             style: Theme.of(context).textTheme.headline4,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           CloudCard(
@@ -119,10 +119,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     'Subtotal',
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  Text('$subTotalString'),
+                  Text(subTotalString),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Row(
@@ -132,10 +132,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     'Delivery fee',
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  Text('$deliveryFeeString'),
+                  Text(deliveryFeeString),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Row(
@@ -145,10 +145,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     'Service fee',
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  Text('$serviceFeeString'),
+                  Text(serviceFeeString),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -159,11 +159,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   Text(
-                    '$totalPriceString',
+                    totalPriceString,
                     style: Theme.of(context)
                         .textTheme
                         .headline5
-                        ?.apply(color: AppColors.MintGreen),
+                        ?.apply(color: AppColors.mintGreen),
                   ),
                 ],
               ),
@@ -173,13 +173,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             'Payment method',
             style: Theme.of(context).textTheme.headline4,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SizedBox(
             // height: 80,
             child: CloudCard(
-              child: PayDrodown(
+              child: PayDropdown(
                 payMethod: payMethod,
                 callback: (String dropdownValue) {
                   setState(() => payMethod = dropdownValue);
@@ -220,15 +220,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 customPagePush(context, TrackOrderScreen(orderID: orderID));
               }
             },
-            child: Text('Pay $totalPriceString'),
             style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.MintGreen,
+                backgroundColor: AppColors.mintGreen,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
                 ),
                 elevation: 0,
-                minimumSize: Size(135, 53),
-                textStyle: TextStyle(fontSize: 18)),
+                minimumSize: const Size(135, 53),
+                textStyle: const TextStyle(fontSize: 18)),
+            child: Text('Pay $totalPriceString'),
           ),
         ],
       ),

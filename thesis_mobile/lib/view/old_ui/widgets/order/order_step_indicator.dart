@@ -18,21 +18,21 @@ class OrderStepIndicator extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: (() {
             if (isCurrent == true) {
-              return LinearProgressIndicator(
-                color: AppColors.MintGreen,
-                backgroundColor: AppColors.Dorian,
+              return const LinearProgressIndicator(
+                color: AppColors.mintGreen,
+                backgroundColor: AppColors.dorian,
               );
             } else if (isCompleted == true) {
-              return LinearProgressIndicator(
+              return const LinearProgressIndicator(
                 value: 100,
-                color: AppColors.MintGreen,
-                backgroundColor: AppColors.Dorian,
+                color: AppColors.mintGreen,
+                backgroundColor: AppColors.dorian,
               );
             } else {
-              return LinearProgressIndicator(
+              return const LinearProgressIndicator(
                 value: 0,
-                color: AppColors.MintGreen,
-                backgroundColor: AppColors.Dorian,
+                color: AppColors.mintGreen,
+                backgroundColor: AppColors.dorian,
               );
             }
           }())),

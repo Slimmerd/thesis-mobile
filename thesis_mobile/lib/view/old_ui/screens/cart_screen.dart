@@ -40,26 +40,26 @@ class _CartScreenState extends State<CartScreen> {
           .replaceAll(regexRemoveZero, '');
 
       return Scaffold(
-        appBar: AppBar(title: Text('Cart'), actions: [
+        appBar: AppBar(title: const Text('Cart'), actions: [
           IconButton(
-              onPressed: () => cart.clearCart(), icon: Icon(Icons.delete))
+              onPressed: () => cart.clearCart(), icon: const Icon(Icons.delete))
         ]),
         body: cart.state.isEmpty
-            ? Center(
+            ? const Center(
                 child: Text('Cart empty'),
               )
             : Column(
                 children: [
                   Expanded(
-                    child: ListView(padding: EdgeInsets.all(20), children: [
+                    child: ListView(padding: const EdgeInsets.all(20), children: [
                       ListView.builder(
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.items.length,
                           itemBuilder: (_, index) => CartProductCard(
                               product: state.item(index), cart: cart)),
                       Container(
-                        margin: EdgeInsets.only(top: 10),
+                        margin: const EdgeInsets.only(top: 10),
                         height: 220,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class _CartScreenState extends State<CartScreen> {
                               'Recommended for you',
                               style: Theme.of(context).textTheme.headline4,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Expanded(
@@ -77,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                                   List<Product> randomFive = state.randomFive;
                                   return ListView.builder(
                                       scrollDirection: Axis.horizontal,
-                                      physics: ClampingScrollPhysics(),
+                                      physics: const ClampingScrollPhysics(),
                                       shrinkWrap: true,
                                       itemCount: randomFive.length,
                                       itemBuilder: (_, index) => ProductCard(
@@ -91,12 +91,11 @@ class _CartScreenState extends State<CartScreen> {
                     ]),
                   ),
                   Container(
-                      // height: window.viewPadding.bottom + 105,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       decoration: BoxDecoration(
-                          color: AppColors.Cloud,
-                          borderRadius: BorderRadius.only(
+                          color: AppColors.cloud,
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(14),
                               topRight: Radius.circular(14)),
                           boxShadow: [
@@ -105,27 +104,27 @@ class _CartScreenState extends State<CartScreen> {
                               spreadRadius: 3,
                               blurRadius: 7,
                               offset:
-                                  Offset(0, 3), // changes position of shadow
+                                  const Offset(0, 3), // changes position of shadow
                             ),
                           ]),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('${totalPriceString}',
+                          Text(totalPriceString,
                               style: Theme.of(context).textTheme.headline3),
                           ElevatedButton(
                             onPressed: () {
-                              customPagePush(context, RecommendationScreen());
+                              customPagePush(context, const RecommendationScreen());
                             },
-                            child: Text('Pay'),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.MintGreen,
+                                backgroundColor: AppColors.mintGreen,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(14.0),
                                 ),
                                 elevation: 0,
-                                minimumSize: Size(135, 53),
-                                textStyle: TextStyle(fontSize: 18)),
+                                minimumSize: const Size(135, 53),
+                                textStyle: const TextStyle(fontSize: 18)),
+                            child: const Text('Pay'),
                           ),
                         ],
                       ))

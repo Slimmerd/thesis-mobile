@@ -22,7 +22,7 @@ class RecommendationScreen extends StatelessWidget {
         List<Product> products = [...state.randomFive, ...state.randomFive];
         return Scaffold(
           appBar: AppBar(
-            title: Text('Recommendations'),
+            title: const Text('Recommendations'),
           ),
           body: Column(
             children: [
@@ -47,11 +47,10 @@ class RecommendationScreen extends StatelessWidget {
               ),
               Container(
                   width: double.infinity,
-                  // height: window.viewPadding.bottom + 105,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   decoration: BoxDecoration(
-                      color: AppColors.Cloud,
-                      borderRadius: BorderRadius.only(
+                      color: AppColors.cloud,
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(14),
                           topRight: Radius.circular(14)),
                       boxShadow: [
@@ -59,24 +58,24 @@ class RecommendationScreen extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 3,
                           blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset: const Offset(0, 3), // changes position of shadow
                         ),
                       ]),
                   child: ElevatedButton(
                       onPressed: () =>
-                          customPageReplace(context, CheckoutScreen()),
-                      child: Text('Continue',
-                          style: TextStyle(
-                              fontSize: 18, color: AppColors.Graphite)),
+                          customPageReplace(context, const CheckoutScreen()),
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.Dorian,
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(14.0),
+                          backgroundColor: AppColors.dorian,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14.0),
                           ),
                           elevation: 0,
-                          minimumSize: Size(225, 48),
-                          maximumSize: Size(425, 53),
-                          textStyle: TextStyle(fontSize: 18))))
+                          minimumSize: const Size(225, 48),
+                          maximumSize: const Size(425, 53),
+                          textStyle: const TextStyle(fontSize: 18)),
+                      child: const Text('Continue',
+                          style: TextStyle(
+                              fontSize: 18, color: AppColors.graphite))))
             ],
           ),
         );

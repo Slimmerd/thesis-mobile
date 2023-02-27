@@ -16,17 +16,17 @@ class TitleAddressSelect extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () => customPagePush(context, AddressesScreen()),
+            onTap: () => customPagePush(context, const AddressesScreen()),
             child: addressState.currentAddress == null
-                ? Text('Loading...')
+                ? const Text('Loading...')
                 : Text(
                     '${addressState.currentAddress?.street} ${addressState.currentAddress?.building}',
                     overflow: TextOverflow.fade,
                     maxLines: 1,
                     textAlign: TextAlign.start,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w400,
-                      color: AppColors.Graphite,
+                      color: AppColors.graphite,
                       fontSize: 18,
                     ),
                   ),

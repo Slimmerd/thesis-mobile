@@ -27,12 +27,12 @@ class AddressSelector extends StatelessWidget {
       key: Key(address.id.toString()),
       direction: DismissDirection.endToStart,
       background: Container(
-        color: AppColors.LightRed,
+        color: AppColors.lightRed,
         alignment: Alignment.centerRight,
-        padding: EdgeInsets.only(right: 10.0),
-        child: Icon(Icons.delete_forever, color: AppColors.Cloud),
+        padding: const EdgeInsets.only(right: 10.0),
+        child: const Icon(Icons.delete_forever, color: AppColors.cloud),
       ),
-      confirmDismiss: (DismissDirection _dir) async {
+      confirmDismiss: (DismissDirection dir) async {
         if (addressesLength > 1 && address.id != currentID) {
           remove?.call(address);
         } else {
@@ -45,7 +45,7 @@ class AddressSelector extends StatelessWidget {
             setNew?.call(address);
           },
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 12),
+            margin: const EdgeInsets.symmetric(vertical: 12),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,12 +61,12 @@ class AddressSelector extends StatelessWidget {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(
                       '${address.street} ${address.building}',
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
@@ -75,7 +75,7 @@ class AddressSelector extends StatelessWidget {
                     customPagePush(
                         context, EditAddressScreen(address: address));
                   },
-                  child: Icon(Icons.settings),
+                  child: const Icon(Icons.settings),
                 )
               ],
             ),

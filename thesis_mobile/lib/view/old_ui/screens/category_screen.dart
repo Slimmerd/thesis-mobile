@@ -67,14 +67,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 key: ValueKey(index),
                 controller: controller,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(left: 20, bottom: 10),
                         child: Text(
-                          '${widget.categories[index].name}',
+                          widget.categories[index].name,
                           style: Theme.of(context).textTheme.headline4,
                         ),
                       ),

@@ -11,7 +11,7 @@ class NavbarScreen extends StatefulWidget {
   const NavbarScreen({Key? key}) : super(key: key);
 
   @override
-  _NavbarScreenState createState() => _NavbarScreenState();
+  State<NavbarScreen> createState() => _NavbarScreenState();
 }
 
 class _NavbarScreenState extends State<NavbarScreen> {
@@ -48,7 +48,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: AppColors.MintGreen,
+        selectedItemColor: AppColors.mintGreen,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
