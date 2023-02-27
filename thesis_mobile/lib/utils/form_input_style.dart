@@ -4,22 +4,22 @@ import 'package:thesis_mobile/utils/colors.dart';
 InputDecoration formInputStyle(String? label, [String? hint]) =>
     InputDecoration(
         labelText: '$label',
-        hintText: hint != null ? hint : '',
+        hintText: hint ?? '',
         counterText: "",
-        labelStyle: TextStyle(color: AppColors.Graphite, fontSize: 16),
-        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        labelStyle: const TextStyle(color: AppColors.graphite, fontSize: 16),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10),
         // floatingLabelStyle: ,
         filled: true,
-        fillColor: AppColors.Dorian,
+        fillColor: AppColors.dorian,
         disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: AppColors.GrayPick),
+            borderSide: const BorderSide(width: 1, color: AppColors.grayPick),
             borderRadius: BorderRadius.circular(15)),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 0, color: Colors.transparent),
+          borderSide: const BorderSide(width: 0, color: Colors.transparent),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 2, color: AppColors.MintGreen),
+          borderSide: const BorderSide(width: 2, color: AppColors.mintGreen),
           borderRadius: BorderRadius.circular(15),
         ));
