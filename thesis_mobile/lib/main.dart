@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:thesis_mobile/core/bloc/achievements/achievements_bloc.dart';
@@ -17,18 +16,17 @@ import 'package:thesis_mobile/view/loading_screen.dart';
 import 'package:thesis_mobile/view/new_ui/screens/main_screen.dart';
 import 'package:thesis_mobile/view/old_ui/screens/navbar_screen.dart';
 import 'package:thesis_mobile/view/onboarding/onboarding_screen.dart';
-import 'package:thesis_mobile/view/questionaire/finish_screen.dart';
+import 'package:thesis_mobile/view/questionnaire/finish_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
-
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -70,42 +68,30 @@ class MyApp extends StatelessWidget {
               return MaterialApp(
                 title: 'Grocery Research',
                 debugShowCheckedModeBanner: false,
-                localizationsDelegates: const [
-                  AppLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: const [
-                  Locale('en'), // English
-                  Locale('ru'), // Russian
-                ],
                 theme: ThemeData(
-                    canvasColor: AppColors.Cloud,
-                    primaryColor: AppColors.MintGreen,
+                    canvasColor: AppColors.cloud,
+                    primaryColor: AppColors.mintGreen,
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
-                    backgroundColor: AppColors.Cloud,
-                    // primarySwatch: Colors.blue,
-                    // canvasColor: Colors.transparent
+                    backgroundColor: AppColors.cloud,
                     textTheme: TextTheme(
-                        headline3: NewTypography.Header24,
-                        headline4: NewTypography.Header16,
-                        headline5: NewTypography.Header14,
-                        headline6: NewTypography.Header12,
-                        bodyText2: NewTypography.DefaultText14,
-                        subtitle1: NewTypography.DefaultText12,
-                        subtitle2: NewTypography.DefaultText10),
+                        headline3: NewTypography.header24,
+                        headline4: NewTypography.header16,
+                        headline5: NewTypography.header14,
+                        headline6: NewTypography.header12,
+                        bodyText2: NewTypography.defaultText14,
+                        subtitle1: NewTypography.defaultText12,
+                        subtitle2: NewTypography.defaultText10),
                     appBarTheme: AppBarTheme(
-                      iconTheme: IconThemeData(color: AppColors.Graphite),
-                      backgroundColor: AppColors.Cloud,
+                      iconTheme: const IconThemeData(color: AppColors.graphite),
+                      backgroundColor: AppColors.cloud,
                       elevation: 0,
                       titleTextStyle: Theme.of(context)
                           .textTheme
                           .headline6
-                          ?.copyWith(color: AppColors.Graphite),
+                          ?.copyWith(color: AppColors.graphite),
                     ),
-                    bottomSheetTheme: BottomSheetThemeData(
+                    bottomSheetTheme: const BottomSheetThemeData(
                         backgroundColor: Colors.transparent)),
                 home: const MyHomePage(),
               );
@@ -114,7 +100,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage();
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -122,14 +108,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> screenStages = [
-    OnBoardingScreen(),
-    NavbarScreen(),
-    MainScreen(),
-    FinishScreen()
+    const OnBoardingScreen(),
+    const NavbarScreen(),
+    const MainScreen(),
+    const FinishScreen()
   ];
 
   @override
   void initState() {
+    final TaskManagerBloc taskManagerBloc =
+        BlocProvider.of<TaskManagerBloc>(context);
+    taskManagerBloc.initUIDTask();
     super.initState();
   }
 
@@ -138,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return BlocBuilder<TaskManagerBloc, TaskManagerState>(
       builder: (context, state) {
         if (state.uID.isEmpty) {
-          return LoadingScreen();
+          return const LoadingScreen();
         }
 
         return screenStages[state.stage.index];
