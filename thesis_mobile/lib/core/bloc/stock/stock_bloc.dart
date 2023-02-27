@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:thesis_mobile/core/api.dart';
+import 'package:thesis_mobile/core/api/internal_api.dart';
 import 'package:thesis_mobile/core/model/category.dart';
 import 'package:thesis_mobile/core/model/parent_category.dart';
 import 'package:thesis_mobile/core/model/product.dart';
@@ -14,9 +14,7 @@ part 'stock_state.dart';
 class StockBloc extends Bloc<StockEvent, StockState> {
   StockBloc() : super(StockState()) {
     init();
-    on<StockEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<StockEvent>((event, emit) {});
   }
 
   Future<void> init() async {
@@ -24,10 +22,11 @@ class StockBloc extends Bloc<StockEvent, StockState> {
   }
 
   Future<void> _restore() async {
-    List<Product> products = await ApiService.fetchProducts();
-    List<Category> categories = await ApiService.fetchCategories(products);
+    List<Product> products = await InternalApiService.fetchProducts();
+    List<Category> categories =
+        await InternalApiService.fetchCategories(products);
     List<ParentCategory> parentCategories =
-        await ApiService.fetchParentCategory(categories);
+        await InternalApiService.fetchParentCategory(categories);
 
     emit(state.copyWith(
         products: products,
