@@ -20,18 +20,17 @@ class SearchBar extends StatelessWidget {
             ));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          color: AppColors.Dorian,
+          color: AppColors.dorian,
           borderRadius: BorderRadius.circular(34),
         ),
         child: Row(
-          children: [
+          children: const [
             Text(
-              // 'Продукты или категории',
               'Search products',
-              style: TextStyle(color: AppColors.GrayPick, fontSize: 16),
+              style: TextStyle(color: AppColors.grayPick, fontSize: 16),
             ),
             Spacer(),
             Icon(Icons.search)

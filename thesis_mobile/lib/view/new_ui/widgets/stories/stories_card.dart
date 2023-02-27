@@ -11,17 +11,17 @@ class StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => customPagePush(context, Stories()),
+      onTap: () => customPagePush(context, const Stories()),
       child: Container(
-        margin: EdgeInsets.only(right: 10),
+        margin: const EdgeInsets.only(right: 10),
         width: 105.w,
         height: 135.h,
         decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             image: DecorationImage(
-                image: AssetImage("assets/img1.jpeg"),
+                image: const AssetImage("assets/img1.jpeg"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.5), BlendMode.srcOver)),
@@ -29,8 +29,8 @@ class StoryCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Text(
-            'How to reduce enviromental impact',
-            style: NewTypography.R12700.apply(color: AppColors.Cloud),
+            'How to reduce environmental impact',
+            style: NewTypography.r12700.apply(color: AppColors.cloud),
           ),
         ),
       ),

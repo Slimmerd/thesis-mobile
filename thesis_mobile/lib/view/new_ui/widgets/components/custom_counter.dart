@@ -6,11 +6,14 @@ class CustomCounter extends StatefulWidget {
   final double height;
   final Function(int quantity)? onChanged;
 
-  CustomCounter(
-      {required this.height, required this.quantity, required this.onChanged});
+  const CustomCounter(
+      {super.key,
+      required this.height,
+      required this.quantity,
+      required this.onChanged});
 
   @override
-  _CustomCounterState createState() => _CustomCounterState();
+  State<CustomCounter> createState() => _CustomCounterState();
 }
 
 class _CustomCounterState extends State<CustomCounter> {
@@ -31,35 +34,34 @@ class _CustomCounterState extends State<CustomCounter> {
     return Container(
       height: widget.height,
       decoration: BoxDecoration(
-          color: AppColors.Dorian, borderRadius: BorderRadius.circular(34)),
+          color: AppColors.dorian, borderRadius: BorderRadius.circular(34)),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 34,
             child: IconButton(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: minus,
-              // child: Icon(Icons.remove, color: Colors.black),
-              icon: Icon(
+              icon: const Icon(
                 Icons.remove,
-                color: AppColors.Graphite,
+                color: AppColors.graphite,
                 size: 14.0,
               ),
             ),
           ),
           Text('${widget.quantity}',
-              style: TextStyle(
-                  color: AppColors.Graphite,
+              style: const TextStyle(
+                  color: AppColors.graphite,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w500)),
-          Container(
+          SizedBox(
             width: 34,
             child: IconButton(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: add,
-              icon: Icon(
+              icon: const Icon(
                 Icons.add,
-                color: AppColors.Graphite,
+                color: AppColors.graphite,
                 size: 14.0,
               ),
             ),

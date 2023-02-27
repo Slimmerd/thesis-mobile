@@ -11,24 +11,24 @@ class EnvLight extends StatelessWidget {
     const List<Widget> stateIcons = [
       Icon(
         Icons.close,
-        color: AppColors.RedWarn,
+        color: AppColors.redWarn,
       ),
       Icon(
         Icons.done,
-        color: AppColors.YellowWarn,
+        color: AppColors.yellowWarn,
       ),
       Icon(
         Icons.done_all,
-        color: AppColors.MintGreen,
+        color: AppColors.mintGreen,
       )
     ];
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        color: AppColors.Dorian,
-        boxShadow: [
+        color: AppColors.dorian,
+        boxShadow: const [
           BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
         ],
       ),

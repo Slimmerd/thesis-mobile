@@ -14,7 +14,7 @@ import 'package:thesis_mobile/view/new_ui/widgets/components/custom_counter.dart
 class ProductBottomSheet extends StatefulWidget {
   final Product product;
 
-  ProductBottomSheet({Key? key, required this.product}) : super(key: key);
+  const ProductBottomSheet({Key? key, required this.product}) : super(key: key);
 
   @override
   State<ProductBottomSheet> createState() => _ProductBottomSheetState();
@@ -61,11 +61,11 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                     ? volumeTypeParserBig(widget.product.volumeType)
                     : volumeTypeParserSmall(widget.product.volumeType);
                 String productInfo =
-                    '${productVolume.toString().replaceAll(regexRemoveZero, '')} ${volumeType}';
+                    '${productVolume.toString().replaceAll(regexRemoveZero, '')} $volumeType';
 
                 return Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.Cloud,
+                    decoration: const BoxDecoration(
+                      color: AppColors.cloud,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(30),
                           topLeft: Radius.circular(30)),
@@ -74,24 +74,23 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                       Expanded(
                         child: ListView(
                           controller: scrollController,
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           children: [
-                            Container(
+                            SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.40,
                                 child: ClipRRect(
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30)),
                                     child: Image.asset(
                                       widget.product.image,
-                                      // width: double.maxFinite,
                                       fit: BoxFit.cover,
                                       cacheHeight: 768,
                                       cacheWidth: 768,
                                     ))),
                             Container(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   top: 20, bottom: 10, left: 20, right: 20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,11 +99,11 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                       style: Theme.of(context)
                                           .textTheme
                                           .headline3),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Row(
                                     children: [
                                       Expanded(
-                                        child: Text('${productInfo}',
+                                        child: Text(productInfo,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium,
@@ -112,60 +111,58 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
+                                  Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Per 100 gramms',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline5,
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Column(
+                                              children: [
+                                                Text(
+                                                    '${widget.product.perHundredGrams.fat}'),
+                                                const Text('fat'),
+                                              ],
+                                            ),
+                                            const SizedBox(width: 20),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                    '${widget.product.perHundredGrams.carbs}'),
+                                                const Text('carbs')
+                                              ],
+                                            ),
+                                            const SizedBox(width: 20),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                    '${widget.product.perHundredGrams.protein}'),
+                                                const Text('protein')
+                                              ],
+                                            ),
+                                            const SizedBox(width: 20),
+                                            Column(
+                                              children: [
+                                                Text(
+                                                    '${widget.product.perHundredGrams.kcal}'),
+                                                const Text('kcal')
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ]),
                                   Container(
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Per 100 gramms',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline5,
-                                          ),
-                                          SizedBox(height: 10),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                      '${widget.product.perHundredGrams.fat}'),
-                                                  Text('fat'),
-                                                ],
-                                              ),
-                                              SizedBox(width: 20),
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                      '${widget.product.perHundredGrams.carbs}'),
-                                                  Text('carbs')
-                                                ],
-                                              ),
-                                              SizedBox(width: 20),
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                      '${widget.product.perHundredGrams.protein}'),
-                                                  Text('protein')
-                                                ],
-                                              ),
-                                              SizedBox(width: 20),
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                      '${widget.product.perHundredGrams.kcal}'),
-                                                  Text('kcal')
-                                                ],
-                                              ),
-                                            ],
-                                          )
-                                        ]),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 15),
+                                    margin: const EdgeInsets.only(top: 15),
                                     child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -174,7 +171,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline5),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Text(
@@ -182,7 +179,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                         ]),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 15),
+                                    margin: const EdgeInsets.only(top: 15),
                                     child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -191,15 +188,15 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline5),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Text(
-                                              '${widget.product.description.ingredients}')
+                                              widget.product.description.ingredients)
                                         ]),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 15),
+                                    margin: const EdgeInsets.only(top: 15),
                                     child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -208,16 +205,16 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline5),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Text(
-                                            '${widget.product.description.manufacturer}',
+                                            widget.product.description.manufacturer,
                                           ),
                                         ]),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 15),
+                                    margin: const EdgeInsets.only(top: 15),
                                     child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -226,11 +223,11 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline5),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Text(
-                                              '${widget.product.description.brand}')
+                                              widget.product.description.brand)
                                         ]),
                                   ),
                                 ],
@@ -242,8 +239,8 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                       Container(
                         alignment: Alignment.bottomCenter,
                         decoration: BoxDecoration(
-                            color: AppColors.Cloud,
-                            borderRadius: BorderRadius.only(
+                            color: AppColors.cloud,
+                            borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(30),
                                 topLeft: Radius.circular(30)),
                             boxShadow: [
@@ -252,7 +249,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                 spreadRadius: 3,
                                 blurRadius: 7,
                                 offset:
-                                    Offset(0, 3), // changes position of shadow
+                                    const Offset(0, 3), // changes position of shadow
                               ),
                             ]),
                         padding: EdgeInsets.only(
@@ -283,7 +280,7 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                 quantity: cartState.count(widget.product),
                               ),
                             if (cartState.has(widget.product.id))
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
 
                             // Add cart button
                             cartState.has(widget.product.id)
@@ -294,25 +291,25 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                             '[NEWUI][REMOVED] Product: ${widget.product.id}');
                                         cart.removeFromCart(widget.product.id);
                                       },
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: AppColors.lightRed,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(34.0),
+                                          ),
+                                          elevation: 0,
+                                          minimumSize: const Size(210, 53),
+                                          textStyle: const TextStyle(fontSize: 18)),
                                       child: FittedBox(
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Remove '),
-                                            Text('${inCartPrice}'),
+                                            const Text('Remove '),
+                                            Text(inCartPrice),
                                           ],
                                         ),
                                       ),
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppColors.LightRed,
-                                          shape: new RoundedRectangleBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(34.0),
-                                          ),
-                                          elevation: 0,
-                                          minimumSize: Size(210, 53),
-                                          textStyle: TextStyle(fontSize: 18)),
                                     ),
                                   )
                                 : Expanded(
@@ -324,25 +321,25 @@ class _ProductBottomSheetState extends State<ProductBottomSheet> {
                                             product: widget.product,
                                             quantity: 1));
                                       },
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: AppColors.mintGreen,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(34.0),
+                                          ),
+                                          elevation: 0,
+                                          minimumSize: const Size(210, 53),
+                                          textStyle: const TextStyle(fontSize: 18)),
                                       child: FittedBox(
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Add to cart '),
-                                            Text('${addToCartPrice}'),
+                                            const Text('Add to cart '),
+                                            Text(addToCartPrice),
                                           ],
                                         ),
                                       ),
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppColors.MintGreen,
-                                          shape: new RoundedRectangleBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(34.0),
-                                          ),
-                                          elevation: 0,
-                                          minimumSize: Size(210, 53),
-                                          textStyle: TextStyle(fontSize: 18)),
                                     ),
                                   )
                           ],

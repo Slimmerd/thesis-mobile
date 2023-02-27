@@ -6,14 +6,23 @@ import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/form_input_style.dart';
 
-class AddAddressScreen extends StatelessWidget {
+class AddAddressScreen extends StatefulWidget {
+  const AddAddressScreen({super.key});
+
+  @override
+  State<AddAddressScreen> createState() => _AddAddressScreenState();
+}
+
+class _AddAddressScreenState extends State<AddAddressScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String _city = '';
   String _street = '';
   String _building = '';
   String _intercom = '';
   String _floor = '';
   String _flat = '';
+
   List<String> availableCitiesData = ["Moscow", "London"];
 
   @override
@@ -22,17 +31,17 @@ class AddAddressScreen extends StatelessWidget {
     taskContext.addLogTask('[NEWUI][OPENED] AddAddressScreen');
 
     return Scaffold(
-        appBar: AppBar(title: Text("New address")),
+        appBar: AppBar(title: const Text("New address")),
         body: Form(
             key: _formKey,
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               children: [
                 DropdownButtonFormField(
                   borderRadius: BorderRadius.circular(15.0),
                   decoration: formInputStyle('City'),
                   style: Theme.of(context).textTheme.bodyText2,
-                  dropdownColor: AppColors.Dorian,
+                  dropdownColor: AppColors.dorian,
                   icon: const Icon(Icons.keyboard_arrow_down),
                   elevation: 8,
                   onChanged: (String? newValue) {
@@ -52,7 +61,7 @@ class AddAddressScreen extends StatelessWidget {
                     }
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Street'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -69,7 +78,7 @@ class AddAddressScreen extends StatelessWidget {
                     _street = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Building'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -85,10 +94,10 @@ class AddAddressScreen extends StatelessWidget {
                     _building = value!;
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text('Additional',
                     style: Theme.of(context).textTheme.headline4),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextFormField(
                   decoration: formInputStyle('Intercom'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -98,7 +107,7 @@ class AddAddressScreen extends StatelessWidget {
                     _intercom = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Floor'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -108,7 +117,7 @@ class AddAddressScreen extends StatelessWidget {
                     _floor = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Flat/Office'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -118,7 +127,7 @@ class AddAddressScreen extends StatelessWidget {
                     _flat = value!;
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ElevatedButton(
                     onPressed: () async {
                       _formKey.currentState!.save();
@@ -143,14 +152,14 @@ class AddAddressScreen extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.MintGreen,
+                        backgroundColor: AppColors.mintGreen,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(34.0),
                         ),
                         elevation: 0,
-                        minimumSize: Size(335, 53),
-                        textStyle: TextStyle(fontSize: 18)),
-                    child: Text('Add'))
+                        minimumSize: const Size(335, 53),
+                        textStyle: const TextStyle(fontSize: 18)),
+                    child: const Text('Add'))
               ],
             )));
   }

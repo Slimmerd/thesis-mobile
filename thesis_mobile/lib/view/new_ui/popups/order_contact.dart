@@ -22,21 +22,21 @@ class OrderContact extends StatelessWidget {
           builder: (BuildContext context, ScrollController scrollController) {
             return Container(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: AppColors.Cloud,
+              decoration: const BoxDecoration(
+                color: AppColors.cloud,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30),
                     topLeft: Radius.circular(30)),
               ),
               child: ListView(
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 controller: scrollController,
                 children: [
                   Text(
                     'Contact us',
                     style: Theme.of(context).textTheme.headline3,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextButton(

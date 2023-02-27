@@ -17,21 +17,21 @@ class DeliveryCard extends StatelessWidget {
   final CartBloc cart;
 
   double get progress {
-    double _progress = 0.0;
+    double progress = 0.0;
 
     if (cart.state.totalDeliveryPrice == 399) {
-      _progress = 0.1;
+      progress = 0.1;
     }
 
     if (cart.state.totalDeliveryPrice == 199) {
-      _progress = 0.5;
+      progress = 0.5;
     }
 
     if (cart.state.totalDeliveryPrice == 0) {
-      _progress = 1.0;
+      progress = 1.0;
     }
 
-    return _progress;
+    return progress;
   }
 
   @override
@@ -40,36 +40,36 @@ class DeliveryCard extends StatelessWidget {
       onTap: () => showModalBottomSheet(
           context: context,
           isScrollControlled: true,
-          builder: (context) => DeliveryPopup()),
+          builder: (context) => const DeliveryPopup()),
       child: CloudCard(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Delivery ${deliveryFeeString}',
+            'Delivery $deliveryFeeString',
             style: Theme.of(context).textTheme.headline3,
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('${serviceFeeString} service fee'),
-              Icon(
+              Text('$serviceFeeString service fee'),
+              const Icon(
                 Icons.arrow_forward_ios,
                 size: 18,
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           LinearProgressIndicator(
             value: progress,
-            color: AppColors.MintGreen,
+            color: AppColors.mintGreen,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
         ],

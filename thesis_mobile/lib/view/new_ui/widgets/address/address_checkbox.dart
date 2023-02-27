@@ -10,41 +10,39 @@ class AddressCheckBox extends StatefulWidget {
       : super(key: key);
 
   @override
-  _AddressCheckBoxState createState() => _AddressCheckBoxState();
+  State<AddressCheckBox> createState() => _AddressCheckBoxState();
 }
 
 class _AddressCheckBoxState extends State<AddressCheckBox> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.onChange?.call(!widget.isChecked);
-              });
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: widget.isChecked
-                      ? AppColors.MintGreen
-                      : AppColors.Dorian),
-              child: widget.isChecked
-                  ? Icon(
-                      Icons.check,
-                      size: 20.0,
-                      color: AppColors.Cloud,
-                    )
-                  : Icon(
-                      null,
-                      size: 20.0,
-                    ),
-            ),
+    return Row(
+      children: [
+        InkWell(
+          onTap: () {
+            setState(() {
+              widget.onChange?.call(!widget.isChecked);
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: widget.isChecked
+                    ? AppColors.mintGreen
+                    : AppColors.dorian),
+            child: widget.isChecked
+                ? const Icon(
+                    Icons.check,
+                    size: 20.0,
+                    color: AppColors.cloud,
+                  )
+                : const Icon(
+                    null,
+                    size: 20.0,
+                  ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

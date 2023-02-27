@@ -52,73 +52,66 @@ class OrderScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${DateFormat('yyyy-MM-dd HH:mm:ss').format(order.createdAt.toLocal())}',
-                  style: NewTypography.R10500,
+                  DateFormat('yyyy-MM-dd HH:mm:ss')
+                      .format(order.createdAt.toLocal()),
+                  style: NewTypography.r10500,
                 ),
-                Text('${orderStatusParser(order.status)}',
+                Text(orderStatusParser(order.status),
                     style: Theme.of(context).textTheme.headline5),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
                   '${order.address.street} ${order.address.building}',
-                  style: NewTypography.M12400,
+                  style: NewTypography.m12400,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Delivery',
-                        style: NewTypography.R12600,
-                      ),
-                      Text(
-                        '${deliveryPrice}',
-                        style: NewTypography.R12400,
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Delivery',
+                      style: NewTypography.r12600,
+                    ),
+                    Text(
+                      deliveryPrice,
+                      style: NewTypography.r12400,
+                    ),
+                  ],
                 ),
                 //  Service
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Service', style: NewTypography.R12600),
-                      Text(
-                        '${serviceFee}',
-                        style: NewTypography.R12400,
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Service', style: NewTypography.r12600),
+                    Text(
+                      serviceFee,
+                      style: NewTypography.r12400,
+                    ),
+                  ],
                 ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Total', style: NewTypography.R12600),
-                      Text('${totalPrice}',
-                          style: NewTypography.R12400.apply(
-                            color: AppColors.MintGreen,
-                          )),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total', style: NewTypography.r12600),
+                    Text(totalPrice,
+                        style: NewTypography.r12400.apply(
+                          color: AppColors.mintGreen,
+                        )),
+                  ],
                 )
               ],
             ),
           ),
 
-          if (order.comment != null && order.comment.isNotEmpty)
+          if (order.comment.isNotEmpty)
             CloudCard(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                  Text('Comment',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+                  Text('Comment', style: Theme.of(context).textTheme.headline4),
                   Text(
                     order.comment,
                   ),
@@ -133,16 +126,16 @@ class OrderScreen extends StatelessWidget {
                       TrackOrderScreen(
                         orderID: order.id,
                       )),
-                  child: Text('Track'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.MintGreen,
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(34.0),
+                      backgroundColor: AppColors.mintGreen,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(34.0),
                       ),
                       elevation: 0,
-                      minimumSize: Size(210, 48),
-                      maximumSize: Size(225, 53),
-                      textStyle: TextStyle(fontSize: 18))),
+                      minimumSize: const Size(210, 48),
+                      maximumSize: const Size(225, 53),
+                      textStyle: const TextStyle(fontSize: 18)),
+                  child: const Text('Track')),
             ),
 
           if (order.status == OrderStatus.delivered && order.review == null)
@@ -155,16 +148,16 @@ class OrderScreen extends StatelessWidget {
                             orderID: order.id,
                           ),
                         ),
-                    child: Text('Review'),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.MintGreen,
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(34.0),
+                        backgroundColor: AppColors.mintGreen,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(34.0),
                         ),
                         elevation: 0,
-                        minimumSize: Size(210, 48),
-                        maximumSize: Size(225, 53),
-                        textStyle: TextStyle(fontSize: 18)))),
+                        minimumSize: const Size(210, 48),
+                        maximumSize: const Size(225, 53),
+                        textStyle: const TextStyle(fontSize: 18)),
+                    child: const Text('Review'))),
 
           //  Total
           CloudCard(
@@ -172,23 +165,23 @@ class OrderScreen extends StatelessWidget {
                 onPressed: () => showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
-                      builder: (context) => OrderContact(),
+                      builder: (context) => const OrderContact(),
                     ),
-                child: Text('Contact us'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.MintGreen,
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(34.0),
+                    backgroundColor: AppColors.mintGreen,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(34.0),
                     ),
                     elevation: 0,
-                    minimumSize: Size(210, 48),
-                    maximumSize: Size(225, 53),
-                    textStyle: TextStyle(fontSize: 18))),
+                    minimumSize: const Size(210, 48),
+                    maximumSize: const Size(225, 53),
+                    textStyle: const TextStyle(fontSize: 18)),
+                child: const Text('Contact us')),
           ),
 
           ListView.builder(
             shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             itemCount: order.products.length,
             itemBuilder: (BuildContext context, int index) {
               return OrderProduct(

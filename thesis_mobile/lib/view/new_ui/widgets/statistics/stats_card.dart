@@ -14,22 +14,22 @@ class StatsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       height: 75,
       decoration: BoxDecoration(
-          color: AppColors.Cloud,
-          boxShadow: [
+          color: AppColors.cloud,
+          boxShadow: const [
             BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
               width: 75,
               height: 75,
               child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                   child: Image.asset(

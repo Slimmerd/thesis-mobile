@@ -22,41 +22,41 @@ class EnvPopup extends StatelessWidget {
           builder: (BuildContext context, ScrollController scrollController) {
             return Container(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: AppColors.Cloud,
+              decoration: const BoxDecoration(
+                color: AppColors.cloud,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30),
                     topLeft: Radius.circular(30)),
               ),
               child: ListView(
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 controller: scrollController,
                 children: [
                   Text(
                     'Environmental tips',
                     style: Theme.of(context).textTheme.headline3,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
                     'Our delivery service is focused on reducing environmental impact and promoting responsible consumption',
-                    style: NewTypography.M16400,
+                    style: NewTypography.m16400,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
                     'To reduce your environmental impact you can order more food in one order or choose a more environmentally friendly delivery method ',
-                    style: NewTypography.M16400,
+                    style: NewTypography.m16400,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
                       '* for better result, you can meet both of these conditions',
-                      style: NewTypography.M14400.apply(
-                        color: AppColors.GrayPick,
+                      style: NewTypography.m14400.apply(
+                        color: AppColors.grayPick,
                       ))
                 ],
               ),

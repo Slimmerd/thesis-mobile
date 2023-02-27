@@ -68,14 +68,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 key: ValueKey(index),
                 controller: controller,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Text(
-                          '${widget.categories[index].name}',
+                          widget.categories[index].name,
                           style: Theme.of(context).textTheme.headline4,
                         ),
                       ),
@@ -102,7 +102,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
         ],
       )),
-      bottomNavigationBar: BottomAppBar(elevation: 0, child: OpenCartButton()),
+      bottomNavigationBar: const BottomAppBar(elevation: 0, child: OpenCartButton()),
     );
   }
 }

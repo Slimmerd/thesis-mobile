@@ -31,22 +31,22 @@ class CartProductCard extends StatelessWidget {
         : volumeTypeParserSmall(product.product.volumeType);
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       height: 75,
       decoration: BoxDecoration(
-          color: AppColors.Cloud,
-          boxShadow: [
+          color: AppColors.cloud,
+          boxShadow: const [
             BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
               width: 75,
               height: 75,
               child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                   child: Image.asset(
@@ -63,32 +63,32 @@ class CartProductCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${product.product.name}",
+                  Text(product.product.name,
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.Graphite,
+                        color: AppColors.graphite,
                       )),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     children: [
                       Text(
-                        '${productPrice}',
-                        style: TextStyle(
-                            color: AppColors.MintGreen,
+                        productPrice,
+                        style: const TextStyle(
+                            color: AppColors.mintGreen,
                             fontSize: 14,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Text(
-                        '${productVolume} ${volumeType}',
-                        style: TextStyle(
-                            color: AppColors.GrayPick,
+                        '$productVolume $volumeType',
+                        style: const TextStyle(
+                            color: AppColors.grayPick,
                             fontSize: 12,
                             fontWeight: FontWeight.w400),
                       ),
@@ -114,7 +114,7 @@ class CartProductCard extends StatelessWidget {
                 }
               },
               quantity: cart.state.count(product.product)),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
         ],

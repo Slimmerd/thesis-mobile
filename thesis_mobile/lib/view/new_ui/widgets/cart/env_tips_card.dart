@@ -18,7 +18,7 @@ class EnvTipsCard extends StatelessWidget {
       onTap: () => showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        builder: (context) => EnvPopup(),
+        builder: (context) => const EnvPopup(),
       ),
       child: CloudCard(
           child: Column(
@@ -34,7 +34,7 @@ class EnvTipsCard extends StatelessWidget {
               Flexible(
                 flex: 3,
                 child: Column(
-                  children: [
+                  children: const [
                     SizedBox(
                       height: 5,
                     ),
@@ -42,13 +42,13 @@ class EnvTipsCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               EnvLight(
                 metCriteria: cart.state.ecoLevel,
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           )
         ],

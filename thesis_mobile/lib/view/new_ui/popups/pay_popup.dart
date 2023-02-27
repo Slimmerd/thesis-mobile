@@ -57,8 +57,8 @@ class _PayPopupState extends State<PayPopup> {
         minChildSize: 0.45,
         builder: (BuildContext context, ScrollController scrollController) {
           return Container(
-              decoration: BoxDecoration(
-                color: AppColors.Cloud,
+              decoration: const BoxDecoration(
+                color: AppColors.cloud,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30),
                     topLeft: Radius.circular(30)),
@@ -66,32 +66,30 @@ class _PayPopupState extends State<PayPopup> {
               child: Column(children: [
                 Expanded(
                   child: ListView(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     controller: scrollController,
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     children: [
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '${addressContext.state.currentAddress!.street} ${addressContext.state.currentAddress!.building}',
-                              style: TextStyle(
-                                  color: AppColors.Graphite,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                                'Order will be delivered in ' +
-                                    '~${DefaultData.waitingTime}-${(DefaultData.waitingTime * 1.5).ceil()} min',
-                                style: TextStyle(color: AppColors.GrayPick)),
-                          ],
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${addressContext.state.currentAddress!.street} ${addressContext.state.currentAddress!.building}',
+                            style: const TextStyle(
+                                color: AppColors.graphite,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                              'Order will be delivered in ~${DefaultData.waitingTime}-${(DefaultData.waitingTime * 1.5).ceil()} min',
+                              style:
+                                  const TextStyle(color: AppColors.grayPick)),
+                        ],
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        child: PayDrodown(
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        child: PayDropdown(
                           payMethod: payMethod,
                           callback: (String dropdownValue) {
                             setState(() => payMethod = dropdownValue);
@@ -125,18 +123,18 @@ class _PayPopupState extends State<PayPopup> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${totalPriceString}',
-                              style: TextStyle(
-                                  color: AppColors.Graphite,
+                              totalPriceString,
+                              style: const TextStyle(
+                                  color: AppColors.graphite,
                                   fontSize: 24,
                                   fontWeight: FontWeight.w700),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                                 '${DefaultData.waitingTime}-${(DefaultData.waitingTime * 1.5).ceil()} min'),
                           ],
                         ),
-                        SizedBox(width: 35),
+                        const SizedBox(width: 35),
                         Expanded(
                             child: ElevatedButton(
                           onPressed: () {
@@ -174,7 +172,7 @@ class _PayPopupState extends State<PayPopup> {
                                 total: totalPrice,
                                 createdAt: DateTime.now());
                             orderContext.addOrder(newOrder);
-                            // achievemtns and stats
+                            // achievements and stats
                             statsContext.addOrder(newOrder);
                             taskContext.addOrderTask();
                             taskContext
@@ -185,16 +183,16 @@ class _PayPopupState extends State<PayPopup> {
                             customPagePush(
                                 context, TrackOrderScreen(orderID: orderID));
                           },
-                          child: Text('Pay'),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.MintGreen,
+                              backgroundColor: AppColors.mintGreen,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               elevation: 0,
-                              maximumSize: Size(221, 55),
-                              minimumSize: Size(150, 55),
-                              textStyle: TextStyle(fontSize: 18)),
+                              maximumSize: const Size(221, 55),
+                              minimumSize: const Size(150, 55),
+                              textStyle: const TextStyle(fontSize: 18)),
+                          child: const Text('Pay'),
                         ))
                       ])
                     ]))

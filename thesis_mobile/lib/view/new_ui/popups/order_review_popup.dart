@@ -8,7 +8,7 @@ import 'package:thesis_mobile/utils/make_dismissible.dart';
 class OrderReview extends StatefulWidget {
   final int orderID;
 
-  OrderReview({Key? key, required this.orderID}) : super(key: key);
+  const OrderReview({Key? key, required this.orderID}) : super(key: key);
 
   @override
   State<OrderReview> createState() => _OrderReviewState();
@@ -31,9 +31,10 @@ class _OrderReviewState extends State<OrderReview> {
           builder:
               (BuildContext buildContext, ScrollController scrollController) {
             return Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                decoration: BoxDecoration(
-                  color: AppColors.Cloud,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                decoration: const BoxDecoration(
+                  color: AppColors.cloud,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30),
                       topLeft: Radius.circular(30)),
@@ -41,7 +42,7 @@ class _OrderReviewState extends State<OrderReview> {
                 child: Column(children: [
                   Text('Leave a review about your order',
                       style: Theme.of(context).textTheme.headline6),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   RatingBar.builder(
@@ -50,16 +51,16 @@ class _OrderReviewState extends State<OrderReview> {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                    itemBuilder: (context, _) => Icon(
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
-                      color: AppColors.MintGreen,
+                      color: AppColors.mintGreen,
                     ),
                     onRatingUpdate: (rating) {
                       setState(() => _rating = rating);
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
@@ -68,18 +69,18 @@ class _OrderReviewState extends State<OrderReview> {
                             '[NEWUI][ADDED] OrderReview ${widget.orderID}, rate: $_rating');
                         Navigator.pop(context);
                       },
-                      child: Text('Send'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: _rating > 0
-                              ? AppColors.MintGreen
-                              : AppColors.GrayPick,
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(34.0),
+                              ? AppColors.mintGreen
+                              : AppColors.grayPick,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(34.0),
                           ),
                           elevation: 0,
-                          minimumSize: Size(210, 48),
-                          maximumSize: Size(225, 53),
-                          textStyle: TextStyle(fontSize: 18)))
+                          minimumSize: const Size(210, 48),
+                          maximumSize: const Size(225, 53),
+                          textStyle: const TextStyle(fontSize: 18)),
+                      child: const Text('Send'))
                 ]));
           }),
     );

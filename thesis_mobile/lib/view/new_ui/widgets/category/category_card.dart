@@ -26,21 +26,20 @@ class CategoryCard extends StatelessWidget {
         width: big ? 220.w : 105.w,
         height: 105,
         decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             image: DecorationImage(
                 image: AssetImage(parentCategory.image),
-                // image: AssetImage('assets/categories/snacks.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.5), BlendMode.srcOver)),
             borderRadius: BorderRadius.circular(20)),
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Text(
             parentCategory.name,
-            style: NewTypography.R16700.apply(color: AppColors.Cloud),
+            style: NewTypography.r16700.apply(color: AppColors.cloud),
           ),
         ),
       ),

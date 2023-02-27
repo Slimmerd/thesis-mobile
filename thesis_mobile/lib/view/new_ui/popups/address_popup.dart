@@ -27,23 +27,23 @@ class AddressesPopup extends StatelessWidget {
             builder:
                 (BuildContext buildContext, ScrollController scrollController) {
               return Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.Cloud,
+                  decoration: const BoxDecoration(
+                    color: AppColors.cloud,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(30),
                         topLeft: Radius.circular(30)),
                   ),
                   child: ListView(
-                      physics: ClampingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       controller: scrollController,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
                       children: [
                         Container(
-                          margin: EdgeInsets.only(bottom: 12),
+                          margin: const EdgeInsets.only(bottom: 12),
                           child: Text(
                             'Addresses',
-                            style: NewTypography.M18600,
+                            style: NewTypography.m18600,
                           ),
                         ),
                         BlocBuilder<AddressBloc, AddressState>(
@@ -52,7 +52,7 @@ class AddressesPopup extends StatelessWidget {
                             return ListView.builder(
                                 shrinkWrap: true,
                                 controller: scrollController,
-                                physics: ClampingScrollPhysics(),
+                                physics: const ClampingScrollPhysics(),
                                 itemCount: state.addresses.length,
                                 itemBuilder: (_, index) {
                                   return AddressSelector(
@@ -77,10 +77,10 @@ class AddressesPopup extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () =>
-                              customPagePush(context, AddAddressScreen())
+                              customPagePush(context, const AddAddressScreen())
                                   .then((value) => {}),
                           child: Row(
-                            children: [
+                            children: const [
                               Icon(Icons.add),
                               SizedBox(
                                 width: 20,

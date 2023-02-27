@@ -31,12 +31,12 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Edit address'),
+          title: const Text('Edit address'),
         ),
         body: Form(
             key: _formKey,
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               children: [
                 TextFormField(
                   enabled: false,
@@ -44,7 +44,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                   decoration: formInputStyle('City'),
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Street'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -62,7 +62,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     _street = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Building'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -78,10 +78,10 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     _building = value!;
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text('Additional',
                     style: Theme.of(context).textTheme.headline4),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextFormField(
                   decoration: formInputStyle('Intercom'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -92,7 +92,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     _intercom = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Floor'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -105,7 +105,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     _floor = value!;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: formInputStyle('Flat/Office'),
                   style: Theme.of(context).textTheme.bodyText2,
@@ -116,7 +116,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     _flat = value!;
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ElevatedButton(
                     onPressed: () async {
                       _formKey.currentState!.save();
@@ -149,14 +149,14 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.MintGreen,
+                        backgroundColor: AppColors.mintGreen,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(34.0),
                         ),
                         elevation: 0,
-                        minimumSize: Size(335, 53),
-                        textStyle: TextStyle(fontSize: 18)),
-                    child: Text('Save'))
+                        minimumSize: const Size(335, 53),
+                        textStyle: const TextStyle(fontSize: 18)),
+                    child: const Text('Save'))
               ],
             )));
   }

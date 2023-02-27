@@ -41,8 +41,8 @@ class ProductCard extends StatelessWidget {
         width: 105.w,
         margin: EdgeInsets.only(right: pright, bottom: 10),
         decoration: BoxDecoration(
-            color: AppColors.Cloud,
-            boxShadow: [
+            color: AppColors.cloud,
+            boxShadow: const [
               BoxShadow(color: Color.fromRGBO(17, 54, 41, 0.1), blurRadius: 10)
             ],
             borderRadius: BorderRadius.circular(20)),
@@ -51,22 +51,24 @@ class ProductCard extends StatelessWidget {
             height: 95,
             width: MediaQuery.of(context).size.width * 0.28,
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               child: Image.asset(
                 product.image,
+                cacheHeight: 256,
+                cacheWidth: 256,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${product.name}',
+                  product.name,
                   style: Theme.of(context).textTheme.headline6,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -75,20 +77,20 @@ class ProductCard extends StatelessWidget {
                   height: 5.r,
                 ),
                 Text(
-                  '${productVolume}${volumeType}',
+                  '$productVolume$volumeType',
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
-            padding: EdgeInsets.only(top: 5, bottom: 9),
-            child: Text('${productPrice}',
+            padding: const EdgeInsets.only(top: 5, bottom: 9),
+            child: Text(productPrice,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    ?.apply(color: AppColors.MintGreen)),
+                    ?.apply(color: AppColors.mintGreen)),
           )
         ]),
       ),

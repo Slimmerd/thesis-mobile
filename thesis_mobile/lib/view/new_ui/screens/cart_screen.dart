@@ -11,6 +11,8 @@ import 'package:thesis_mobile/view/new_ui/widgets/cart/delivery_card.dart';
 import 'package:thesis_mobile/view/new_ui/widgets/cart/env_tips_card.dart';
 
 class CartScreen extends StatefulWidget {
+  const CartScreen({super.key});
+
   @override
   State<CartScreen> createState() => _CartScreenState();
 }
@@ -45,27 +47,29 @@ class _CartScreenState extends State<CartScreen> {
 
       return Scaffold(
         appBar: AppBar(
-          title: Text('Cart'),
+          title: const Text('Cart'),
           actions: [
             IconButton(
-                onPressed: () => cart.clearCart(), icon: Icon(Icons.delete))
+                onPressed: () => cart.clearCart(),
+                icon: const Icon(Icons.delete))
           ],
         ),
         body: cart.state.isEmpty
-            ? Center(
+            ? const Center(
                 child: Text('Cart empty'),
               )
             : Column(
                 children: [
                   Expanded(
-                    child: ListView(padding: EdgeInsets.all(20), children: [
+                    child:
+                        ListView(padding: const EdgeInsets.all(20), children: [
                       DeliveryCard(
                           deliveryFeeString: deliveryFeeString,
                           serviceFeeString: serviceFeeString,
                           cart: cart),
                       EnvTipsCard(cart: cart),
                       ListView.builder(
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.items.length,
                           itemBuilder: (_, index) => CartProductCard(
@@ -80,8 +84,8 @@ class _CartScreenState extends State<CartScreen> {
                           top: 20,
                           bottom: 10 + MediaQuery.of(context).padding.bottom),
                       decoration: BoxDecoration(
-                          color: AppColors.Cloud,
-                          borderRadius: BorderRadius.only(
+                          color: AppColors.cloud,
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30)),
                           boxShadow: [
@@ -89,8 +93,8 @@ class _CartScreenState extends State<CartScreen> {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 3,
                               blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
                             ),
                           ]),
                       child: Column(
@@ -98,19 +102,19 @@ class _CartScreenState extends State<CartScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Total',
+                              const Text('Total',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
-                                      color: AppColors.Graphite)),
-                              Text('${totalPriceString}',
-                                  style: TextStyle(
+                                      color: AppColors.graphite)),
+                              Text(totalPriceString,
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
-                                      color: AppColors.Graphite)),
+                                      color: AppColors.graphite)),
                             ],
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           ElevatedButton(
                             onPressed: () {
                               showModalBottomSheet(
@@ -121,15 +125,15 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                               );
                             },
-                            child: Text('Checkout'),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.MintGreen,
+                                backgroundColor: AppColors.mintGreen,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(34.0),
                                 ),
                                 elevation: 0,
-                                minimumSize: Size(335, 53),
-                                textStyle: TextStyle(fontSize: 18)),
+                                minimumSize: const Size(335, 53),
+                                textStyle: const TextStyle(fontSize: 18)),
+                            child: const Text('Checkout'),
                           ),
                         ],
                       ))

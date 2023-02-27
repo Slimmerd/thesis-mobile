@@ -7,14 +7,14 @@ class CategorySliverSelector extends StatefulWidget {
   final List<Category> categories;
   final AutoScrollController controller;
 
-  CategorySliverSelector({
+  const CategorySliverSelector({
     Key? key,
     required this.categories,
     required this.controller,
   }) : super(key: key);
 
   @override
-  _CategorySliverSelectorState createState() => _CategorySliverSelectorState();
+  State<CategorySliverSelector> createState() => _CategorySliverSelectorState();
 }
 
 class _CategorySliverSelectorState extends State<CategorySliverSelector> {
@@ -24,9 +24,9 @@ class _CategorySliverSelectorState extends State<CategorySliverSelector> {
       pinned: true,
       delegate: PersistentHeader(
         widget: ListView.builder(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: widget.categories.length,
             itemBuilder: (_, int index) {
@@ -38,11 +38,11 @@ class _CategorySliverSelectorState extends State<CategorySliverSelector> {
                 child: Container(
                   height: 60,
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+                  margin: const EdgeInsets.only(top: 10, bottom: 10, right: 10),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: BoxDecoration(
-                      color: AppColors.Dorian,
+                      color: AppColors.dorian,
                       borderRadius: BorderRadius.circular(30)),
                   child: Text(widget.categories[index].name),
                 ),
@@ -62,7 +62,7 @@ class PersistentHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-        color: AppColors.Cloud, width: double.infinity, child: widget);
+        color: AppColors.cloud, width: double.infinity, child: widget);
   }
 
   @override

@@ -9,7 +9,7 @@ import 'package:thesis_mobile/view/new_ui/popups/delivery_popup.dart';
 import 'package:thesis_mobile/view/new_ui/screens/cart_screen.dart';
 
 class OpenCartButton extends StatelessWidget {
-  OpenCartButton();
+  const OpenCartButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +33,15 @@ class OpenCartButton extends StatelessWidget {
 
       return Container(
         decoration: BoxDecoration(
-            color: AppColors.Cloud,
-            borderRadius: BorderRadius.only(
+            color: AppColors.cloud,
+            borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
                 spreadRadius: -3,
                 blurRadius: 8,
-                offset: Offset(0, -10), // changes position of shadow
+                offset: const Offset(0, -10), // changes position of shadow
               ),
             ]),
         height: (cart.state.notEmpty ? 107 : 45) +
@@ -57,14 +57,14 @@ class OpenCartButton extends StatelessWidget {
               onTap: () => showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => DeliveryPopup(),
+                builder: (context) => const DeliveryPopup(),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.local_taxi),
+                  const Icon(Icons.local_taxi),
                   Text('Delivery $deliveryPrice · $untilFreeDelivery'),
-                  Icon(
+                  const Icon(
                     Icons.arrow_forward_ios,
                     size: 18,
                   ),
@@ -74,26 +74,26 @@ class OpenCartButton extends StatelessWidget {
             if (cart.state.notEmpty)
               Column(
                 children: [
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
-                      customPagePush(context, CartScreen());
+                      customPagePush(context, const CartScreen());
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Cart'),
-                        Text('${price}'),
-                      ],
-                    ),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.MintGreen,
+                        backgroundColor: AppColors.mintGreen,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         elevation: 0,
-                        minimumSize: Size(335, 53),
-                        textStyle: TextStyle(fontSize: 18)),
+                        minimumSize: const Size(335, 53),
+                        textStyle: const TextStyle(fontSize: 18)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Cart'),
+                        Text(price),
+                      ],
+                    ),
                   ),
                 ],
               )

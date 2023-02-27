@@ -35,21 +35,21 @@ class _DeliveryPopupState extends State<DeliveryPopup> {
                 builder: (BuildContext buildContext,
                     ScrollController scrollController) {
                   return Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.Cloud,
+                      decoration: const BoxDecoration(
+                        color: AppColors.cloud,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(30),
                             topLeft: Radius.circular(30)),
                       ),
                       child: ListView(
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         controller: scrollController,
                         children: [
                           Text(
                             'Delivery',
                             style: Theme.of(context).textTheme.headline3,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           CloudCard(
@@ -58,23 +58,23 @@ class _DeliveryPopupState extends State<DeliveryPopup> {
                             children: [
                               Text(
                                 'Delivery time 20-30 min',
-                                style: NewTypography.M18600,
+                                style: NewTypography.m18600,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Text(
                                 'Working hours: 24/7',
-                                style: NewTypography.M12400,
+                                style: NewTypography.m12400,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Row(
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.eco,
-                                    color: AppColors.MintGreen,
+                                    color: AppColors.mintGreen,
                                   ),
                                   Flexible(
                                     child: Text(
@@ -96,106 +96,100 @@ class _DeliveryPopupState extends State<DeliveryPopup> {
                                 children: [
                                   Text(
                                     'Terms',
-                                    style: NewTypography.M18600,
+                                    style: NewTypography.m18600,
                                   ),
                                   Text(
                                     'Cart',
-                                    style: NewTypography.M18600,
+                                    style: NewTypography.m18600,
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               //Red
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.RedWarn,
-                                          ),
-                                          Text(
-                                            'Delivery 3.99 £',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      Text(
-                                        'from 0 £',
-                                        style: NewTypography.M12400,
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              ),
-                              SizedBox(
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.redWarn,
+                                        ),
+                                        Text(
+                                          'Delivery 3.99 £',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      'from 0 £',
+                                      style: NewTypography.m12400,
+                                    )
+                                  ],
+                                )
+                              ]),
+                              const SizedBox(
                                 height: 5,
                               ),
                               //Yellow
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.YellowWarn,
-                                          ),
-                                          Text(
-                                            'Delivery 1.99 £',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      Text(
-                                        'from 6.00 £',
-                                        style: NewTypography.M12400,
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              ),
-                              SizedBox(
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.yellowWarn,
+                                        ),
+                                        Text(
+                                          'Delivery 1.99 £',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      'from 6.00 £',
+                                      style: NewTypography.m12400,
+                                    )
+                                  ],
+                                )
+                              ]),
+                              const SizedBox(
                                 height: 5,
                               ), //Green
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.MintGreen,
-                                          ),
-                                          Text(
-                                            'Delivery 0 £',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      Text(
-                                        'from 12.00 £',
-                                        style: NewTypography.M12400,
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              )
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.mintGreen,
+                                        ),
+                                        Text(
+                                          'Delivery 0 £',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      'from 12.00 £',
+                                      style: NewTypography.m12400,
+                                    )
+                                  ],
+                                )
+                              ])
                             ],
                           )),
 
@@ -206,116 +200,110 @@ class _DeliveryPopupState extends State<DeliveryPopup> {
                             children: [
                               Text(
                                 'Delivery option',
-                                style: NewTypography.M18600,
+                                style: NewTypography.m18600,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.RedWarn,
-                                          ),
-                                          Text(
-                                            'As soon as possible',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      CustomCheckBox(
-                                        isChecked: cart.state.deliveryType ==
-                                            DeliveryType.asap,
-                                        onChange: (bool value) {
-                                          taskContext.addLogTask(
-                                              '[NEWUI][UPDATED] DeliveryType ASAP');
-                                          cart.updateDeliveryType(
-                                              DeliveryType.asap);
-                                        },
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              ),
-                              SizedBox(
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.redWarn,
+                                        ),
+                                        Text(
+                                          'As soon as possible',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    CustomCheckBox(
+                                      isChecked: cart.state.deliveryType ==
+                                          DeliveryType.asap,
+                                      onChange: (bool value) {
+                                        taskContext.addLogTask(
+                                            '[NEWUI][UPDATED] DeliveryType ASAP');
+                                        cart.updateDeliveryType(
+                                            DeliveryType.asap);
+                                      },
+                                    )
+                                  ],
+                                )
+                              ]),
+                              const SizedBox(
                                 height: 5,
                               ),
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.YellowWarn,
-                                          ),
-                                          Text(
-                                            'Shorter time slot',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      CustomCheckBox(
-                                        isChecked: cart.state.deliveryType ==
-                                            DeliveryType.sts,
-                                        onChange: (bool value) {
-                                          taskContext.addLogTask(
-                                              '[NEWUI][UPDATED] DeliveryType STS');
-                                          cart.updateDeliveryType(
-                                              DeliveryType.sts);
-                                        },
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              ),
-                              SizedBox(
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.yellowWarn,
+                                        ),
+                                        Text(
+                                          'Shorter time slot',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    CustomCheckBox(
+                                      isChecked: cart.state.deliveryType ==
+                                          DeliveryType.sts,
+                                      onChange: (bool value) {
+                                        taskContext.addLogTask(
+                                            '[NEWUI][UPDATED] DeliveryType STS');
+                                        cart.updateDeliveryType(
+                                            DeliveryType.sts);
+                                      },
+                                    )
+                                  ],
+                                )
+                              ]),
+                              const SizedBox(
                                 height: 5,
                               ),
-                              Container(
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.eco,
-                                            size: 18,
-                                            color: AppColors.MintGreen,
-                                          ),
-                                          Text(
-                                            'Larger time slot',
-                                            style: NewTypography.M12400,
-                                          )
-                                        ],
-                                      ),
-                                      CustomCheckBox(
-                                        isChecked: cart.state.deliveryType ==
-                                            DeliveryType.lts,
-                                        onChange: (bool value) {
-                                          taskContext.addLogTask(
-                                              '[NEWUI][UPDATED] DeliveryType LTS');
-                                          cart.updateDeliveryType(
-                                              DeliveryType.lts);
-                                        },
-                                      )
-                                    ],
-                                  )
-                                ]),
-                              ),
+                              Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.eco,
+                                          size: 18,
+                                          color: AppColors.mintGreen,
+                                        ),
+                                        Text(
+                                          'Larger time slot',
+                                          style: NewTypography.m12400,
+                                        )
+                                      ],
+                                    ),
+                                    CustomCheckBox(
+                                      isChecked: cart.state.deliveryType ==
+                                          DeliveryType.lts,
+                                      onChange: (bool value) {
+                                        taskContext.addLogTask(
+                                            '[NEWUI][UPDATED] DeliveryType LTS');
+                                        cart.updateDeliveryType(
+                                            DeliveryType.lts);
+                                      },
+                                    )
+                                  ],
+                                )
+                              ]),
                             ],
                           )),
 
@@ -326,9 +314,9 @@ class _DeliveryPopupState extends State<DeliveryPopup> {
                               children: [
                                 Text(
                                   'Delivery time',
-                                  style: NewTypography.M18600,
+                                  style: NewTypography.m18600,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 TimeRangeDropdown(

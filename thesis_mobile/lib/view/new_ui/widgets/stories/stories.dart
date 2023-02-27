@@ -20,9 +20,9 @@ class _StoriesState extends State<Stories> {
         Image.asset('assets/547.jpg').image,
       ),
       StoryItem.pageProviderImage(Image.asset('assets/548.jpg').image,
-          duration: Duration(seconds: 10)),
+          duration: const Duration(seconds: 10)),
       StoryItem.pageProviderImage(Image.asset('assets/549.jpg').image,
-          duration: Duration(seconds: 10)),
+          duration: const Duration(seconds: 10)),
     ];
 
     return StoryView(
