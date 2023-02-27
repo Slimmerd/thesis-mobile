@@ -4,6 +4,7 @@ import 'package:thesis_mobile/core/bloc/address/address_bloc.dart';
 import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/core/model/address.dart';
 import 'package:thesis_mobile/utils/colors.dart';
+import 'package:thesis_mobile/utils/default_data.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -13,7 +14,9 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  List<Widget> slides = [Slider1(), Slider2(), Slider3(), Slider4(), Slider5()];
+  List<Widget> slides = DefaultData.onboardingSlider
+      .map((e) => Slider(text: e['text'], icon: e['icon']))
+      .toList();
 
   int currentIndex = 0;
 
@@ -39,7 +42,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("Research"),
+            title: const Text("Research"),
           ),
           body: Column(
             children: [
@@ -68,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
               Container(
                 height: 60,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 width: double.infinity,
                 child: ElevatedButton(
                   child: Text(
@@ -92,18 +95,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       task.updateStageTask(TaskManagerStage.oldUI);
                     } else {
                       _controller.nextPage(
-                          duration: Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeIn);
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.MintGreen,
+                      backgroundColor: AppColors.mintGreen,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(34.0),
                       ),
                       elevation: 0,
-                      minimumSize: Size(335, 53),
-                      textStyle: TextStyle(fontSize: 18)),
+                      minimumSize: const Size(335, 53),
+                      textStyle: const TextStyle(fontSize: 18)),
                 ),
               ),
             ],
@@ -117,141 +120,36 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return Container(
       height: 10,
       width: currentIndex == index ? 25 : 10,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColors.MintGreen,
+        color: AppColors.mintGreen,
       ),
     );
   }
 }
 
-class Slider1 extends StatelessWidget {
-  const Slider1({super.key});
+class Slider extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  const Slider({super.key, required this.text, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Icons.eco,
+            icon,
             size: 64,
-            color: AppColors.MintGreen,
+            color: AppColors.mintGreen,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
-              'Hello, this is application is used in research about impact of interface design decisions on people\'s consumption',
-              style: Theme.of(context).textTheme.headline3)
-        ],
-      ),
-    );
-  }
-}
-
-class Slider2 extends StatelessWidget {
-  const Slider2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.shopping_cart,
-            size: 64,
-            color: AppColors.MintGreen,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-              'The goal is to establish dependency of user interface design on consumption. Also test hypotheses related to reducing environmental impact and consumption',
-              style: Theme.of(context).textTheme.headline3)
-        ],
-      ),
-    );
-  }
-}
-
-class Slider3 extends StatelessWidget {
-  const Slider3({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.bug_report,
-            size: 64,
-            color: AppColors.MintGreen,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-              'As a tester you need explore both versions of application and make 3 orders in each of them. Don\'t forget to view all sections of the application, not only related to the list of products and orders',
-              style: Theme.of(context).textTheme.headline3)
-        ],
-      ),
-    );
-  }
-}
-
-class Slider4 extends StatelessWidget {
-  const Slider4({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.person,
-            size: 64,
-            color: AppColors.MintGreen,
-          ),
-          Text(
-              'When you complete the task you can transfer to the next stage in profile screen',
-              style: Theme.of(context).textTheme.headline3)
-        ],
-      ),
-    );
-  }
-}
-
-class Slider5 extends StatelessWidget {
-  const Slider5({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.quiz,
-            size: 64,
-            color: AppColors.MintGreen,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-              'At the end you will have to complete questionare about two applications that you\'ve used',
-              style: Theme.of(context).textTheme.headline3)
+          Text(text, style: Theme.of(context).textTheme.headline3)
         ],
       ),
     );
