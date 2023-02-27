@@ -8,12 +8,14 @@ class TaskManagerState extends Equatable {
   final TaskManagerStage stage;
   final int ordersInStage;
   final List<String> actions;
+  final bool isUploaded;
 
   TaskManagerState(
       {this.uID = '',
       this.stage = TaskManagerStage.onBoarding,
       this.ordersInStage = 0,
       this.actions = const [],
+      this.isUploaded = false,
       this.key = ''});
 
   TaskManagerState initUID() {
@@ -62,19 +64,32 @@ class TaskManagerState extends Equatable {
     return copyWith(ordersInStage: ordersInStage + 1, key: Uuid().v1());
   }
 
+  TaskManagerState setUploaded() {
+    return copyWith(isUploaded: true, key: Uuid().v1());
+  }
+
   TaskManagerState copyWith(
       {String? uID,
       TaskManagerStage? stage,
       int? ordersInStage,
       List<String>? actions,
+      bool? isUploaded,
       String? key}) {
     return TaskManagerState(
         uID: uID ?? this.uID,
         stage: stage ?? this.stage,
         ordersInStage: ordersInStage ?? this.ordersInStage,
         actions: actions ?? this.actions,
+        isUploaded: isUploaded ?? this.isUploaded,
         key: key ?? this.key);
   }
+
+  Map<String, dynamic> toJson() => {
+        'uID': uID,
+        'stage': stage.name,
+        'ordersInStage': ordersInStage,
+        'actions': actions,
+      };
 
   @override
   List<Object?> get props => [uID, stage, ordersInStage, actions, key];

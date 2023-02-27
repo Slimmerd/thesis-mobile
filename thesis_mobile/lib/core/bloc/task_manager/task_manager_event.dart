@@ -50,3 +50,13 @@ class TaskAddLog extends TaskManagerEvent {
   @override
   String toString() => 'TaskAddLog { log: $log }';
 }
+
+class TaskSetUploaded extends TaskManagerEvent {
+  const TaskSetUploaded();
+
+  @override
+  List<Object> get props => [];
+
+  @override
+  String toString() => 'TaskSetUploaded { true }';
+}

@@ -15,6 +15,7 @@ class TaskManagerBloc extends Bloc<TaskManagerEvent, TaskManagerState> {
     on<TaskUpdateStage>(_taskUpdateStageToState);
     on<TaskAddOrder>(_taskAddOrderToState);
     on<TaskAddLog>(_taskAddLogToState);
+    on<TaskSetUploaded>(_taskSetUploadedToState);
   }
 
   Future<void> init() async {
@@ -27,6 +28,7 @@ class TaskManagerBloc extends Bloc<TaskManagerEvent, TaskManagerState> {
     await taskManagerBox.put('stage', state.stage.index);
     await taskManagerBox.put('ordersInStage', state.ordersInStage);
     await taskManagerBox.put('actions', state.actions);
+    await taskManagerBox.put('isUploaded', state.isUploaded);
   }
 
   Future<void> _restore() async {
@@ -35,17 +37,20 @@ class TaskManagerBloc extends Bloc<TaskManagerEvent, TaskManagerState> {
     if (taskManagerBox.containsKey('uID') &&
         taskManagerBox.containsKey('stage') &&
         taskManagerBox.containsKey('ordersInStage') &&
+        taskManagerBox.containsKey('isUploaded') &&
         taskManagerBox.containsKey('actions')) {
       final uID = taskManagerBox.get('uID');
       final stage = taskManagerBox.get('stage');
       final ordersInStage = taskManagerBox.get('ordersInStage');
       final actions = taskManagerBox.get('actions');
+      final isUploaded = taskManagerBox.get('isUploaded');
 
       emit(state.copyWith(
           uID: uID,
           stage: TaskManagerStage.values[stage],
           ordersInStage: ordersInStage,
           actions: actions,
+          isUploaded: isUploaded,
           key: Uuid().v1()));
     }
   }
@@ -64,6 +69,10 @@ class TaskManagerBloc extends Bloc<TaskManagerEvent, TaskManagerState> {
 
   void addLogTask(String log) {
     add(TaskAddLog(log));
+  }
+
+  void setUploadedTask() {
+    add(TaskSetUploaded());
   }
 
   void _taskInitUIDToState(TaskInitUID event, Emitter<TaskManagerState> emit) {
@@ -85,6 +94,12 @@ class TaskManagerBloc extends Bloc<TaskManagerEvent, TaskManagerState> {
 
   void _taskAddLogToState(TaskAddLog event, Emitter<TaskManagerState> emit) {
     emit(state.addLog(event.log));
+    _save();
+  }
+
+  void _taskSetUploadedToState(
+      TaskSetUploaded event, Emitter<TaskManagerState> emit) {
+    emit(state.setUploaded());
     _save();
   }
 }
