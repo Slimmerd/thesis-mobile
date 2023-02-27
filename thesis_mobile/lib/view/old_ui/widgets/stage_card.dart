@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thesis_mobile/core/bloc/task_manager/task_manager_bloc.dart';
 import 'package:thesis_mobile/utils/colors.dart';
 import 'package:thesis_mobile/utils/custom_page_push.dart';
-import 'package:thesis_mobile/view/questionaire/finish_screen.dart';
+import 'package:thesis_mobile/view/questionnaire/finish_screen.dart';
 
 class StageCard extends StatelessWidget {
   const StageCard({super.key});
