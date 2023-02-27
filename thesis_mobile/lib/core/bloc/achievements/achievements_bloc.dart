@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:thesis_mobile/core/api.dart';
+import 'package:thesis_mobile/core/api/internal_api.dart';
 import 'package:thesis_mobile/core/bloc/statistics/statistics_bloc.dart';
 import 'package:thesis_mobile/core/model/achievement.dart';
 import 'package:uuid/uuid.dart';
@@ -20,11 +20,11 @@ class AchievementsBloc extends Bloc<AchievementsEvent, AchievementsState> {
 
   Future<void> _restore() async {
     List<Achievement> achievementCo2Saved =
-        await ApiService.fetchAchievements('co2Saved');
+        await InternalApiService.fetchAchievements('co2Saved');
     List<Achievement> achievementTreesSaved =
-        await ApiService.fetchAchievements('treesSaved');
+        await InternalApiService.fetchAchievements('treesSaved');
     List<Achievement> achievementOrdersMade =
-        await ApiService.fetchAchievements('order');
+        await InternalApiService.fetchAchievements('order');
 
     emit(state.copyWith(
         co2Saved: achievementCo2Saved,
