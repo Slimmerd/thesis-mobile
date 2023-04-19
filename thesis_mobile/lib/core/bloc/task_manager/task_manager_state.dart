@@ -32,7 +32,7 @@ class TaskManagerState extends Equatable {
       case TaskManagerStage.oldUI:
         return copyWith(stage: TaskManagerStage.oldUI, key: Uuid().v1());
       case TaskManagerStage.newUI:
-        if (ordersInStage == 3) {
+        if (ordersInStage >= 3) {
           return copyWith(
               stage: TaskManagerStage.newUI,
               ordersInStage: 0,
@@ -42,7 +42,7 @@ class TaskManagerState extends Equatable {
         }
 
       case TaskManagerStage.finish:
-        if (ordersInStage == 3) {
+        if (ordersInStage >= 3) {
           return copyWith(
               stage: TaskManagerStage.finish,
               ordersInStage: 0,
