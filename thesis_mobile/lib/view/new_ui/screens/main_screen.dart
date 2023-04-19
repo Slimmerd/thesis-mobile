@@ -125,7 +125,8 @@ class _MainScreenState extends State<MainScreen> {
                   ]));
         },
       ),
-      bottomNavigationBar: const BottomAppBar(elevation: 0, child: OpenCartButton()),
+      bottomNavigationBar:
+          const BottomAppBar(elevation: 0, child: OpenCartButton()),
     );
   }
 }

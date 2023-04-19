@@ -10,26 +10,8 @@ import 'package:thesis_mobile/view/old_ui/widgets/category/category_card.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/product_card.dart';
 import 'package:thesis_mobile/view/old_ui/widgets/promotions_carousel.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  late ScrollController _scrollController;
-  @override
-  void initState() {
-    _scrollController = ScrollController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

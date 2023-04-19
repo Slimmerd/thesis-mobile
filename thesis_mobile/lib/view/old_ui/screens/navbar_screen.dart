@@ -54,7 +54,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 's',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
