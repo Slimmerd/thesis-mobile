@@ -118,6 +118,13 @@
       "big": false,
       "image": "assets/categories/sausages.jpg",
       "categories": [44, 45]
+    },
+    {
+      "id": 18,
+      "name": "Pasta, cereals, rice",
+      "big": true,
+      "image": "assets/categories/cereals.jpg",
+      "categories": [46, 47, 48]
     }
   ],
   "categories": [
@@ -340,6 +347,21 @@
       "id": 45,
       "name": "Raw smoked, dried sausage",
       "products": [127, 128]
+    },
+    {
+      "id": 46,
+      "name": "Pasta",
+      "products": [129, 130]
+    },
+    {
+      "id": 47,
+      "name": "Rice",
+      "products": [131]
+    },
+    {
+      "id": 48,
+      "name": "Buckwheat",
+      "products": [132]
     }
   ],
   "products": [
@@ -3285,6 +3307,98 @@
         "fat": 55,
         "carbs": 1,
         "protein": 21
+      }
+    },
+    {
+      "id": 129,
+      "name": "Barilla Penne Rigate",
+      "image": "assets/products/brPNRGT.png",
+      "price": 299,
+      "volume": 450,
+      "volumeType": 0,
+      "description": {
+        "id": 129,
+        "ingredients": "Premium durum wheat flour, water. May contain traces of egg, dairy and soy products.",
+        "shelfLife": "973 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Barilla, Italy",
+        "brand": "Barilla"
+      },
+      "perHundredGrams": {
+        "id": 129,
+        "kcal": 359,
+        "fat": 2,
+        "carbs": 69,
+        "protein": 14
+      }
+    },
+    {
+      "id": 130,
+      "name": "Barilla Fusilli",
+      "image": "assets/products/brFSL.png",
+      "price": 249,
+      "volume": 450,
+      "volumeType": 0,
+      "description": {
+        "id": 130,
+        "ingredients": "Durum wheat flour, water. May contain traces of soy products.",
+        "shelfLife": "960 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Barilla, Italy",
+        "brand": "Barilla"
+      },
+      "perHundredGrams": {
+        "id": 130,
+        "kcal": 359,
+        "fat": 69,
+        "carbs": 2,
+        "protein": 14
+      }
+    },
+    {
+      "id": 131,
+      "name": "Basmati Rice",
+      "image": "assets/products/bsmRC.png",
+      "price": 259,
+      "volume": 500,
+      "volumeType": 0,
+      "description": {
+        "id": 131,
+        "ingredients": "Rice.",
+        "shelfLife": "365 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Mistral, Russia",
+        "brand": "Mistral"
+      },
+      "perHundredGrams": {
+        "id": 131,
+        "kcal": 348,
+        "fat": 1,
+        "carbs": 76,
+        "protein": 8
+      }
+    },
+    {
+      "id": 132,
+      "name": "Buckwheat",
+      "image": "assets/products/bckWHT.png",
+      "price": 299,
+      "volume": 900,
+      "volumeType": 0,
+      "description": {
+        "id": 132,
+        "ingredients": "Buckwheat.",
+        "shelfLife": "457 days",
+        "storageConditions": "from +0 °C to +25 °C",
+        "manufacturer": "Mistral, Russia",
+        "brand": "Mistral"
+      },
+      "perHundredGrams": {
+        "id": 132,
+        "kcal": 335,
+        "fat": 3,
+        "carbs": 64,
+        "protein": 12
       }
     }
   ]
